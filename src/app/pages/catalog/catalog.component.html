@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="min-h-screen bg-[#142116] pt-28 pb-24 relative overflow-hidden">
   <div class="absolute inset-x-0 top-0 h-[460px] bg-[radial-gradient(circle_at_top_left,rgba(163,230,53,0.18),transparent_34%),linear-gradient(135deg,#17281b_0%,#102016_55%,#1d2d20_100%)]"></div>
   <div class="absolute inset-x-0 top-[420px] h-px bg-white/10"></div>
@@ -101,6 +102,56 @@
       @if (activeFilterCount > 0) {
         <div class="rounded-full border border-lime-300/30 bg-lime-300/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-lime-200">
           {{ activeFilterCount }} {{ (activeFilterCount === 1 ? 'CATALOG.RESULTS.ACTIVE_FILTER_SINGULAR' : 'CATALOG.RESULTS.ACTIVE_FILTER_PLURAL') | translate }}
+=======
+<div class="min-h-screen bg-[#0a1f11] pt-32 pb-24 relative overflow-hidden">
+  
+  <div class="container mx-auto px-6 max-w-7xl">
+    
+    <div class="mb-12 text-center md:text-left border-b border-white/10 pb-6">
+      <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight uppercase mb-4">
+        {{ 'CATALOG.PAGE_TITLE_1' | translate }} <span class="text-lime-400">{{ 'CATALOG.PAGE_TITLE_2' | translate }}</span>
+      </h1>
+      <p class="text-gray-400 text-lg max-w-2xl">
+        {{ 'CATALOG.PAGE_SUBTITLE' | translate }}
+      </p>
+    </div>
+
+    <!-- Grilla de Productos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      @for (product of products; track product.id) {
+        <div class="bg-white/5 backdrop-blur-md rounded-2xl p-5 shadow-xl hover:bg-white/10 transition-all duration-300 flex flex-col group border border-white/10">
+          
+          <div class="bg-black/40 rounded-xl h-56 mb-5 flex items-center justify-center overflow-hidden relative border border-white/5 p-4">
+            <img [src]="'/img/' + product.image" [alt]="product.name | translate" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-lime-500 text-black text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-wider shadow-sm">{{ 'CATALOG.IN_STOCK' | translate }}</div>
+          </div>
+          
+          <div class="flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-white mb-2 leading-tight group-hover:text-lime-400 transition-colors">
+              {{ product.name | translate }}
+            </h3>
+            <p class="text-sm text-gray-400 mb-2 line-clamp-2">
+              {{ product.description | translate }}
+            </p>
+            
+            <button (click)="openDetails(product)" class="text-left text-[11px] font-bold uppercase tracking-widest text-lime-500 hover:text-lime-400 mb-6 transition-colors">
+              {{ 'CATALOG.SEE_DETAILS' | translate }}
+            </button>
+            
+            <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/10">
+              <div class="flex flex-col">
+                <span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ 'CATALOG.REF_PRICE' | translate }}</span>
+                <span class="text-xl font-black text-lime-400">${{ product.price }}</span>
+              </div>
+              
+              <button (click)="addToCart(product)" class="bg-lime-500 hover:bg-lime-400 text-black px-4 py-2 rounded-xl transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2">
+                <span class="text-xl font-black leading-none">+</span>
+                <span class="text-sm font-black uppercase tracking-wider hidden sm:block">{{ 'CATALOG.ADD' | translate }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </button>
+            </div>
+          </div>
+>>>>>>> origin/develop
         </div>
       }
     </div>
@@ -189,8 +240,10 @@
     }
   </div>
 
+  <!-- MODAL DETALLES CON TRADUCCIÓN -->
   @if (selectedProduct) {
     <div class="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6">
+<<<<<<< HEAD
       <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" (click)="closeDetails()"></div>
 
       <div class="relative grid max-h-[92vh] w-full max-w-5xl overflow-hidden rounded-3xl bg-white shadow-2xl md:grid-cols-[0.95fr_1.05fr] animate-fade-in">
@@ -253,12 +306,34 @@
             >
               {{ 'CATALOG.PRODUCT_CARD.ADD_TO_ORDER' | translate }}
             </button>
+=======
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" (click)="closeDetails()"></div>
+      <div class="relative bg-[#0a1f11] border border-white/10 rounded-3xl shadow-2xl w-full max-w-4xl flex flex-col md:flex-row overflow-hidden transform transition-all duration-300 animate-fade-in">
+        <button (click)="closeDetails()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 z-10 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <div class="md:w-1/2 bg-black/40 p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/5 min-h-[300px]">
+          <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.name | translate" class="w-full h-full object-contain max-h-[400px]">
+        </div>
+        <div class="md:w-1/2 p-8 flex flex-col">
+          <div class="bg-lime-500 text-black text-[10px] font-black px-2 py-1 rounded-md uppercase tracking-wider w-max mb-4">{{ 'CATALOG.IN_STOCK' | translate }}</div>
+          <h2 class="text-3xl font-black text-white mb-2 leading-tight">{{ selectedProduct.name | translate }}</h2>
+          <p class="text-gray-500 text-sm font-medium mb-6 pb-6 border-b border-white/10">SKU: LFT-{{ selectedProduct.id }}00X</p>
+          <div class="flex-1 overflow-y-auto mb-8 pr-2">
+            <h4 class="text-xs font-bold uppercase tracking-widest text-lime-500 mb-3">{{ 'CATALOG.TECHNICAL_DESC' | translate }}</h4>
+            <p class="text-gray-300 text-sm leading-relaxed">{{ selectedProduct.longDescription | translate }}</p>
+          </div>
+          <div class="mt-auto flex items-center justify-between bg-black/20 p-4 rounded-2xl border border-white/5">
+            <div class="flex flex-col"><span class="text-[10px] text-gray-500 uppercase tracking-widest">{{ 'CATALOG.TOTAL_PRICE' | translate }}</span><span class="text-3xl font-black text-lime-400">${{ selectedProduct.price }}</span></div>
+            <button (click)="addToCart(selectedProduct); closeDetails()" class="bg-lime-500 hover:bg-lime-400 text-black px-6 py-3 rounded-xl font-black uppercase tracking-wider flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>{{ 'CATALOG.BUY' | translate }}</button>
+>>>>>>> origin/develop
           </div>
         </div>
       </div>
     </div>
   }
 
+<<<<<<< HEAD
   <div
     class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] transition-opacity duration-300"
     [ngClass]="isCartOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
@@ -277,10 +352,18 @@
       <button (click)="toggleCart()" class="text-gray-400 hover:text-red-500 transition-colors p-2 bg-white rounded-full shadow-sm hover:shadow-md">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
+=======
+  <!-- CARRITO LATERAL CON TRADUCCIÓN -->
+  <div class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100]" [ngClass]="isCartOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'" (click)="toggleCart()"></div>
+  <div class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-[#0a0f0d] border-l border-white/10 shadow-2xl z-[101] transform transition-transform duration-300 ease-in-out flex flex-col" [ngClass]="isCartOpen ? 'translate-x-0' : 'translate-x-full'">
+    <div class="p-6 border-b border-white/10 flex justify-between items-center bg-white/5">
+      <h2 class="text-2xl font-black text-white flex items-center gap-3">{{ 'CART.TITLE' | translate }} <span class="bg-lime-500 text-black text-sm font-black px-3 py-1 rounded-full">{{ cartCount }}</span></h2>
+      <button (click)="toggleCart()" class="text-gray-400 hover:text-white p-2 bg-white/5 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+>>>>>>> origin/develop
     </div>
-
     <div class="flex-1 overflow-y-auto p-6">
       @if (cart.length === 0) {
+<<<<<<< HEAD
         <div class="h-full flex flex-col items-center justify-center text-center text-gray-400">
           <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-3xl bg-gray-100">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -288,14 +371,30 @@
           <p class="text-lg font-black text-gray-700">{{ 'CATALOG.CART.EMPTY_TITLE' | translate }}</p>
           <p class="mt-1 max-w-xs text-sm text-gray-400">{{ 'CATALOG.CART.EMPTY_DESCRIPTION' | translate }}</p>
           <button (click)="toggleCart()" class="mt-5 rounded-2xl bg-lime-100 px-5 py-3 text-sm font-black uppercase tracking-wider text-[#2E7D32]">{{ 'CATALOG.CART.BACK_TO_CATALOG' | translate }}</button>
+=======
+        <div class="h-full flex flex-col items-center justify-center text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="mb-4 opacity-30"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <p class="text-lg font-medium">{{ 'CART.EMPTY_MSG' | translate }}</p>
+          <button (click)="toggleCart()" class="mt-4 text-lime-500 hover:text-lime-400 font-bold text-sm tracking-wider uppercase">{{ 'CART.BACK_TO_CATALOG' | translate }}</button>
+>>>>>>> origin/develop
         </div>
       } @else {
         <div class="space-y-4">
           @for (item of cart; track item.id) {
+<<<<<<< HEAD
             <div class="rounded-3xl border border-gray-100 bg-white p-4 shadow-sm">
               <div class="flex gap-4">
                 <div class="h-20 w-20 flex-shrink-0 rounded-2xl border border-gray-100 bg-gray-50 p-2">
                   <img [src]="'/img/' + item.image" [alt]="item.nameKey | translate" class="h-full w-full object-contain">
+=======
+            <div class="flex gap-4 items-center bg-white/5 p-3 rounded-xl border border-white/10">
+              <div class="w-20 h-20 bg-black/40 rounded-lg flex items-center justify-center flex-shrink-0 border border-white/5 p-1"><img [src]="'/img/' + item.image" [alt]="item.name | translate" class="w-full h-full object-contain"></div>
+              <div class="flex-1">
+                <h4 class="font-bold text-white text-sm leading-tight">{{ item.name | translate }}</h4>
+                <div class="flex justify-between items-center mt-3">
+                  <div class="bg-black/40 px-3 py-1 rounded-md text-xs font-bold text-gray-400 border border-white/5">{{ 'CART.QTY' | translate }}: {{ item.quantity }}</div>
+                  <span class="font-black text-lg text-lime-400">${{ item.price * item.quantity }}</span>
+>>>>>>> origin/develop
                 </div>
 
                 <div class="min-w-0 flex-1">
@@ -315,11 +414,16 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
                 </button>
               </div>
+<<<<<<< HEAD
+=======
+              <button (click)="removeFromCart(item.id)" class="text-red-400 hover:text-red-300 p-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg></button>
+>>>>>>> origin/develop
             </div>
           }
         </div>
       }
     </div>
+<<<<<<< HEAD
 
     <div class="p-6 border-t border-gray-200 bg-gray-50 shadow-[0_-10px_30px_rgba(0,0,0,0.02)]">
       <div class="flex justify-between items-end mb-6">
@@ -336,10 +440,18 @@
         {{ 'CATALOG.CART.SEND_WHATSAPP' | translate }}
       </button>
       <p class="text-center text-xs text-gray-400 mt-4">{{ 'CATALOG.CART.WHATSAPP_NOTE' | translate }}</p>
+=======
+    <div class="p-6 border-t border-white/10 bg-[#0a1f11]">
+      <div class="flex justify-between items-end mb-6"><span class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-1">{{ 'CART.ESTIMATED_TOTAL' | translate }}</span><span class="text-4xl font-black text-white">${{ cartTotal }}</span></div>
+      <button [disabled]="cart.length === 0" (click)="checkoutWhatsapp()" class="w-full bg-[#25D366] hover:bg-[#128C7E] disabled:bg-gray-800 disabled:text-gray-500 text-white font-black uppercase tracking-wider text-sm py-4 rounded-xl flex items-center justify-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>{{ 'CART.CHECKOUT' | translate }}</button>
+      <p class="text-center text-[10px] text-gray-500 mt-4 uppercase tracking-widest">{{ 'CART.CHECKOUT_NOTE' | translate }}</p>
+>>>>>>> origin/develop
     </div>
   </aside>
 
+  <!-- Botón Flotante Carrito -->
   @if (!isCartOpen) {
+<<<<<<< HEAD
     <button
       (click)="toggleCart()"
       class="fixed bottom-7 right-7 bg-lime-300 hover:bg-lime-200 text-[#142116] p-4 rounded-full shadow-2xl z-50 transform hover:scale-105 transition-all duration-300 border-4 border-[#142116]"
@@ -352,6 +464,12 @@
             {{ cartCount }}
           </span>
         }
+=======
+    <button (click)="toggleCart()" class="fixed bottom-8 right-8 bg-lime-500 hover:bg-lime-400 text-black p-4 rounded-full shadow-lg z-50 transform hover:scale-110 transition-all duration-300 border-4 border-[#0a1f11]">
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        @if (cartCount > 0) {<span class="absolute -top-3 -right-3 bg-white text-black text-xs font-black w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#0a1f11]">{{ cartCount }}</span>}
+>>>>>>> origin/develop
       </div>
     </button>
   }

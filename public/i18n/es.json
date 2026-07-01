@@ -113,18 +113,17 @@
       "BTN": "Más Información"
     },
     "WORK": {
-        "T1": "Análisis Inicial",
-        "D1": "Evaluamos tus necesidades y metas a futuro.",
-        "T2": "Diseño y Planificación",
-        "D2": "Creamos un plan detallado con especificaciones técnicas.",
-        "T3": "Implementación",
-        "D3": "Llevamos a cabo la instalación con la mínima interrupción.",
-        "T4": "Soporte Continuo",
-        "D4": "Brindamos mantenimiento y soporte técnico."
-      },
-      "PRODUCTS_TITLE": "Equipos y Componentes",
-      "PRODUCTS_DESC": "Explora nuestro catálogo de productos."
-
+      "T1": "Análisis Inicial",
+      "D1": "Evaluamos tus necesidades y metas a futuro.",
+      "T2": "Diseño y Planificación",
+      "D2": "Creamos un plan detallado con especificaciones técnicas.",
+      "T3": "Implementación",
+      "D3": "Llevamos a cabo la instalación con la mínima interrupción.",
+      "T4": "Soporte Continuo",
+      "D4": "Brindamos mantenimiento y soporte técnico."
+    },
+    "PRODUCTS_TITLE": "Equipos y Componentes",
+    "PRODUCTS_DESC": "Explora nuestro catálogo de productos."
   },
   "STAFF_ROLES": {
     "LEO_CARGO": "CEO y Fundador",
@@ -326,5 +325,34 @@
         "REQ4": "Actitud proactiva para el trabajo en equipos multidisciplinarios."
       }
     }
+  },
+ "PRODUCTS": {
+    "VARIADOR_NAME": "Variador de Frecuencia 15HP",
+    "VARIADOR_DESC": "Controlador de velocidad trifásico ideal para sistemas de bombeo industrial.",
+    "VARIADOR_LONG": "Este variador de frecuencia de 15HP ofrece un control de torque excepcional y eficiencia energética para motores trifásicos. Incluye panel de control intuitivo, protección contra sobrecargas y cortocircuitos, y es fácilmente integrable mediante protocolos de comunicación industrial.",
+    "CABLE_NAME": "Cable de Potencia Subacuático",
+    "CABLE_DESC": "Rollo de 100m. Resistente a altas presiones y entornos corrosivos.",
+    "CABLE_LONG": "Rollo de 100 metros de cable de potencia diseñado específicamente para inmersión profunda. Su recubrimiento especial de polímeros reforzados garantiza cero filtraciones y resistencia extrema a elementos corrosivos."
+  },
+  "CATALOG": {
+    "PAGE_TITLE_1": "Catálogo de",
+    "PAGE_TITLE_2": "Equipos",
+    "PAGE_SUBTITLE": "Explora nuestros componentes de alta gama para la industria. Selecciona los artículos y genera tu orden de compra fácilmente por WhatsApp.",
+    "IN_STOCK": "En Stock",
+    "SEE_DETAILS": "Ver más detalles",
+    "REF_PRICE": "Precio Ref.",
+    "ADD": "Agregar",
+    "TECHNICAL_DESC": "Descripción Técnica",
+    "TOTAL_PRICE": "Precio Total",
+    "BUY": "Comprar"
+  },
+  "CART": {
+    "TITLE": "Tu Orden",
+    "EMPTY_MSG": "Tu orden está vacía",
+    "BACK_TO_CATALOG": "Volver al catálogo",
+    "QTY": "Cant",
+    "ESTIMATED_TOTAL": "Total Estimado",
+    "CHECKOUT": "Completar Pedido",
+    "CHECKOUT_NOTE": "Al continuar, se abrirá WhatsApp con nuestro asesor."
   }
 }

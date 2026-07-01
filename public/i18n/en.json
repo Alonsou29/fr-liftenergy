@@ -112,18 +112,18 @@
       "L4": "SCADA and HMI",
       "BTN": "More Information"
     },
-   "WORK": {
-        "T1": "Initial Analysis",
-        "D1": "We evaluate your needs and future goals.",
-        "T2": "Design and Planning",
-        "D2": "We create a detailed plan with technical specifications.",
-        "T3": "Implementation",
-        "D3": "We carry out installation with minimal disruption.",
-        "T4": "Ongoing Support",
-        "D4": "We provide maintenance and technical support."
-      },
-      "PRODUCTS_TITLE": "Equipment & Components",
-      "PRODUCTS_DESC": "Explore our product catalog."
+    "WORK": {
+      "T1": "Initial Analysis",
+      "D1": "We evaluate your needs and future goals.",
+      "T2": "Design and Planning",
+      "D2": "We create a detailed plan with technical specifications.",
+      "T3": "Implementation",
+      "D3": "We carry out installation with minimal disruption.",
+      "T4": "Ongoing Support",
+      "D4": "We provide maintenance and technical support."
+    },
+    "PRODUCTS_TITLE": "Equipment & Components",
+    "PRODUCTS_DESC": "Explore our product catalog."
   },
   "STAFF_ROLES": {
     "LEO_CARGO": "CEO & Founder",
@@ -325,5 +325,34 @@
         "REQ4": "Proactive attitude for working in multidisciplinary teams."
       }
     }
+  },
+  "PRODUCTS": {
+    "VARIADOR_NAME": "15HP Frequency Inverter",
+    "VARIADOR_DESC": "Three-phase speed controller ideal for industrial pumping systems.",
+    "VARIADOR_LONG": "This 15HP frequency inverter offers exceptional torque control and energy efficiency for three-phase motors. It includes an intuitive control panel, overload and short-circuit protection, and is easily integrated using industrial communication protocols.",
+    "CABLE_NAME": "Subsea Power Cable",
+    "CABLE_DESC": "100m roll. Resistant to high pressures and corrosive environments.",
+    "CABLE_LONG": "100-meter roll of power cable specifically designed for deep submersion. Its special reinforced polymer coating guarantees zero leakage and extreme resistance to corrosive elements."
+  },
+  "CATALOG": {
+    "PAGE_TITLE_1": "Equipment",
+    "PAGE_TITLE_2": "Catalog",
+    "PAGE_SUBTITLE": "Explore our high-end components for the industry. Select items and easily generate your purchase order via WhatsApp.",
+    "IN_STOCK": "In Stock",
+    "SEE_DETAILS": "View details",
+    "REF_PRICE": "Ref. Price",
+    "ADD": "Add",
+    "TECHNICAL_DESC": "Technical Description",
+    "TOTAL_PRICE": "Total Price",
+    "BUY": "Buy"
+  },
+  "CART": {
+    "TITLE": "Your Order",
+    "EMPTY_MSG": "Your order is empty",
+    "BACK_TO_CATALOG": "Back to catalog",
+    "QTY": "Qty",
+    "ESTIMATED_TOTAL": "Estimated Total",
+    "CHECKOUT": "Complete Order",
+    "CHECKOUT_NOTE": "By continuing, WhatsApp will open with our advisor."
   }
 }
