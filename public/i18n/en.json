@@ -5,7 +5,7 @@
     "PROJECTS": "PROJECTS",
     "ABOUT": "ABOUT US",
     "CONTACT": "CONTACT",
-    "PRODUCTS": "Productos"
+    "PRODUCTS": "PRODUCTS"
   },
   "HERO": {
     "TITLE_1": "Automated",
@@ -162,6 +162,126 @@
     "LABEL_MESSAGE": "Your Message",
     "PLACEHOLDER_MESSAGE": "How can we help you?",
     "BTN_SEND": "Send Message"
+  },
+  "CATALOG": {
+    "HERO": {
+      "BADGE": "Industrial catalog",
+      "TITLE": "Equipment for demanding",
+      "TITLE_HIGHLIGHT": "operations",
+      "DESCRIPTION": "Explore selected components for control, power, and industrial installations. Build a reference order and send it directly to our team through WhatsApp."
+    },
+    "STATS": {
+      "PRODUCTS": "Products",
+      "CATEGORIES": "Categories",
+      "IN_ORDER": "In order"
+    },
+    "SEARCH_PLACEHOLDER": "Search by equipment, application, or specification",
+    "FILTERS": {
+      "ALL_CATEGORIES": "All categories",
+      "ALL_STOCK": "All stock",
+      "CLEAR": "Clear"
+    },
+    "STOCK": {
+      "AVAILABLE": "In stock",
+      "LIMITED": "Limited stock"
+    },
+    "SORT": {
+      "FEATURED": "Featured",
+      "PRICE_ASC": "Lowest price",
+      "PRICE_DESC": "Highest price",
+      "NAME": "Name A-Z"
+    },
+    "RESULTS": {
+      "SINGULAR": "result",
+      "PLURAL": "results",
+      "PRICE_NOTE": "Reference prices subject to commercial validation.",
+      "ACTIVE_FILTER_SINGULAR": "active filter",
+      "ACTIVE_FILTER_PLURAL": "active filters"
+    },
+    "EMPTY": {
+      "TITLE": "No products found",
+      "DESCRIPTION": "Try clearing filters or using a broader search.",
+      "BUTTON": "View full catalog"
+    },
+    "PRODUCT_CARD": {
+      "PRICE_REF": "Ref. price",
+      "DETAILS": "Details",
+      "ADD_TO_ORDER": "Add to order"
+    },
+    "MODAL": {
+      "SKU": "SKU",
+      "TECH_DESCRIPTION": "Technical description",
+      "APPLICATIONS": "Applications"
+    },
+    "CART": {
+      "TITLE": "Reference order",
+      "ITEM_SINGULAR": "selected item",
+      "ITEM_PLURAL": "selected items",
+      "EMPTY_TITLE": "Your order is empty",
+      "EMPTY_DESCRIPTION": "Add equipment from the catalog to build a WhatsApp request.",
+      "BACK_TO_CATALOG": "Back to catalog",
+      "REMOVE": "Remove from order",
+      "TOTAL": "Estimated total",
+      "SEND_WHATSAPP": "Send via WhatsApp",
+      "WHATSAPP_NOTE": "A direct chat with our advisor will open to validate availability and final pricing.",
+      "OPEN_ORDER": "Open order"
+    },
+    "WHATSAPP": {
+      "GREETING": "Hello! I came from the website and would like to create a purchase order for these items:",
+      "TOTAL_LABEL": "Estimated total"
+    },
+    "CATEGORIES": {
+      "CONTROL_POWER": "Control and power",
+      "INDUSTRIAL_CABLING": "Industrial cabling"
+    },
+    "PRODUCTS": {
+      "VARIADOR": {
+        "NAME": "15HP Variable Frequency Drive",
+        "DESCRIPTION": "Three-phase speed controller ideal for industrial pumping systems.",
+        "LONG_DESCRIPTION": "This 15HP variable frequency drive provides exceptional torque control and energy efficiency for three-phase motors. It includes an intuitive control panel, overload and short-circuit protection, and easy integration through industrial communication protocols such as Modbus. Its robust enclosure makes it ideal for demanding field environments in the oil industry.",
+        "TAGS": {
+          "HP": "15HP",
+          "PHASE": "Three-phase",
+          "MODBUS": "Modbus"
+        },
+        "APPLICATIONS": {
+          "PUMPING": "Industrial pumping",
+          "MOTORS": "Motor control",
+          "WELLS": "Wells and facilities"
+        },
+        "SPECS": {
+          "POWER_LABEL": "Power",
+          "POWER_VALUE": "15HP",
+          "INPUT_LABEL": "Input",
+          "INPUT_VALUE": "Three-phase",
+          "PROTECTION_LABEL": "Protection",
+          "PROTECTION_VALUE": "Overload"
+        }
+      },
+      "CABLE": {
+        "NAME": "Subaquatic Power Cable",
+        "DESCRIPTION": "100m roll. Resistant to high pressure and corrosive environments.",
+        "LONG_DESCRIPTION": "100-meter power cable roll designed specifically for deep immersion. Its reinforced polymer coating ensures zero leakage and extreme resistance to corrosive elements commonly found in wells. It supports high voltages without degradation of the transferred signal or power.",
+        "TAGS": {
+          "LENGTH": "100m",
+          "SUBAQUATIC": "Subaquatic",
+          "PRESSURE": "High pressure"
+        },
+        "APPLICATIONS": {
+          "SUBMERGED": "Submerged installation",
+          "OIL_WELLS": "Oil wells",
+          "CORROSIVE": "Corrosive environments"
+        },
+        "SPECS": {
+          "LENGTH_LABEL": "Length",
+          "LENGTH_VALUE": "100m",
+          "USE_LABEL": "Use",
+          "USE_VALUE": "Subaquatic",
+          "JACKET_LABEL": "Jacket",
+          "JACKET_VALUE": "Reinforced polymer"
+        }
+      }
+    }
   },
   "FOOTER": {
     "RIGHTS": "© 2026 Lift Energy Group. All rights reserved."

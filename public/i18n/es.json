@@ -5,7 +5,7 @@
     "PROJECTS": "PROYECTOS",
     "ABOUT": "NOSOTROS",
     "CONTACT": "CONTACTO",
-    "PRODUCTS": "Products"
+    "PRODUCTS": "PRODUCTOS"
   },
   "HERO": {
     "TITLE_1": "Soluciones",
@@ -163,6 +163,126 @@
     "LABEL_MESSAGE": "Tu Mensaje",
     "PLACEHOLDER_MESSAGE": "¿En qué podemos ayudarte?",
     "BTN_SEND": "Enviar Mensaje"
+  },
+  "CATALOG": {
+    "HERO": {
+      "BADGE": "Catálogo industrial",
+      "TITLE": "Equipos para operaciones",
+      "TITLE_HIGHLIGHT": "exigentes",
+      "DESCRIPTION": "Explora componentes seleccionados para control, potencia e instalaciones industriales. Arma una orden referencial y envíala directo a nuestro equipo por WhatsApp."
+    },
+    "STATS": {
+      "PRODUCTS": "Productos",
+      "CATEGORIES": "Categorías",
+      "IN_ORDER": "En orden"
+    },
+    "SEARCH_PLACEHOLDER": "Buscar por equipo, aplicación o especificación",
+    "FILTERS": {
+      "ALL_CATEGORIES": "Todas las categorías",
+      "ALL_STOCK": "Todo stock",
+      "CLEAR": "Limpiar"
+    },
+    "STOCK": {
+      "AVAILABLE": "En stock",
+      "LIMITED": "Stock limitado"
+    },
+    "SORT": {
+      "FEATURED": "Destacados",
+      "PRICE_ASC": "Menor precio",
+      "PRICE_DESC": "Mayor precio",
+      "NAME": "Nombre A-Z"
+    },
+    "RESULTS": {
+      "SINGULAR": "resultado",
+      "PLURAL": "resultados",
+      "PRICE_NOTE": "Precios referenciales sujetos a validación comercial.",
+      "ACTIVE_FILTER_SINGULAR": "filtro activo",
+      "ACTIVE_FILTER_PLURAL": "filtros activos"
+    },
+    "EMPTY": {
+      "TITLE": "No encontramos productos",
+      "DESCRIPTION": "Prueba limpiando filtros o usando una búsqueda más amplia.",
+      "BUTTON": "Ver todo el catálogo"
+    },
+    "PRODUCT_CARD": {
+      "PRICE_REF": "Precio ref.",
+      "DETAILS": "Detalles",
+      "ADD_TO_ORDER": "Agregar a orden"
+    },
+    "MODAL": {
+      "SKU": "SKU",
+      "TECH_DESCRIPTION": "Descripción técnica",
+      "APPLICATIONS": "Aplicaciones"
+    },
+    "CART": {
+      "TITLE": "Orden referencial",
+      "ITEM_SINGULAR": "item seleccionado",
+      "ITEM_PLURAL": "items seleccionados",
+      "EMPTY_TITLE": "Tu orden está vacía",
+      "EMPTY_DESCRIPTION": "Agrega equipos del catálogo para armar una solicitud por WhatsApp.",
+      "BACK_TO_CATALOG": "Volver al catálogo",
+      "REMOVE": "Eliminar de la orden",
+      "TOTAL": "Total estimado",
+      "SEND_WHATSAPP": "Enviar por WhatsApp",
+      "WHATSAPP_NOTE": "Se abrirá un chat directo con nuestro asesor para validar disponibilidad y precio final.",
+      "OPEN_ORDER": "Abrir orden"
+    },
+    "WHATSAPP": {
+      "GREETING": "¡Hola! Vengo de la web y quiero generar una orden de compra para estos equipos:",
+      "TOTAL_LABEL": "Total estimado"
+    },
+    "CATEGORIES": {
+      "CONTROL_POWER": "Control y potencia",
+      "INDUSTRIAL_CABLING": "Cableado industrial"
+    },
+    "PRODUCTS": {
+      "VARIADOR": {
+        "NAME": "Variador de Frecuencia 15HP",
+        "DESCRIPTION": "Controlador de velocidad trifásico ideal para sistemas de bombeo industrial.",
+        "LONG_DESCRIPTION": "Este variador de frecuencia de 15HP ofrece un control de torque excepcional y eficiencia energética para motores trifásicos. Incluye panel de control intuitivo, protección contra sobrecargas y cortocircuitos, y es fácilmente integrable mediante protocolos de comunicación industrial como Modbus. Su carcasa robusta lo hace ideal para entornos de campo exigentes en la industria petrolera.",
+        "TAGS": {
+          "HP": "15HP",
+          "PHASE": "Trifásico",
+          "MODBUS": "Modbus"
+        },
+        "APPLICATIONS": {
+          "PUMPING": "Bombeo industrial",
+          "MOTORS": "Control de motores",
+          "WELLS": "Pozos y facilidades"
+        },
+        "SPECS": {
+          "POWER_LABEL": "Potencia",
+          "POWER_VALUE": "15HP",
+          "INPUT_LABEL": "Entrada",
+          "INPUT_VALUE": "Trifásica",
+          "PROTECTION_LABEL": "Protección",
+          "PROTECTION_VALUE": "Sobrecarga"
+        }
+      },
+      "CABLE": {
+        "NAME": "Cable de Potencia Subacuático",
+        "DESCRIPTION": "Rollo de 100m. Resistente a altas presiones y entornos corrosivos.",
+        "LONG_DESCRIPTION": "Rollo de 100 metros de cable de potencia diseñado específicamente para inmersión profunda. Su recubrimiento especial de polímeros reforzados garantiza cero filtraciones y resistencia extrema a elementos corrosivos comunes en pozos. Soporta altas tensiones sin degradación de la señal o potencia transferida.",
+        "TAGS": {
+          "LENGTH": "100m",
+          "SUBAQUATIC": "Subacuático",
+          "PRESSURE": "Alta presión"
+        },
+        "APPLICATIONS": {
+          "SUBMERGED": "Instalación sumergible",
+          "OIL_WELLS": "Pozos petroleros",
+          "CORROSIVE": "Ambientes corrosivos"
+        },
+        "SPECS": {
+          "LENGTH_LABEL": "Longitud",
+          "LENGTH_VALUE": "100m",
+          "USE_LABEL": "Uso",
+          "USE_VALUE": "Subacuático",
+          "JACKET_LABEL": "Cubierta",
+          "JACKET_VALUE": "Polímero reforzado"
+        }
+      }
+    }
   },
   "FOOTER": {
     "RIGHTS": "© 2026 Lift Energy Group. Todos los derechos reservados."
