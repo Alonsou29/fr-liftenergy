@@ -1,0 +1,24 @@
+.admin-field {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.95rem 1rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.admin-field::placeholder {
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.admin-field:focus {
+  border-color: rgba(190, 242, 100, 0.7);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 0 0 4px rgba(190, 242, 100, 0.12);
+}
+
+select.admin-field {
+  color-scheme: dark;
+}
