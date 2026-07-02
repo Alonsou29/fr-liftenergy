@@ -1,68 +1,278 @@
-<div class="min-h-screen bg-[#1c2a1f] pt-32 pb-12">
-  
-  <div class="container mx-auto px-6 max-w-7xl">
-    
-    <!-- HEADER INTEGRADO -->
-    <div class="flex justify-between items-end mb-12">
+<div class="min-h-screen bg-[#111d14] pt-28 pb-14 text-white">
+  <div class="container mx-auto max-w-7xl px-5 sm:px-6">
+    <section class="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
       <div>
-        <p class="text-lime-500 font-bold tracking-widest uppercase text-[10px] mb-1">Administrador</p>
-        <h1 class="text-3xl font-black text-white">Panel de Control</h1>
+        <p class="mb-2 text-[11px] font-black uppercase tracking-[0.24em] text-lime-300">Administrador</p>
+        <h1 class="text-3xl font-black tracking-tight sm:text-5xl">Gestor de catálogo</h1>
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-gray-400">
+          Administra la información comercial que luego alimentará el catálogo público y la integración con backend.
+        </p>
       </div>
-      
-      <!-- BOTÓN AGREGAR (Con la función original) -->
-      <button (click)="openAddModal()" class="bg-lime-500 hover:bg-lime-400 text-black px-6 py-3 rounded-xl font-bold shadow-lg transition-all flex items-center gap-2">
-        + Agregar Nuevo Producto
+
+      <div class="flex flex-wrap gap-3">
+        <button
+          routerLink="/productos"
+          class="h-12 rounded-2xl border border-white/10 px-5 text-xs font-black uppercase tracking-wider text-white/70 transition hover:border-lime-300/40 hover:text-lime-200"
+        >
+          Ver catálogo
+        </button>
+        <button
+          (click)="openAddModal()"
+          class="h-12 rounded-2xl bg-lime-300 px-5 text-xs font-black uppercase tracking-wider text-[#111d14] shadow-xl shadow-lime-950/20 transition hover:bg-lime-200 active:scale-[0.98]"
+        >
+          + Nuevo producto
+        </button>
+      </div>
+    </section>
+
+    <section class="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div class="rounded-3xl border border-white/10 bg-white/[0.06] p-5">
+        <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Productos</span>
+        <strong class="mt-2 block text-4xl font-black">{{ products.length }}</strong>
+      </div>
+      <div class="rounded-3xl border border-lime-300/20 bg-lime-300/[0.08] p-5">
+        <span class="text-[10px] font-black uppercase tracking-widest text-lime-200">En stock</span>
+        <strong class="mt-2 block text-4xl font-black text-lime-200">{{ availableCount }}</strong>
+      </div>
+      <div class="rounded-3xl border border-amber-300/20 bg-amber-300/[0.08] p-5">
+        <span class="text-[10px] font-black uppercase tracking-widest text-amber-200">Stock limitado</span>
+        <strong class="mt-2 block text-4xl font-black text-amber-200">{{ limitedCount }}</strong>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/[0.06] p-5">
+        <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Valor ref.</span>
+        <strong class="mt-2 block text-4xl font-black">${{ inventoryValue }}</strong>
+      </div>
+    </section>
+
+    <section class="mb-6 rounded-3xl border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-black/20 backdrop-blur">
+      <div class="grid gap-3 lg:grid-cols-[1.35fr_0.8fr_0.7fr_0.7fr_auto]">
+        <label class="relative block">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <input
+            [(ngModel)]="searchTerm"
+            type="search"
+            placeholder="Buscar producto, categoría, tag o especificación"
+            class="h-[52px] w-full rounded-2xl border border-white/10 bg-white pl-12 pr-4 text-sm font-semibold text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          />
+        </label>
+
+        <select
+          [(ngModel)]="selectedCategory"
+          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+        >
+          <option value="all">Todas las categorías</option>
+          @for (category of categories; track category) {
+            @if (category !== 'all') {
+              <option [value]="category">{{ category }}</option>
+            }
+          }
+        </select>
+
+        <select
+          [(ngModel)]="selectedStock"
+          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+        >
+          <option value="all">Todo stock</option>
+          <option value="available">En stock</option>
+          <option value="limited">Stock limitado</option>
+          <option value="draft">Borrador</option>
+        </select>
+
+        <select
+          [(ngModel)]="sortBy"
+          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+        >
+          <option value="updated">Actualizados</option>
+          <option value="priceAsc">Menor precio</option>
+          <option value="priceDesc">Mayor precio</option>
+          <option value="name">Nombre A-Z</option>
+        </select>
+
+        <button
+          (click)="clearFilters()"
+          [disabled]="activeFilterCount === 0"
+          class="h-[52px] rounded-2xl border border-white/15 px-5 text-xs font-black uppercase tracking-wider text-white transition hover:border-lime-300/60 hover:text-lime-200 disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Limpiar
+        </button>
+      </div>
+    </section>
+
+    <section class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-black/20">
+      <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
+        <div>
+          <h2 class="text-lg font-black">Productos publicados</h2>
+          <p class="text-xs text-gray-400">{{ filteredProducts.length }} resultado{{ filteredProducts.length === 1 ? '' : 's' }} en vista</p>
+        </div>
+        @if (draftCount > 0) {
+          <span class="rounded-full border border-slate-300/20 bg-slate-300/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-slate-200">
+            {{ draftCount }} borrador{{ draftCount === 1 ? '' : 'es' }}
+          </span>
+        }
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[980px] text-left">
+          <thead class="border-b border-white/10 text-[10px] uppercase tracking-widest text-gray-400">
+            <tr>
+              <th class="px-5 py-4">Producto</th>
+              <th class="px-5 py-4">Categoría</th>
+              <th class="px-5 py-4">Estado</th>
+              <th class="px-5 py-4">Tags</th>
+              <th class="px-5 py-4 text-right">Precio</th>
+              <th class="px-5 py-4 text-right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            @for (product of filteredProducts; track product.id) {
+              <tr class="transition hover:bg-white/[0.04]">
+                <td class="px-5 py-5">
+                  <div class="flex items-center gap-4">
+                    <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white p-2">
+                      <img [src]="'/img/' + product.image" [alt]="product.name" class="h-full w-full object-contain">
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="truncate text-sm font-black text-white">{{ product.name }}</h3>
+                      <p class="mt-1 max-w-sm truncate text-xs text-gray-400">{{ product.description }}</p>
+                      <span class="mt-2 block text-[10px] font-bold uppercase tracking-widest text-gray-500">Actualizado {{ product.updatedAt }}</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-5 py-5 text-sm font-bold text-gray-200">{{ product.category }}</td>
+                <td class="px-5 py-5">
+                  <span class="inline-flex rounded-full border px-3 py-1 text-[10px] font-black uppercase tracking-widest" [ngClass]="getStockClass(product.stock)">
+                    {{ getStockLabel(product.stock) }}
+                  </span>
+                </td>
+                <td class="px-5 py-5">
+                  <div class="flex max-w-xs flex-wrap gap-2">
+                    @for (tag of getTagList(product); track tag) {
+                      <span class="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-300">{{ tag }}</span>
+                    }
+                  </div>
+                </td>
+                <td class="px-5 py-5 text-right text-lg font-black text-lime-200">${{ product.price }}</td>
+                <td class="px-5 py-5">
+                  <div class="flex justify-end gap-2">
+                    <button
+                      (click)="editProduct(product)"
+                      class="rounded-xl border border-white/10 px-4 py-2 text-xs font-black uppercase tracking-wider text-gray-300 transition hover:border-blue-300/40 hover:bg-blue-300/10 hover:text-blue-200"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      (click)="deleteProduct(product.id)"
+                      class="rounded-xl border border-white/10 px-4 py-2 text-xs font-black uppercase tracking-wider text-gray-300 transition hover:border-red-300/40 hover:bg-red-300/10 hover:text-red-200"
+                    >
+                      Borrar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="6" class="px-5 py-16 text-center">
+                  <p class="text-lg font-black text-white">No hay productos con esos filtros</p>
+                  <button (click)="clearFilters()" class="mt-4 rounded-2xl bg-lime-300 px-5 py-3 text-xs font-black uppercase tracking-wider text-[#111d14]">
+                    Ver todos
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="mt-12 text-center">
+      <button routerLink="/productos" class="text-[10px] font-bold uppercase tracking-widest text-white/30 transition hover:text-red-300">
+        Cerrar sesión
       </button>
     </div>
-
-    <!-- TABLA CON ACCIONES -->
-    <div class="bg-black/20 backdrop-blur-md rounded-3xl shadow-xl border border-white/5 overflow-hidden">
-      <table class="w-full text-left text-white">
-        <thead class="text-[10px] uppercase text-gray-400 tracking-widest border-b border-white/5">
-          <tr>
-            <th class="p-6">Imagen</th>
-            <th class="p-6">Nombre</th>
-            <th class="p-6">Precio</th>
-            <th class="p-6 text-right">Acciones</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-white/5">
-          <!-- Bucle de productos -->
-          <tr *ngFor="let p of products" class="hover:bg-white/5 transition-colors">
-            <td class="p-4"><img [src]="'/img/' + p.image" class="w-14 h-14 object-contain bg-white/5 rounded-xl border border-white/10 p-1"></td>
-            <td class="p-6 font-bold text-lg">{{p.name}}</td>
-            <td class="p-6 font-black text-lime-400 text-lg">${{p.price}}</td>
-            <td class="p-6 text-right space-x-4">
-              <!-- BOTONES DE ACCIÓN -->
-              <button (click)="editProduct(p)" class="text-gray-400 hover:text-blue-400 font-bold text-sm">Editar</button>
-              <button (click)="deleteProduct(p.id)" class="text-gray-400 hover:text-red-400 font-bold text-sm">Borrar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- CERRAR SESIÓN -->
-  <div class="mt-16 text-center">
-    <button routerLink="/productos" class="text-[10px] font-bold text-white/20 hover:text-red-400 uppercase tracking-widest transition-all">
-      Cerrar Sesión
-    </button>
   </div>
 </div>
 
-<!-- MODAL DE EDICIÓN / CREACIÓN -->
-<div *ngIf="isModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-  <div class="bg-[#1c2a1f] border border-white/10 p-8 rounded-3xl w-full max-w-md shadow-2xl">
-    <h2 class="text-2xl font-black text-white mb-6">{{isEditing ? 'Editar Producto' : 'Nuevo Producto'}}</h2>
-    
-    <input [(ngModel)]="currentProduct.name" placeholder="Nombre" class="w-full bg-white/5 border border-white/10 text-white p-4 rounded-xl mb-3 focus:border-lime-500 outline-none">
-    <input [(ngModel)]="currentProduct.price" type="number" placeholder="Precio ($)" class="w-full bg-white/5 border border-white/10 text-white p-4 rounded-xl mb-3 focus:border-lime-500 outline-none">
-    <textarea [(ngModel)]="currentProduct.description" placeholder="Descripción" class="w-full bg-white/5 border border-white/10 text-white p-4 rounded-xl mb-3 focus:border-lime-500 outline-none h-24"></textarea>
-    
-    <div class="flex gap-4 mt-6">
-      <button (click)="isModalOpen = false" class="flex-1 py-4 bg-white/5 text-white rounded-xl font-bold hover:bg-white/10">Cancelar</button>
-      <button (click)="saveProduct()" class="flex-1 bg-lime-500 text-black py-4 rounded-xl font-black hover:bg-lime-400">Guardar Cambios</button>
+@if (isModalOpen) {
+  <div class="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
+    <div class="max-h-[92vh] w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-[#152419] shadow-2xl">
+      <div class="flex items-center justify-between border-b border-white/10 px-6 py-5">
+        <div>
+          <p class="text-[10px] font-black uppercase tracking-[0.22em] text-lime-300">Producto</p>
+          <h2 class="text-2xl font-black">{{ isEditing ? 'Editar producto' : 'Nuevo producto' }}</h2>
+        </div>
+        <button (click)="closeModal()" class="rounded-full bg-white/10 p-2 text-gray-300 transition hover:bg-white/15 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="max-h-[calc(92vh-90px)] overflow-y-auto p-6">
+        <div class="grid gap-4 md:grid-cols-2">
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Nombre</span>
+            <input [(ngModel)]="currentProduct.name" class="admin-field" placeholder="Nombre comercial">
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Categoría</span>
+            <input [(ngModel)]="currentProduct.category" class="admin-field" placeholder="Control y potencia">
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Precio ref.</span>
+            <input [(ngModel)]="currentProduct.price" type="number" class="admin-field" placeholder="0">
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Estado</span>
+            <select [(ngModel)]="currentProduct.stock" class="admin-field">
+              <option value="available">En stock</option>
+              <option value="limited">Stock limitado</option>
+              <option value="draft">Borrador</option>
+            </select>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Imagen</span>
+            <input [(ngModel)]="currentProduct.image" class="admin-field" placeholder="variador.png">
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Tags</span>
+            <input [(ngModel)]="currentProduct.tags" class="admin-field" placeholder="15HP, Trifasico, Modbus">
+          </label>
+
+          <label class="block md:col-span-2">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Descripción corta</span>
+            <textarea [(ngModel)]="currentProduct.description" class="admin-field min-h-24 resize-y" placeholder="Resumen para la tarjeta del catálogo"></textarea>
+          </label>
+
+          <label class="block md:col-span-2">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Descripción técnica</span>
+            <textarea [(ngModel)]="currentProduct.longDescription" class="admin-field min-h-28 resize-y" placeholder="Detalle técnico para la ficha del producto"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Aplicaciones</span>
+            <textarea [(ngModel)]="currentProduct.applications" class="admin-field min-h-24 resize-y" placeholder="Bombeo industrial, Pozos petroleros"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Especificaciones</span>
+            <textarea [(ngModel)]="currentProduct.specs" class="admin-field min-h-24 resize-y" placeholder="Potencia: 15HP | Entrada: Trifasica"></textarea>
+          </label>
+        </div>
+
+        <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+          <button (click)="closeModal()" class="rounded-2xl border border-white/10 px-6 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/10">
+            Cancelar
+          </button>
+          <button (click)="saveProduct()" class="rounded-2xl bg-lime-300 px-6 py-4 text-sm font-black uppercase tracking-wider text-[#111d14] transition hover:bg-lime-200">
+            Guardar cambios
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+}

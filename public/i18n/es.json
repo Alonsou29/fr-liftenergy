@@ -334,18 +334,6 @@
     "CABLE_DESC": "Rollo de 100m. Resistente a altas presiones y entornos corrosivos.",
     "CABLE_LONG": "Rollo de 100 metros de cable de potencia diseñado específicamente para inmersión profunda. Su recubrimiento especial de polímeros reforzados garantiza cero filtraciones y resistencia extrema a elementos corrosivos."
   },
-  "CATALOG": {
-    "PAGE_TITLE_1": "Catálogo de",
-    "PAGE_TITLE_2": "Equipos",
-    "PAGE_SUBTITLE": "Explora nuestros componentes de alta gama para la industria. Selecciona los artículos y genera tu orden de compra fácilmente por WhatsApp.",
-    "IN_STOCK": "En Stock",
-    "SEE_DETAILS": "Ver más detalles",
-    "REF_PRICE": "Precio Ref.",
-    "ADD": "Agregar",
-    "TECHNICAL_DESC": "Descripción Técnica",
-    "TOTAL_PRICE": "Precio Total",
-    "BUY": "Comprar"
-  },
   "CART": {
     "TITLE": "Tu Orden",
     "EMPTY_MSG": "Tu orden está vacía",

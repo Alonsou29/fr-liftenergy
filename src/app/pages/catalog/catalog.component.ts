@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -27,23 +26,15 @@ interface Product {
 interface CartItem extends Product {
   quantity: number;
 }
-=======
-import { TranslateModule } from '@ngx-translate/core';
->>>>>>> origin/develop
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
-<<<<<<< HEAD
   imports: [CommonModule, FormsModule, TranslateModule],
-=======
-  imports: [CommonModule, TranslateModule],
->>>>>>> origin/develop
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent {
-<<<<<<< HEAD
   constructor(private translate: TranslateService) {}
 
   products: Product[] = [
@@ -53,16 +44,6 @@ export class CatalogComponent {
       categoryKey: 'CATALOG.CATEGORIES.CONTROL_POWER',
       descriptionKey: 'CATALOG.PRODUCTS.VARIADOR.DESCRIPTION',
       longDescriptionKey: 'CATALOG.PRODUCTS.VARIADOR.LONG_DESCRIPTION',
-=======
-  
-  // Ahora usamos las llaves de traducción en lugar del texto fijo
-  products = [
-    {
-      id: 1,
-      name: 'PRODUCTS.VARIADOR_NAME',
-      description: 'PRODUCTS.VARIADOR_DESC',
-      longDescription: 'PRODUCTS.VARIADOR_LONG',
->>>>>>> origin/develop
       price: 450.00,
       image: 'variador.png',
       stock: 'available',
@@ -84,16 +65,10 @@ export class CatalogComponent {
     },
     {
       id: 2,
-<<<<<<< HEAD
       nameKey: 'CATALOG.PRODUCTS.CABLE.NAME',
       categoryKey: 'CATALOG.CATEGORIES.INDUSTRIAL_CABLING',
       descriptionKey: 'CATALOG.PRODUCTS.CABLE.DESCRIPTION',
       longDescriptionKey: 'CATALOG.PRODUCTS.CABLE.LONG_DESCRIPTION',
-=======
-      name: 'PRODUCTS.CABLE_NAME',
-      description: 'PRODUCTS.CABLE_DESC',
-      longDescription: 'PRODUCTS.CABLE_LONG',
->>>>>>> origin/develop
       price: 1200.00,
       image: 'cable.png',
       stock: 'limited',
@@ -115,27 +90,12 @@ export class CatalogComponent {
     }
   ];
 
-<<<<<<< HEAD
   searchTerm = '';
   selectedCategory = 'all';
   selectedStock: StockStatus | 'all' = 'all';
   sortBy: SortOption = 'featured';
   selectedProduct: Product | null = null;
   cart: CartItem[] = [];
-=======
-  selectedProduct: any = null;
-
-  openDetails(product: any) {
-    this.selectedProduct = product;
-  }
-
-  closeDetails() {
-    this.selectedProduct = null;
-  }
-
-  // --- LÓGICA DEL CARRITO ---
-  cart: any[] = [];
->>>>>>> origin/develop
   isCartOpen = false;
 
   get categories() {
@@ -244,28 +204,15 @@ export class CatalogComponent {
   }
 
   checkoutWhatsapp() {
-<<<<<<< HEAD
     let message = `${this.t('CATALOG.WHATSAPP.GREETING')}\n\n`;
 
     this.cart.forEach(item => {
       message += `- ${item.quantity}x ${this.getTranslatedProductName(item)} ($${item.price})\n`;
-=======
-    let message = '¡Hola! Vengo de la web y quiero generar una orden de compra para estos equipos:%0A%0A';
-
-    this.cart.forEach(item => {
-      // Usamos el ID del equipo para no mandar la llave de traducción técnica por WhatsApp
-      message += `- ${item.quantity}x Equipo ID: ${item.id} ($${item.price})%0A`;
->>>>>>> origin/develop
     });
 
     message += `\n*${this.t('CATALOG.WHATSAPP.TOTAL_LABEL')}:* $${this.cartTotal}`;
 
-<<<<<<< HEAD
     const whatsappUrl = `https://w.app/liftenergygroup?text=${encodeURIComponent(message)}`;
-=======
-    // Usando tu link directo
-    const whatsappUrl = `https://w.app/liftenergygroup?text=${message}`;
->>>>>>> origin/develop
     window.open(whatsappUrl, '_blank');
   }
 

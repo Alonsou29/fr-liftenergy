@@ -334,18 +334,6 @@
     "CABLE_DESC": "100m roll. Resistant to high pressures and corrosive environments.",
     "CABLE_LONG": "100-meter roll of power cable specifically designed for deep submersion. Its special reinforced polymer coating guarantees zero leakage and extreme resistance to corrosive elements."
   },
-  "CATALOG": {
-    "PAGE_TITLE_1": "Equipment",
-    "PAGE_TITLE_2": "Catalog",
-    "PAGE_SUBTITLE": "Explore our high-end components for the industry. Select items and easily generate your purchase order via WhatsApp.",
-    "IN_STOCK": "In Stock",
-    "SEE_DETAILS": "View details",
-    "REF_PRICE": "Ref. Price",
-    "ADD": "Add",
-    "TECHNICAL_DESC": "Technical Description",
-    "TOTAL_PRICE": "Total Price",
-    "BUY": "Buy"
-  },
   "CART": {
     "TITLE": "Your Order",
     "EMPTY_MSG": "Your order is empty",
