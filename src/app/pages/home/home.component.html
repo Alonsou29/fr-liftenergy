@@ -1,6 +1,6 @@
 <section
   id="top"
-  class="relative min-h-[100svh] w-full flex items-center overflow-hidden bg-canvas m-0 px-0 py-28 sm:py-32 lg:py-0"
+  class="ios-landscape-hero relative min-h-[100svh] w-full flex items-center overflow-hidden bg-canvas m-0 px-0 py-28 sm:py-32 lg:py-0"
 >
   <div class="absolute inset-0 z-0">
     <video
@@ -19,29 +19,29 @@
       class="absolute inset-0 bg-linear-to-b from-black/36 via-scroll-track/26 to-[#030504]/78"
     ></div>
     <div
-      class="absolute inset-x-0 bottom-0 h-[42%] bg-linear-to-t from-[#010201]/96 via-[#041005]/78 via-55% to-transparent"
+      class="ios-landscape-fade absolute inset-x-0 bottom-0 h-[42%] bg-linear-to-t from-[#010201]/96 via-[#041005]/78 via-55% to-transparent"
     ></div>
     <div
-      class="absolute inset-x-0 bottom-0 h-56 bg-linear-to-t from-[#020403] via-[#071408]/68 to-transparent"
+      class="ios-landscape-fade absolute inset-x-0 bottom-0 h-56 bg-linear-to-t from-[#020403] via-[#071408]/68 to-transparent"
     ></div>
   </div>
 
   <div class="container mx-auto relative z-10 px-5 sm:px-6 md:px-16 text-left">
     <div class="max-w-6xl space-y-7 sm:space-y-10">
       <h1
-        class="text-[clamp(3.2rem,9vw,9rem)] font-black text-white leading-[0.9] sm:leading-[0.86] tracking-tight md:tracking-tighter"
+        class="ios-landscape-hero-title text-[clamp(3.2rem,9vw,9rem)] font-black text-white leading-[0.9] sm:leading-[0.86] tracking-tight md:tracking-tighter"
       >
         <span class="text-lime-400">{{ "HERO.TITLE_1" | translate }}</span
         ><br />
         {{ "HERO.TITLE_2" | translate }}<br />
         <span
-          class="text-[clamp(2rem,4vw,3rem)] font-light opacity-70 italic tracking-normal"
+          class="ios-landscape-hero-subtitle text-[clamp(2rem,4vw,3rem)] font-light opacity-70 italic tracking-normal"
           >{{ "HERO.TITLE_3" | translate }}</span
         >
       </h1>
 
       <p
-        class="text-base sm:text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed border-l-2 border-lime-500/40 pl-4 sm:pl-6"
+        class="ios-landscape-hero-copy text-base sm:text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed border-l-2 border-lime-500/40 pl-4 sm:pl-6"
       >
         {{ "HERO.DESC_1" | translate }}
         <span class="text-white font-medium italic">{{
@@ -50,7 +50,7 @@
         >.
       </p>
 
-      <div class="flex flex-col min-[430px]:flex-row flex-wrap gap-4 sm:gap-6 items-stretch min-[430px]:items-center pt-3 sm:pt-6">
+      <div class="ios-landscape-actions flex flex-col min-[430px]:flex-row flex-wrap gap-4 sm:gap-6 items-stretch min-[430px]:items-center pt-3 sm:pt-6">
         <button
           (click)="navigateTo('/contact')"
           class="px-7 sm:px-10 py-4 bg-lime-500 hover:bg-lime-400 text-black font-bold rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(154,203,147,0.35)] cursor-pointer"
@@ -86,10 +86,10 @@
   class="relative w-full bg-linear-to-b from-[#020403] via-[#071408] to-canvas-deep"
 >
   <div
-    class="absolute inset-x-0 top-0 h-72 bg-linear-to-b from-[#010201] via-[#020403]/96 via-25% via-[#071408]/78 to-transparent z-0 pointer-events-none"
+    class="ios-landscape-section-gradient absolute inset-x-0 top-0 h-72 bg-linear-to-b from-[#010201] via-[#020403]/96 via-25% via-[#071408]/78 to-transparent z-0 pointer-events-none"
   ></div>
   <div
-    class="absolute inset-x-0 top-0 h-[30rem] bg-linear-to-b from-black/48 via-[#041005]/42 to-transparent z-0 pointer-events-none"
+    class="ios-landscape-section-gradient absolute inset-x-0 top-0 h-[30rem] bg-linear-to-b from-black/48 via-[#041005]/42 to-transparent z-0 pointer-events-none"
   ></div>
   <div class="absolute inset-0 z-0 pointer-events-none opacity-50">
     <app-energy-grid></app-energy-grid>
