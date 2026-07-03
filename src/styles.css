@@ -5,6 +5,7 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-canvas);
+  overflow-x: clip;
 }
 
 body {
@@ -16,8 +17,41 @@ body {
       var(--color-canvas-raised) 0%,
       var(--color-canvas) 45%,
       var(--color-canvas-deep) 100%
-    );
+  );
   color: var(--color-copy-strong);
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  overflow-wrap: break-word;
+}
+
+main {
+  min-width: 0;
 }
 
 /* Personaliza la barra de scroll lateral */

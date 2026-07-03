@@ -1,5 +1,5 @@
 <section
-  class="relative pt-32 pb-12 overflow-visible"
+  class="relative pt-24 sm:pt-32 pb-10 sm:pb-12 overflow-visible"
 >
   <div
     class="absolute left-1/2 top-0 -translate-x-1/2 w-312 max-w-[96vw] h-120 bg-lime-500/4 blur-[170px] rounded-full pointer-events-none opacity-80"
@@ -11,14 +11,14 @@
     class="absolute inset-x-[18%] top-24 h-40 bg-linear-to-b from-lime-500/6 via-lime-500/3 to-transparent blur-[110px] pointer-events-none opacity-70"
   ></div>
 
-  <div class="container mx-auto px-6 relative z-10 text-center">
+  <div class="container mx-auto px-4 sm:px-6 relative z-10 text-center">
     <span
-      class="inline-block text-lime-400 text-[10px] uppercase tracking-[0.8em] font-medium mb-4 opacity-80"
+      class="inline-block text-lime-400 text-[10px] uppercase tracking-[0.32em] sm:tracking-[0.8em] font-medium mb-4 opacity-80"
     >
       {{ "PROJECTS_PAGE.SUBTITLE" | translate }}
     </span>
     <h1
-      class="text-6xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6 italic"
+      class="text-4xl min-[390px]:text-5xl md:text-7xl font-black text-white uppercase tracking-tight md:tracking-tighter mb-6 italic"
     >
       {{ "PROJECTS_PAGE.TITLE" | translate }}
       <span
@@ -28,7 +28,7 @@
       >
     </h1>
     <p
-      class="text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed"
+      class="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed"
     >
       {{ "PROJECTS_PAGE.DESC_MAIN" | translate }}
     </p>
@@ -36,11 +36,11 @@
 </section>
 
 <section class="py-12 mt-6 relative">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-wrap justify-center gap-4 mb-20">
+  <div class="container mx-auto px-4 sm:px-6">
+    <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-20">
       <button
         (click)="setFilter('all')"
-        class="px-8 py-2 rounded-full font-bold text-[11px] uppercase tracking-widest cursor-pointer transition-all backdrop-blur-md"
+        class="px-5 sm:px-8 py-2 rounded-full font-bold text-[11px] uppercase tracking-[0.14em] sm:tracking-widest cursor-pointer transition-all backdrop-blur-md"
         [class.bg-lime-500]="currentFilter === 'all'"
         [class.text-black]="currentFilter === 'all'"
         [class.bg-white/8]="currentFilter !== 'all'"
@@ -53,7 +53,7 @@
 
       <button
         (click)="setFilter('industrial')"
-        class="px-8 py-2 rounded-full font-bold text-[11px] uppercase tracking-widest cursor-pointer transition-all backdrop-blur-md"
+        class="px-5 sm:px-8 py-2 rounded-full font-bold text-[11px] uppercase tracking-[0.14em] sm:tracking-widest cursor-pointer transition-all backdrop-blur-md"
         [class.bg-lime-500]="currentFilter === 'industrial'"
         [class.text-black]="currentFilter === 'industrial'"
         [class.bg-white/8]="currentFilter !== 'industrial'"
@@ -66,7 +66,7 @@
 
       <button
         (click)="setFilter('software')"
-        class="px-8 py-2 rounded-full font-bold text-[11px] uppercase tracking-widest cursor-pointer transition-all backdrop-blur-md"
+        class="px-5 sm:px-8 py-2 rounded-full font-bold text-[11px] uppercase tracking-[0.14em] sm:tracking-widest cursor-pointer transition-all backdrop-blur-md"
         [class.bg-lime-500]="currentFilter === 'software'"
         [class.text-black]="currentFilter === 'software'"
         [class.bg-white/8]="currentFilter !== 'software'"
@@ -106,7 +106,7 @@
             </div>
           </div>
 
-          <div class="p-10">
+          <div class="p-6 sm:p-10">
             <h2
               class="text-2xl font-black text-white mb-1 uppercase tracking-tighter"
             >
@@ -127,7 +127,7 @@
 
             <button
               (click)="navigateTo('/smartlink')"
-              class="w-full py-4 bg-white/7 border border-white/12 rounded-2xl text-white hover:text-lime-400 hover:border-lime-500/50 transition-all duration-500 cursor-pointer text-[10px] font-bold uppercase tracking-[0.3em]"
+              class="w-full py-4 bg-white/7 border border-white/12 rounded-2xl text-white hover:text-lime-400 hover:border-lime-500/50 transition-all duration-500 cursor-pointer text-[10px] font-bold uppercase tracking-[0.16em] sm:tracking-[0.3em]"
             >
               {{ "PROJECTS_PAGE.BTN_DETAILS" | translate }}
             </button>

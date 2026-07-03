@@ -67,7 +67,7 @@
 .service-card {
   display: flex;
   flex-direction: column;
-  padding: 2.5rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
   border-radius: 2rem;
   background: linear-gradient(
     180deg,
@@ -108,6 +108,12 @@
   justify-content: center;
   margin-bottom: 1.5rem;
   box-shadow: 0 0 15px var(--color-accent-glow);
+}
+
+@media (max-width: 419px) {
+  .icon-container {
+    margin-bottom: 1rem;
+  }
 }
 
 /* Botones dentro de las tarjetas */
