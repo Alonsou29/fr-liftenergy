@@ -5,7 +5,12 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-canvas);
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
   overflow-x: clip;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -19,7 +24,13 @@ body {
       var(--color-canvas-deep) 100%
   );
   color: var(--color-copy-strong);
+  width: 100%;
+  min-width: 0;
+  min-height: 100dvh;
+  overflow-x: hidden;
   overflow-x: clip;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 *,
@@ -70,4 +81,154 @@ main {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-soft);
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  html,
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .ios-landscape-hero {
+    min-height: auto !important;
+    padding-top: max(5rem, calc(4rem + env(safe-area-inset-top))) !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .ios-landscape-hero-title {
+    font-size: clamp(2.4rem, 7.5vw, 4.6rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  .ios-landscape-hero-subtitle {
+    font-size: clamp(1.45rem, 3vw, 2.2rem) !important;
+  }
+
+  .ios-landscape-hero-copy {
+    max-width: 34rem !important;
+    font-size: clamp(0.9rem, 1.8vw, 1.05rem) !important;
+    line-height: 1.5 !important;
+  }
+
+  .ios-landscape-actions {
+    gap: 0.75rem !important;
+    padding-top: 0.25rem !important;
+  }
+
+  .ios-landscape-actions button {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .ios-landscape-fade {
+    height: 22% !important;
+    opacity: 0.72;
+  }
+
+  .ios-landscape-section-gradient {
+    height: 12rem !important;
+    opacity: 0.55;
+  }
+
+  .ios-landscape-page {
+    padding-top: max(5rem, calc(4rem + env(safe-area-inset-top))) !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .ios-landscape-catalog-bg {
+    height: 260px !important;
+    opacity: 0.75;
+  }
+
+  .ios-landscape-catalog-divider {
+    top: 240px !important;
+  }
+
+  .ios-landscape-catalog-hero {
+    gap: 1rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .ios-landscape-catalog-title {
+    margin-bottom: 0.75rem !important;
+    font-size: clamp(2rem, 5.8vw, 3.2rem) !important;
+    line-height: 1 !important;
+  }
+
+  .ios-landscape-catalog-copy {
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .ios-landscape-catalog-stats {
+    max-width: 32rem !important;
+  }
+
+  .ios-landscape-filter {
+    margin-bottom: 1.25rem !important;
+    padding: 0.75rem !important;
+  }
+
+  .ios-landscape-filter input,
+  .ios-landscape-filter select,
+  .ios-landscape-filter button {
+    height: 44px !important;
+  }
+}
+
+@supports (-moz-appearance: none) {
+  @media (max-width: 900px) {
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    .ios-landscape-hero,
+    .ios-landscape-page {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media (orientation: landscape) and (max-height: 520px) {
+    .ios-landscape-hero {
+      min-height: auto !important;
+      padding-top: 4.5rem !important;
+      padding-bottom: 1.5rem !important;
+    }
+
+    .ios-landscape-hero-title {
+      font-size: clamp(2.2rem, 7vw, 4.2rem) !important;
+      line-height: 0.94 !important;
+    }
+
+    .ios-landscape-hero-subtitle {
+      font-size: clamp(1.35rem, 2.8vw, 2rem) !important;
+    }
+
+    .ios-landscape-hero-copy {
+      max-width: 32rem !important;
+      font-size: 0.95rem !important;
+      line-height: 1.45 !important;
+    }
+
+    .ios-landscape-fade {
+      height: 18% !important;
+      opacity: 0.65;
+    }
+
+    .ios-landscape-page {
+      padding-top: 4.5rem !important;
+      padding-bottom: 2rem !important;
+    }
+
+    .ios-landscape-catalog-bg {
+      height: 240px !important;
+      opacity: 0.68;
+    }
+
+    .ios-landscape-catalog-divider {
+      top: 220px !important;
+    }
+  }
 }
