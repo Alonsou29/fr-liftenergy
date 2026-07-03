@@ -1,4 +1,4 @@
-<div class="relative min-h-screen bg-transparent pt-32 pb-20 overflow-hidden">
+<div class="relative min-h-screen bg-transparent pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-clip">
   
   <div class="absolute inset-0 z-0 pointer-events-none">
     <img src="/img/nuevo.webp" class="absolute inset-0 w-full h-full object-cover blur-[2px] scale-105 opacity-50">
@@ -20,21 +20,21 @@
     <div class="pumpjack drop-8"><svg viewBox="0 0 24 24" fill="none" stroke="#a3e635" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21h20M12 21l-2-10h4zM12 11l-7 3m7-3l6 2M5 14v4c0 1.5 1 2 2 2M18 15a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
   </div>
 
-  <div class="container mx-auto px-6 text-center mb-20 relative z-10">
-    <h1 class="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter leading-none mb-4">
+  <div class="container mx-auto px-4 sm:px-6 text-center mb-14 sm:mb-20 relative z-10">
+    <h1 class="text-4xl min-[390px]:text-5xl md:text-8xl font-black text-white uppercase tracking-tight md:tracking-tighter leading-none mb-4">
       {{ 'SMARTLINK.TITLE_1' | translate }} <span class="text-lime-400">{{ 'SMARTLINK.TITLE_2' | translate }}</span><br>
-      <span class="text-transparent italic font-light text-4xl md:text-7xl" style="-webkit-text-stroke: 1px rgba(255,255,255,0.4)">
+      <span class="text-transparent italic font-light text-3xl min-[390px]:text-4xl md:text-7xl" style="-webkit-text-stroke: 1px rgba(255,255,255,0.4)">
         {{ 'SMARTLINK.TITLE_3' | translate }}
       </span>
     </h1>
-    <div class="w-24 h-1.5 bg-lime-500 mx-auto my-10 rounded-full shadow-[0_0_20px_rgba(163,230,53,0.6)]"></div>
-    <p class="text-gray-400 max-w-3xl mx-auto font-light text-lg md:text-xl leading-relaxed">
+    <div class="w-24 h-1.5 bg-lime-500 mx-auto my-7 sm:my-10 rounded-full shadow-[0_0_20px_rgba(163,230,53,0.6)]"></div>
+    <p class="text-gray-400 max-w-3xl mx-auto font-light text-base sm:text-lg md:text-xl leading-relaxed">
       <span class="text-white font-bold">{{ 'SMARTLINK.HERO_HIGHLIGHT' | translate }}</span> {{ 'SMARTLINK.HERO_P2' | translate }}
     </p>
   </div>
 
-  <section class="container mx-auto px-6 max-w-6xl mb-32 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center bg-[#050505]/60 border border-white/5 p-8 md:p-12 rounded-[3rem] backdrop-blur-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:border-lime-500/30 transition-all duration-700">
+  <section class="container mx-auto px-4 sm:px-6 max-w-6xl mb-20 sm:mb-32 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-16 items-center bg-[#050505]/60 border border-white/5 p-5 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[3rem] backdrop-blur-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:border-lime-500/30 transition-all duration-700">
       
       <div class="lg:col-span-7 relative group">
         <div class="absolute -inset-4 bg-lime-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
@@ -50,12 +50,12 @@
           <span class="text-lime-400 text-xs font-bold uppercase tracking-widest">{{ 'SMARTLINK.DINAI_BADGE' | translate }}</span>
         </div>
         
-        <h3 class="text-4xl md:text-5xl font-black text-white italic tracking-tighter uppercase leading-none">
+        <h3 class="text-3xl md:text-5xl font-black text-white italic tracking-tight md:tracking-tighter uppercase leading-none">
           {{ 'SMARTLINK.DINAI_TITLE_1' | translate }} <br>
           <span class="text-lime-400 font-light">{{ 'SMARTLINK.DINAI_TITLE_2' | translate }}</span>
         </h3>
         
-        <p class="text-gray-400 text-lg font-light leading-relaxed">
+        <p class="text-gray-400 text-base sm:text-lg font-light leading-relaxed">
           {{ 'SMARTLINK.DINAI_DESC' | translate }}
         </p>
 
@@ -65,14 +65,14 @@
     </div>
   </section>
 
-  <div class="container mx-auto px-6 max-w-7xl flex flex-col space-y-32 relative z-10 pb-24">
+  <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex flex-col space-y-16 sm:space-y-24 lg:space-y-32 relative z-10 pb-20 sm:pb-24">
     
-    <div class="flex flex-col lg:flex-row items-center gap-12 group">
-      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
+    <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 group">
+      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-4 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
         <div class="glass-shine absolute top-0 -left-[100%] w-1/2 h-full bg-linear-to-r from-transparent via-white/5 to-transparent skew-x-12 z-20 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none z-0 card-glowing-point"></div>
         
-        <div class="bg-black/60 rounded-3xl p-6 border border-white/5 flex items-center justify-center min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
+        <div class="bg-black/60 rounded-3xl p-3 sm:p-6 border border-white/5 flex items-center justify-center min-h-[220px] sm:min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
           <img src="/img/Dynagraph.webp" alt="Dynagraph Analysis" class="w-full h-auto rounded-2xl opacity-90 group-hover:opacity-100 animate-image-breathe transition-all duration-700 relative z-10 drop-shadow-2xl">
         </div>
       </div>
@@ -80,16 +80,16 @@
         <span class="text-lime-500 font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
           <span class="w-8 h-[2px] bg-lime-500"></span> 01 / Analysis
         </span>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter leading-tight">{{ 'SMARTLINK.CARD1_TITLE' | translate }}</h2>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight md:tracking-tighter leading-tight">{{ 'SMARTLINK.CARD1_TITLE' | translate }}</h2>
       </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 group">
-      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
+    <div class="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-12 group">
+      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-4 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
         <div class="glass-shine absolute top-0 -left-[100%] w-1/2 h-full bg-linear-to-r from-transparent via-white/5 to-transparent skew-x-12 z-20 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none z-0 card-glowing-point"></div>
         
-        <div class="bg-black/60 rounded-3xl p-6 border border-white/5 flex items-center justify-center min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
+        <div class="bg-black/60 rounded-3xl p-3 sm:p-6 border border-white/5 flex items-center justify-center min-h-[220px] sm:min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
          <img src="/img/realtime.webp" alt="Real-Time Data" class="w-full h-auto rounded-2xl opacity-90 group-hover:opacity-100 animate-image-breathe transition-all duration-700 relative z-10 drop-shadow-2xl">
         </div>
       </div>
@@ -97,16 +97,16 @@
         <span class="text-lime-500 font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
           <span class="w-8 h-[2px] bg-lime-500"></span> 02 / Data
         </span>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter leading-tight">{{ 'SMARTLINK.CARD2_TITLE' | translate }}</h2>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight md:tracking-tighter leading-tight">{{ 'SMARTLINK.CARD2_TITLE' | translate }}</h2>
       </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row items-center gap-12 group">
-      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
+    <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 group">
+      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-4 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
         <div class="glass-shine absolute top-0 -left-[100%] w-1/2 h-full bg-linear-to-r from-transparent via-white/5 to-transparent skew-x-12 z-20 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none z-0 card-glowing-point"></div>
         
-        <div class="bg-black/60 rounded-3xl p-6 border border-white/5 flex items-center justify-center min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
+        <div class="bg-black/60 rounded-3xl p-3 sm:p-6 border border-white/5 flex items-center justify-center min-h-[220px] sm:min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
          <img src="/img/Gps.webp" alt="Asset Geolocation" class="w-full h-auto rounded-2xl opacity-90 group-hover:opacity-100 animate-image-breathe transition-all duration-700 relative z-10 drop-shadow-2xl">
         </div>
       </div>
@@ -114,16 +114,16 @@
         <span class="text-lime-500 font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
           <span class="w-8 h-[2px] bg-lime-500"></span> 03 / Tracking
         </span>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter leading-tight">{{ 'SMARTLINK.CARD3_TITLE' | translate }}</h2>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight md:tracking-tighter leading-tight">{{ 'SMARTLINK.CARD3_TITLE' | translate }}</h2>
       </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 group">
-      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
+    <div class="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-12 group">
+      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-4 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
         <div class="glass-shine absolute top-0 -left-[100%] w-1/2 h-full bg-linear-to-r from-transparent via-white/5 to-transparent skew-x-12 z-20 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none z-0 card-glowing-point"></div>
         
-        <div class="bg-black/60 rounded-3xl p-6 border border-white/5 flex items-center justify-center min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
+        <div class="bg-black/60 rounded-3xl p-3 sm:p-6 border border-white/5 flex items-center justify-center min-h-[220px] sm:min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
           <img src="/img/alarm.webp" alt="Alarms Management" class="w-full h-auto rounded-2xl opacity-90 group-hover:opacity-100 animate-image-breathe transition-all duration-700 relative z-10 drop-shadow-2xl">
         </div>
       </div>
@@ -131,16 +131,16 @@
         <span class="text-lime-500 font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
           <span class="w-8 h-[2px] bg-lime-500"></span> 04 / Alerts
         </span>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter leading-tight">{{ 'SMARTLINK.CARD4_TITLE' | translate }}</h2>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight md:tracking-tighter leading-tight">{{ 'SMARTLINK.CARD4_TITLE' | translate }}</h2>
       </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row items-center gap-12 group">
-      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
+    <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 group">
+      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-4 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
         <div class="glass-shine absolute top-0 -left-[100%] w-1/2 h-full bg-linear-to-r from-transparent via-white/5 to-transparent skew-x-12 z-20 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none z-0 card-glowing-point"></div>
         
-        <div class="bg-black/60 rounded-3xl p-6 border border-white/5 flex items-center justify-center min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
+        <div class="bg-black/60 rounded-3xl p-3 sm:p-6 border border-white/5 flex items-center justify-center min-h-[220px] sm:min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
           <img src="/img/controll.webp" alt="Operational Control" class="w-full h-auto rounded-2xl opacity-90 group-hover:opacity-100 animate-image-breathe transition-all duration-700 relative z-10 drop-shadow-2xl">
         </div>
       </div>
@@ -148,16 +148,16 @@
         <span class="text-lime-500 font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
           <span class="w-8 h-[2px] bg-lime-500"></span> 05 / Management
         </span>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter leading-tight">{{ 'SMARTLINK.CARD5_TITLE' | translate }}</h2>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight md:tracking-tighter leading-tight">{{ 'SMARTLINK.CARD5_TITLE' | translate }}</h2>
       </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row-reverse items-center gap-12 group">
-      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-8 rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
+    <div class="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-12 group">
+      <div class="w-full lg:w-1/2 relative bg-[#050505]/60 border border-white/5 p-4 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] backdrop-blur-3xl hover:border-lime-500/50 transition-all duration-700 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2">
         <div class="glass-shine absolute top-0 -left-[100%] w-1/2 h-full bg-linear-to-r from-transparent via-white/5 to-transparent skew-x-12 z-20 pointer-events-none"></div>
         <div class="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none z-0 card-glowing-point"></div>
         
-        <div class="bg-black/60 rounded-3xl p-6 border border-white/5 flex items-center justify-center min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
+        <div class="bg-black/60 rounded-3xl p-3 sm:p-6 border border-white/5 flex items-center justify-center min-h-[220px] sm:min-h-[300px] relative z-10 overflow-hidden group-hover:border-lime-500/20 transition-all">
           <img src="/img/control.webp" alt="Custom Integrations" class="w-full h-auto rounded-2xl opacity-90 group-hover:opacity-100 animate-image-breathe transition-all duration-700 relative z-10 drop-shadow-2xl">
         </div>
       </div>
@@ -165,7 +165,7 @@
         <span class="text-lime-500 font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
           <span class="w-8 h-[2px] bg-lime-500"></span> 06 / Flexible
         </span>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter leading-tight">{{ 'SMARTLINK.CARD6_TITLE' | translate }}</h2>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight md:tracking-tighter leading-tight">{{ 'SMARTLINK.CARD6_TITLE' | translate }}</h2>
       </div>
     </div>
 

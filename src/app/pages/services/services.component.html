@@ -1,13 +1,13 @@
-<section id="services" class="relative py-24">
-  <div class="container mx-auto px-6">
-    <h2 class="text-5xl md:text-7xl font-black text-center mb-20 text-white tracking-tighter">
+<section id="services" class="relative py-16 sm:py-20 lg:py-24">
+  <div class="container mx-auto px-4 sm:px-6">
+    <h2 class="text-3xl min-[390px]:text-4xl md:text-7xl font-black text-center mb-12 sm:mb-16 lg:mb-20 text-white tracking-tight md:tracking-tighter">
       {{ "SERVICES_PAGE.TITLE_CORE" | translate }}
       <span class="text-lime-400">{{ "SERVICES_PAGE.TITLE_SERVICES" | translate }}</span>
     </h2>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div class="service-card group">
-        <div class="flex items-center mb-6">
+        <div class="flex flex-col min-[420px]:flex-row min-[420px]:items-center mb-6">
           <div class="icon-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
             </svg>
           </div>
           <h3
-            class="text-2xl font-bold text-white ml-4 group-hover:text-lime-400 transition-colors"
+            class="text-xl sm:text-2xl font-bold text-white min-[420px]:ml-4 group-hover:text-lime-400 transition-colors"
           >
             {{ "SERVICES_PAGE.S1.TITLE" | translate }}
           </h3>
@@ -70,7 +70,7 @@
       </div>
 
       <div class="service-card group">
-        <div class="flex items-center mb-6">
+        <div class="flex flex-col min-[420px]:flex-row min-[420px]:items-center mb-6">
           <div class="icon-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@
             </svg>
           </div>
           <h3
-            class="text-2xl font-bold text-white ml-4 group-hover:text-lime-400 transition-colors"
+            class="text-xl sm:text-2xl font-bold text-white min-[420px]:ml-4 group-hover:text-lime-400 transition-colors"
           >
             {{ "SERVICES_PAGE.S2.TITLE" | translate }}
           </h3>
@@ -123,7 +123,7 @@
       </div>
 
       <div class="service-card group">
-        <div class="flex items-center mb-6">
+        <div class="flex flex-col min-[420px]:flex-row min-[420px]:items-center mb-6">
           <div class="icon-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +146,7 @@
             </svg>
           </div>
           <h3
-            class="text-2xl font-bold text-white ml-4 group-hover:text-lime-400 transition-colors"
+            class="text-xl sm:text-2xl font-bold text-white min-[420px]:ml-4 group-hover:text-lime-400 transition-colors"
           >
             {{ "SERVICES_PAGE.S3.TITLE" | translate }}
           </h3>
@@ -178,14 +178,14 @@
       </div>
     </div>
 
-    <div id="products" class="mt-16 flex justify-center scroll-mt-32">
+    <div id="products" class="mt-12 sm:mt-16 flex justify-center scroll-mt-32">
       <div 
         (click)="goToRoutes('/productos')" 
-        class="group relative w-full max-w-4xl px-8 py-6 border border-gray-800/60 rounded-2xl hover:border-lime-500/50 transition-all duration-500 cursor-pointer bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col sm:flex-row items-center justify-between"
+        class="group relative w-full max-w-4xl px-5 sm:px-8 py-6 border border-gray-800/60 rounded-2xl hover:border-lime-500/50 transition-all duration-500 cursor-pointer bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col sm:flex-row items-center justify-between"
       >
         <div class="absolute inset-0 bg-gradient-to-r from-lime-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         
-        <div class="relative z-10 flex items-center space-x-6 w-full">
+        <div class="relative z-10 flex w-full flex-col items-center gap-4 sm:flex-row sm:gap-6">
           <div class="p-3 bg-gray-900/50 rounded-lg group-hover:bg-lime-500/10 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-lime-400">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
@@ -194,7 +194,7 @@
             </svg>
           </div>
           
-          <div class="flex-1 text-center sm:text-left mt-4 sm:mt-0">
+          <div class="flex-1 text-center sm:text-left">
             <h4 class="text-white font-bold text-xl group-hover:text-lime-400 transition-colors tracking-wide">
               {{ "SERVICES_PAGE.PRODUCTS_TITLE" | translate }}
             </h4>
@@ -215,13 +215,13 @@
   </div>
 </section>
 
-<section class="relative mt-10 py-24">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-black text-center mb-20 text-white tracking-[0.2em] uppercase opacity-70">
+<section class="relative mt-6 sm:mt-10 py-16 sm:py-20 lg:py-24">
+  <div class="container mx-auto px-4 sm:px-6">
+    <h2 class="text-2xl sm:text-4xl font-black text-center mb-12 sm:mb-20 text-white tracking-[0.12em] sm:tracking-[0.2em] uppercase opacity-70">
       {{ "SERVICES_PAGE.WORKFLOW_TITLE" | translate }}
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
       <div class="relative group">
         <div
           class="text-7xl font-black text-white/8 absolute -top-12 left-0 group-hover:text-white/14 transition-all duration-500"

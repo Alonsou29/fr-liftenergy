@@ -1,16 +1,16 @@
-<div class="min-h-screen bg-[#142116] pt-28 pb-24 relative overflow-hidden">
+<div class="min-h-screen bg-[#142116] pt-24 sm:pt-28 pb-20 sm:pb-24 relative overflow-clip">
   <div class="absolute inset-x-0 top-0 h-[460px] bg-[radial-gradient(circle_at_top_left,rgba(163,230,53,0.18),transparent_34%),linear-gradient(135deg,#17281b_0%,#102016_55%,#1d2d20_100%)]"></div>
   <div class="absolute inset-x-0 top-[420px] h-px bg-white/10"></div>
 
-  <div class="container mx-auto px-5 sm:px-6 max-w-7xl relative z-10">
-    <section class="grid lg:grid-cols-[1.25fr_0.75fr] gap-8 items-end pb-10">
+  <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+    <section class="grid lg:grid-cols-[1.25fr_0.75fr] gap-6 sm:gap-8 items-end pb-8 sm:pb-10">
       <div>
-        <div class="inline-flex items-center gap-2 rounded-full border border-lime-300/30 bg-white/5 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-lime-200 mb-5">
+        <div class="inline-flex max-w-full items-center gap-2 rounded-full border border-lime-300/30 bg-white/5 px-3 sm:px-4 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.22em] text-lime-200 mb-5">
           <span class="h-2 w-2 rounded-full bg-lime-300 shadow-[0_0_16px_rgba(190,242,100,0.9)]"></span>
           {{ 'CATALOG.HERO.BADGE' | translate }}
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-[0.96] mb-5">
+        <h1 class="text-3xl min-[390px]:text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-[1] sm:leading-[0.96] mb-5">
           {{ 'CATALOG.HERO.TITLE' | translate }} <span class="text-lime-300">{{ 'CATALOG.HERO.TITLE_HIGHLIGHT' | translate }}</span>
         </h1>
 
@@ -19,21 +19,21 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-3 gap-3">
-        <div class="rounded-2xl border border-white/10 bg-white/[0.08] p-4 backdrop-blur">
-          <span class="block text-3xl font-black text-white">{{ products.length }}</span>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">{{ 'CATALOG.STATS.PRODUCTS' | translate }}</span>
+      <div class="grid grid-cols-3 gap-2 sm:gap-3">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.08] p-3 sm:p-4 backdrop-blur">
+          <span class="block text-2xl sm:text-3xl font-black text-white">{{ products.length }}</span>
+          <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-widest text-gray-400">{{ 'CATALOG.STATS.PRODUCTS' | translate }}</span>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/[0.08] p-4 backdrop-blur">
-          <span class="block text-3xl font-black text-lime-300">{{ categoryCount }}</span>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">{{ 'CATALOG.STATS.CATEGORIES' | translate }}</span>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.08] p-3 sm:p-4 backdrop-blur">
+          <span class="block text-2xl sm:text-3xl font-black text-lime-300">{{ categoryCount }}</span>
+          <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-widest text-gray-400">{{ 'CATALOG.STATS.CATEGORIES' | translate }}</span>
         </div>
         <button
           (click)="toggleCart()"
-          class="rounded-2xl border border-lime-300/30 bg-lime-300 p-4 text-left text-[#142116] shadow-xl shadow-lime-950/20 transition-transform active:scale-95"
+          class="rounded-2xl border border-lime-300/30 bg-lime-300 p-3 sm:p-4 text-left text-[#142116] shadow-xl shadow-lime-950/20 transition-transform active:scale-95"
         >
-          <span class="block text-3xl font-black">{{ cartCount }}</span>
-          <span class="text-[10px] font-black uppercase tracking-widest">{{ 'CATALOG.STATS.IN_ORDER' | translate }}</span>
+          <span class="block text-2xl sm:text-3xl font-black">{{ cartCount }}</span>
+          <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.12em] sm:tracking-widest">{{ 'CATALOG.STATS.IN_ORDER' | translate }}</span>
         </button>
       </div>
     </section>
@@ -54,7 +54,7 @@
 
         <select
           [(ngModel)]="selectedCategory"
-          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
           @for (category of categories; track category) {
             <option [value]="category">{{ category === 'all' ? ('CATALOG.FILTERS.ALL_CATEGORIES' | translate) : (category | translate) }}</option>
@@ -63,7 +63,7 @@
 
         <select
           [(ngModel)]="selectedStock"
-          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
           <option value="all">{{ 'CATALOG.FILTERS.ALL_STOCK' | translate }}</option>
           <option value="available">{{ 'CATALOG.STOCK.AVAILABLE' | translate }}</option>
@@ -72,7 +72,7 @@
 
         <select
           [(ngModel)]="sortBy"
-          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
           <option value="featured">{{ 'CATALOG.SORT.FEATURED' | translate }}</option>
           <option value="priceAsc">{{ 'CATALOG.SORT.PRICE_ASC' | translate }}</option>
@@ -82,7 +82,7 @@
 
         <button
           (click)="clearFilters()"
-          class="h-[52px] rounded-2xl border border-white/15 px-5 text-sm font-black uppercase tracking-wider text-white transition hover:border-lime-300/60 hover:text-lime-200 disabled:opacity-40 disabled:pointer-events-none"
+          class="h-[52px] w-full rounded-2xl border border-white/15 px-5 text-sm font-black uppercase tracking-wider text-white transition hover:border-lime-300/60 hover:text-lime-200 disabled:opacity-40 disabled:pointer-events-none"
           [disabled]="activeFilterCount === 0"
         >
           {{ 'CATALOG.FILTERS.CLEAR' | translate }}
@@ -119,13 +119,13 @@
     } @else {
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         @for (product of filteredProducts; track product.id) {
-          <article class="group flex min-h-[520px] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
-            <div class="relative h-64 bg-gradient-to-br from-gray-50 to-white p-5">
-              <div class="absolute left-5 top-5 z-10 rounded-full bg-[#142116] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-lime-200">
+          <article class="group flex min-h-[auto] sm:min-h-[520px] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <div class="relative h-56 sm:h-64 bg-gradient-to-br from-gray-50 to-white p-4 sm:p-5">
+              <div class="absolute left-4 sm:left-5 top-4 sm:top-5 z-10 max-w-[58%] rounded-full bg-[#142116] px-3 py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.12em] sm:tracking-widest text-lime-200">
                 {{ product.categoryKey | translate }}
               </div>
               <div
-                class="absolute right-5 top-5 z-10 rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-widest shadow-sm"
+                class="absolute right-4 sm:right-5 top-4 sm:top-5 z-10 max-w-[38%] rounded-full px-3 py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.12em] sm:tracking-widest shadow-sm"
                 [ngClass]="product.stock === 'available' ? 'bg-lime-100 text-lime-700' : 'bg-amber-100 text-amber-700'"
               >
                 {{ getStockLabel(product.stock) }}
@@ -151,17 +151,17 @@
                 {{ product.descriptionKey | translate }}
               </p>
 
-              <div class="grid grid-cols-3 gap-2 mb-5">
+              <div class="grid grid-cols-1 min-[420px]:grid-cols-3 gap-2 mb-5">
                 @for (spec of product.specs; track spec.labelKey) {
                   <div class="rounded-2xl bg-gray-50 p-3">
                     <span class="block text-[10px] font-bold uppercase tracking-widest text-gray-400">{{ spec.labelKey | translate }}</span>
-                    <span class="block truncate text-xs font-black text-gray-800">{{ spec.valueKey | translate }}</span>
+                    <span class="block text-xs font-black text-gray-800">{{ spec.valueKey | translate }}</span>
                   </div>
                 }
               </div>
 
               <div class="mt-auto border-t border-gray-100 pt-5">
-                <div class="flex items-end justify-between gap-3 mb-4">
+                <div class="flex flex-col min-[420px]:flex-row min-[420px]:items-end min-[420px]:justify-between gap-3 mb-4">
                   <div>
                     <span class="block text-[10px] font-bold uppercase tracking-widest text-gray-400">{{ 'CATALOG.PRODUCT_CARD.PRICE_REF' | translate }}</span>
                     <span class="text-3xl font-black text-gray-950">${{ product.price }}</span>
@@ -194,16 +194,16 @@
     <div class="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6">
       <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" (click)="closeDetails()"></div>
 
-      <div class="relative grid max-h-[92vh] w-full max-w-5xl overflow-hidden rounded-3xl bg-white shadow-2xl md:grid-cols-[0.95fr_1.05fr] animate-fade-in">
+      <div class="relative grid max-h-[92dvh] w-full max-w-5xl overflow-y-auto rounded-3xl bg-white shadow-2xl md:grid-cols-[0.95fr_1.05fr] md:overflow-hidden animate-fade-in">
         <button (click)="closeDetails()" class="absolute right-4 top-4 z-10 rounded-full bg-gray-100 p-2 text-gray-500 transition hover:bg-gray-200 hover:text-gray-900">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
 
-        <div class="flex min-h-[320px] items-center justify-center bg-gray-50 p-8">
-          <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.nameKey | translate" class="max-h-[430px] w-full object-contain">
+        <div class="flex min-h-[220px] sm:min-h-[320px] items-center justify-center bg-gray-50 p-6 sm:p-8">
+          <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.nameKey | translate" class="max-h-[240px] sm:max-h-[430px] w-full object-contain">
         </div>
 
-        <div class="overflow-y-auto p-6 sm:p-8">
+        <div class="overflow-y-visible md:overflow-y-auto p-5 sm:p-8">
           <div class="mb-4 flex flex-wrap items-center gap-2">
             <span class="rounded-full bg-[#142116] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-lime-200">{{ selectedProduct.categoryKey | translate }}</span>
             <span
@@ -214,7 +214,7 @@
             </span>
           </div>
 
-          <h2 class="text-3xl sm:text-4xl font-black text-gray-950 leading-tight mb-2">
+          <h2 class="text-2xl sm:text-4xl font-black text-gray-950 leading-tight mb-2">
             {{ selectedProduct.nameKey | translate }}
           </h2>
           <p class="text-sm font-bold text-gray-400 mb-6">{{ 'CATALOG.MODAL.SKU' | translate }}: LFT-{{ selectedProduct.id }}00X</p>
@@ -267,19 +267,19 @@
   ></div>
 
   <aside
-    class="fixed top-0 right-0 h-full w-full sm:w-[470px] bg-white shadow-2xl z-[101] transform transition-transform duration-300 ease-in-out flex flex-col"
+    class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[470px] bg-white shadow-2xl z-[101] transform transition-transform duration-300 ease-in-out flex flex-col"
     [ngClass]="isCartOpen ? 'translate-x-0' : 'translate-x-full'"
   >
-    <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+    <div class="p-4 sm:p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
       <div>
-        <h2 class="text-2xl font-black text-gray-900">{{ 'CATALOG.CART.TITLE' | translate }}</h2>
+        <h2 class="text-xl sm:text-2xl font-black text-gray-900">{{ 'CATALOG.CART.TITLE' | translate }}</h2>
         <p class="text-xs font-medium text-gray-500">{{ cartCount }} {{ (cartCount === 1 ? 'CATALOG.CART.ITEM_SINGULAR' : 'CATALOG.CART.ITEM_PLURAL') | translate }}</p>
       </div>
       <button (click)="toggleCart()" class="text-gray-400 hover:text-red-500 transition-colors p-2 bg-white rounded-full shadow-sm hover:shadow-md">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
-    <div class="flex-1 overflow-y-auto p-6">
+    <div class="flex-1 overflow-y-auto p-4 sm:p-6">
       @if (cart.length === 0) {
         <div class="h-full flex flex-col items-center justify-center text-center text-gray-400">
           <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-3xl bg-gray-100">
@@ -293,15 +293,15 @@
         <div class="space-y-4">
           @for (item of cart; track item.id) {
             <div class="rounded-3xl border border-gray-100 bg-white p-4 shadow-sm">
-              <div class="flex gap-4">
-                <div class="h-20 w-20 flex-shrink-0 rounded-2xl border border-gray-100 bg-gray-50 p-2">
+              <div class="flex gap-3 sm:gap-4">
+                <div class="h-16 w-16 sm:h-20 sm:w-20 flex-shrink-0 rounded-2xl border border-gray-100 bg-gray-50 p-2">
                   <img [src]="'/img/' + item.image" [alt]="item.nameKey | translate" class="h-full w-full object-contain">
                 </div>
 
                 <div class="min-w-0 flex-1">
                   <h4 class="text-sm font-black leading-tight text-gray-900">{{ item.nameKey | translate }}</h4>
                   <p class="mt-1 text-xs font-bold uppercase tracking-wider text-gray-400">{{ item.categoryKey | translate }}</p>
-                  <div class="mt-3 flex items-center justify-between gap-3">
+                  <div class="mt-3 flex flex-col min-[390px]:flex-row min-[390px]:items-center min-[390px]:justify-between gap-3">
                     <div class="flex items-center rounded-xl border border-gray-200">
                       <button (click)="decreaseQuantity(item.id)" class="h-9 w-9 text-lg font-black text-gray-500 transition hover:bg-gray-50">-</button>
                       <span class="w-9 text-center text-sm font-black text-gray-900">{{ item.quantity }}</span>
@@ -321,10 +321,10 @@
       }
     </div>
 
-    <div class="p-6 border-t border-gray-200 bg-gray-50 shadow-[0_-10px_30px_rgba(0,0,0,0.02)]">
+    <div class="p-4 sm:p-6 border-t border-gray-200 bg-gray-50 shadow-[0_-10px_30px_rgba(0,0,0,0.02)]">
       <div class="flex justify-between items-end mb-6">
         <span class="text-gray-500 uppercase tracking-wider text-sm font-black mb-1">{{ 'CATALOG.CART.TOTAL' | translate }}</span>
-        <span class="text-4xl font-black text-gray-950">${{ cartTotal }}</span>
+        <span class="text-3xl sm:text-4xl font-black text-gray-950">${{ cartTotal }}</span>
       </div>
 
       <button

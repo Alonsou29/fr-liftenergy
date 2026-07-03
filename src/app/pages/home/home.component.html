@@ -1,6 +1,6 @@
 <section
   id="top"
-  class="relative h-screen w-full flex items-center overflow-hidden bg-canvas m-0 p-0"
+  class="relative min-h-[100svh] w-full flex items-center overflow-hidden bg-canvas m-0 px-0 py-28 sm:py-32 lg:py-0"
 >
   <div class="absolute inset-0 z-0">
     <video
@@ -26,22 +26,22 @@
     ></div>
   </div>
 
-  <div class="container mx-auto relative z-10 px-6 md:px-16 text-left">
-    <div class="max-w-6xl space-y-10">
+  <div class="container mx-auto relative z-10 px-5 sm:px-6 md:px-16 text-left">
+    <div class="max-w-6xl space-y-7 sm:space-y-10">
       <h1
-        class="text-7xl md:text-[9rem] font-black text-white leading-[0.85] tracking-tighter"
+        class="text-[clamp(3.2rem,9vw,9rem)] font-black text-white leading-[0.9] sm:leading-[0.86] tracking-tight md:tracking-tighter"
       >
         <span class="text-lime-400">{{ "HERO.TITLE_1" | translate }}</span
         ><br />
         {{ "HERO.TITLE_2" | translate }}<br />
         <span
-          class="text-4xl md:text-5xl font-light opacity-70 italic tracking-normal"
+          class="text-[clamp(2rem,4vw,3rem)] font-light opacity-70 italic tracking-normal"
           >{{ "HERO.TITLE_3" | translate }}</span
         >
       </h1>
 
       <p
-        class="text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed border-l-2 border-lime-500/40 pl-6"
+        class="text-base sm:text-xl md:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed border-l-2 border-lime-500/40 pl-4 sm:pl-6"
       >
         {{ "HERO.DESC_1" | translate }}
         <span class="text-white font-medium italic">{{
@@ -50,16 +50,16 @@
         >.
       </p>
 
-      <div class="flex flex-wrap gap-6 items-center pt-6">
+      <div class="flex flex-col min-[430px]:flex-row flex-wrap gap-4 sm:gap-6 items-stretch min-[430px]:items-center pt-3 sm:pt-6">
         <button
           (click)="navigateTo('/contact')"
-          class="px-10 py-4 bg-lime-500 hover:bg-lime-400 text-black font-bold rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(154,203,147,0.35)] cursor-pointer"
+          class="px-7 sm:px-10 py-4 bg-lime-500 hover:bg-lime-400 text-black font-bold rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(154,203,147,0.35)] cursor-pointer"
         >
           {{ "HERO.BTN_START" | translate }}
         </button>
         <button
           (click)="navigateTo('/aboutus')"
-          class="group flex items-center gap-3 px-10 py-4 border border-white/20 hover:bg-white/10 text-white font-medium rounded-full transition-all backdrop-blur-sm cursor-pointer"
+          class="group flex items-center justify-center gap-3 px-7 sm:px-10 py-4 border border-white/20 hover:bg-white/10 text-white font-medium rounded-full transition-all backdrop-blur-sm cursor-pointer"
         >
           <span>{{ "HERO.BTN_STORY" | translate }}</span>
           <svg
@@ -98,7 +98,7 @@
   <div class="relative z-10">
     <section
       id="aboutus"
-      class="relative m-0 p-0 overflow-hidden bg-transparent"
+      class="relative m-0 p-0 overflow-clip bg-transparent"
     >
       <app-about-us></app-about-us>
     </section>
@@ -108,7 +108,7 @@
     ></div>
 
     <section id="services" class="relative m-0 p-0 bg-transparent">
-      <div class="container mx-auto py-24 px-6">
+      <div class="container mx-auto py-16 sm:py-20 lg:py-24 px-5 sm:px-6">
         <app-services></app-services>
       </div>
     </section>
@@ -118,7 +118,7 @@
     ></div>
 
     <section id="projects" class="relative m-0 p-0 bg-transparent">
-      <div class="container mx-auto py-24 px-6">
+      <div class="container mx-auto py-16 sm:py-20 lg:py-24 px-5 sm:px-6">
         <app-projects></app-projects>
       </div>
     </section>
@@ -128,7 +128,7 @@
 <app-innovation-well></app-innovation-well>
 
 <section id="contact" class="relative bg-canvas m-0 p-0">
-  <div class="container mx-auto py-24 px-6 border-t border-white/10">
+  <div class="container mx-auto py-16 sm:py-20 lg:py-24 px-5 sm:px-6 border-t border-white/10">
     <app-contact></app-contact>
   </div>
 </section>
@@ -137,7 +137,7 @@
   (click)="scrollToTop()"
   [class.opacity-100]="showScrollButton"
   [class.opacity-0]="!showScrollButton"
-  class="fixed bottom-8 right-8 z-50 p-4 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md text-white shadow-2xl transition-all duration-500 hover:bg-lime-500/20 hover:border-lime-500/40 group overflow-hidden cursor-pointer"
+  class="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50 p-3 sm:p-4 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md text-white shadow-2xl transition-all duration-500 hover:bg-lime-500/20 hover:border-lime-500/40 group overflow-hidden cursor-pointer"
 >
   <div
     class="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
