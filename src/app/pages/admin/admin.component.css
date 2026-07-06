@@ -21,4 +21,62 @@
 
 select.admin-field {
   color-scheme: dark;
+  cursor: pointer;
+}
+
+select.admin-field option {
+  background: #203324;
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+select.admin-field:focus {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.admin-upload-field {
+  display: flex;
+  min-height: 4.25rem;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  border-radius: 1rem;
+  border: 1px dashed rgba(190, 242, 100, 0.35);
+  background: rgba(190, 242, 100, 0.07);
+  padding: 0.85rem 1rem;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.admin-upload-field:hover {
+  border-color: rgba(190, 242, 100, 0.7);
+  background: rgba(190, 242, 100, 0.1);
+}
+
+.admin-upload-field:active {
+  transform: scale(0.99);
+}
+
+.admin-summary-card {
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.admin-summary-card span,
+.admin-summary-card strong {
+  min-width: 0;
+}
+
+@media (max-width: 420px) {
+  .admin-summary-card {
+    min-height: 3rem;
+  }
+
+  .admin-summary-card span {
+    font-size: 0.45rem;
+    letter-spacing: 0.12em;
+  }
 }

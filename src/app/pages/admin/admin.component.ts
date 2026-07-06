@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 type StockStatus = 'available' | 'limited' | 'draft';
 type SortOption = 'updated' | 'priceAsc' | 'priceDesc' | 'name';
@@ -9,10 +10,13 @@ type SortOption = 'updated' | 'priceAsc' | 'priceDesc' | 'name';
 interface AdminProduct {
   id: number;
   name: string;
+  nameEn: string;
   category: string;
   price: number;
   description: string;
+  descriptionEn: string;
   longDescription: string;
+  longDescriptionEn: string;
   image: string;
   stock: StockStatus;
   tags: string;
@@ -24,11 +28,13 @@ interface AdminProduct {
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, TranslateModule],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
+  constructor(private translate: TranslateService) {}
+
   isModalOpen = false;
   isEditing = false;
   searchTerm = '';
@@ -40,10 +46,13 @@ export class AdminComponent {
     {
       id: 1,
       name: 'Variador de Frecuencia 15HP',
+      nameEn: '15HP Variable Frequency Drive',
       category: 'Control y potencia',
       price: 450,
       description: 'Controlador de velocidad trifasico ideal para sistemas de bombeo industrial.',
+      descriptionEn: 'Three-phase speed controller ideal for industrial pumping systems.',
       longDescription: 'Variador de frecuencia para control de torque, proteccion por sobrecarga e integracion industrial mediante protocolos de comunicacion.',
+      longDescriptionEn: 'Variable frequency drive for torque control, overload protection, and industrial protocol integration.',
       image: 'variador.png',
       stock: 'available',
       tags: '15HP, Trifasico, Modbus',
@@ -54,10 +63,13 @@ export class AdminComponent {
     {
       id: 2,
       name: 'Cable de Potencia Subacuatico',
+      nameEn: 'Subaquatic Power Cable',
       category: 'Cableado industrial',
       price: 1200,
       description: 'Rollo de 100m resistente a altas presiones y entornos corrosivos.',
+      descriptionEn: '100m roll resistant to high pressure and corrosive environments.',
       longDescription: 'Cable de potencia para inmersion profunda con cubierta de polimero reforzado y resistencia a ambientes corrosivos.',
+      longDescriptionEn: 'Power cable for deep immersion with reinforced polymer jacket and resistance to corrosive environments.',
       image: 'cable.png',
       stock: 'limited',
       tags: '100m, Subacuatico, Alta presion',
@@ -79,9 +91,12 @@ export class AdminComponent {
     const result = this.products.filter(product => {
       const searchableText = [
         product.name,
+        product.nameEn,
         product.category,
         product.description,
+        product.descriptionEn,
         product.longDescription,
+        product.longDescriptionEn,
         product.tags,
         product.applications,
         product.specs
@@ -140,7 +155,7 @@ export class AdminComponent {
   }
 
   deleteProduct(id: number) {
-    if (confirm('¿Eliminar este equipo definitivamente?')) {
+    if (confirm(this.t('ADMIN.CONFIRM_DELETE'))) {
       this.products = this.products.filter(product => product.id !== id);
     }
   }
@@ -173,9 +188,9 @@ export class AdminComponent {
   }
 
   getStockLabel(stock: StockStatus) {
-    if (stock === 'available') return 'En stock';
-    if (stock === 'limited') return 'Stock limitado';
-    return 'Borrador';
+    if (stock === 'available') return this.t('ADMIN.STOCK.AVAILABLE');
+    if (stock === 'limited') return this.t('ADMIN.STOCK.LIMITED');
+    return this.t('ADMIN.STOCK.DRAFT');
   }
 
   getStockClass(stock: StockStatus) {
@@ -188,14 +203,35 @@ export class AdminComponent {
     return product.tags.split(',').map(tag => tag.trim()).filter(Boolean);
   }
 
+  getImageSrc(product: AdminProduct) {
+    if (!product.image) return '/img/variador.png';
+    return product.image.startsWith('data:') || product.image.startsWith('http') ? product.image : `/img/${product.image}`;
+  }
+
+  onImageSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.currentProduct.image = String(reader.result);
+    };
+    reader.readAsDataURL(file);
+  }
+
   private createEmptyProduct(): AdminProduct {
     return {
       id: 0,
       name: '',
+      nameEn: '',
       category: 'Control y potencia',
       price: 0,
       description: '',
+      descriptionEn: '',
       longDescription: '',
+      longDescriptionEn: '',
       image: 'variador.png',
       stock: 'draft',
       tags: '',
@@ -207,5 +243,10 @@ export class AdminComponent {
 
   private getToday() {
     return new Date().toISOString().slice(0, 10);
+  }
+
+  private t(key: string) {
+    const value = this.translate.instant(key);
+    return typeof value === 'string' ? value : key;
   }
 }

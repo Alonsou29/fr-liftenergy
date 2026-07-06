@@ -283,6 +283,98 @@
       }
     }
   },
+  "ADMIN": {
+    "HERO": {
+      "EYEBROW": "Administrator",
+      "TITLE": "Catalog manager",
+      "DESCRIPTION": "Manage the commercial information that will feed the public catalog and backend integration."
+    },
+    "ACTIONS": {
+      "VIEW_CATALOG": "View catalog",
+      "NEW_PRODUCT": "New product",
+      "LOGOUT": "Log out"
+    },
+    "SUMMARY": {
+      "PRODUCTS": "Products",
+      "AVAILABLE": "In stock",
+      "LIMITED": "Limited stock",
+      "VALUE": "Ref. value"
+    },
+    "FILTERS": {
+      "SEARCH_PLACEHOLDER": "Search product, category, tag, or specification",
+      "ALL_CATEGORIES": "All categories",
+      "ALL_STOCK": "All stock",
+      "CLEAR": "Clear"
+    },
+    "SORT": {
+      "UPDATED": "Recently updated",
+      "PRICE_ASC": "Lowest price",
+      "PRICE_DESC": "Highest price",
+      "NAME": "Name A-Z"
+    },
+    "STOCK": {
+      "AVAILABLE": "In stock",
+      "LIMITED": "Limited stock",
+      "DRAFT": "Draft"
+    },
+    "TABLE": {
+      "TITLE": "Published products",
+      "RESULT_SINGULAR": "result in view",
+      "RESULT_PLURAL": "results in view",
+      "DRAFT_SINGULAR": "draft",
+      "DRAFT_PLURAL": "drafts",
+      "PRODUCT": "Product",
+      "CATEGORY": "Category",
+      "STATUS": "Status",
+      "TAGS": "Tags",
+      "PRICE": "Price",
+      "ACTIONS": "Actions",
+      "UPDATED_AT": "Updated",
+      "EDIT": "Edit",
+      "DELETE": "Delete"
+    },
+    "EMPTY": {
+      "TITLE": "No products match those filters",
+      "BUTTON": "View all"
+    },
+    "MODAL": {
+      "EYEBROW": "Product",
+      "NEW_TITLE": "New product",
+      "EDIT_TITLE": "Edit product",
+      "CANCEL": "Cancel",
+      "SAVE": "Save changes"
+    },
+    "FORM": {
+      "NAME_ES": "Name ES",
+      "NAME_EN": "Name EN",
+      "NAME_ES_PLACEHOLDER": "Nombre comercial en español",
+      "NAME_EN_PLACEHOLDER": "Commercial name in English",
+      "CATEGORY": "Category",
+      "CATEGORY_PLACEHOLDER": "Control and power",
+      "PRICE": "Ref. price",
+      "PRICE_PLACEHOLDER": "0",
+      "STATUS": "Status",
+      "IMAGE": "Image",
+      "UPLOAD_IMAGE": "Attach PNG/JPG image",
+      "UPLOAD_HELP": "A preview will be shown to validate the product.",
+      "IMAGE_PLACEHOLDER": "variador.png or image URL",
+      "TAGS": "Tags",
+      "TAGS_PLACEHOLDER": "15HP, Three-phase, Modbus",
+      "SHORT_DESC_ES": "Short description ES",
+      "SHORT_DESC_EN": "Short description EN",
+      "SHORT_DESC_ES_PLACEHOLDER": "Resumen para la tarjeta del catálogo",
+      "SHORT_DESC_EN_PLACEHOLDER": "Summary for the catalog card",
+      "TECH_DESC_ES": "Technical description ES",
+      "TECH_DESC_EN": "Technical description EN",
+      "TECH_DESC_ES_PLACEHOLDER": "Detalle técnico para la ficha del producto",
+      "TECH_DESC_EN_PLACEHOLDER": "Technical detail for the product sheet",
+      "APPLICATIONS": "Applications",
+      "APPLICATIONS_PLACEHOLDER": "Industrial pumping, Oil wells",
+      "SPECS": "Specifications",
+      "SPECS_PLACEHOLDER": "Power: 15HP | Input: Three-phase"
+    },
+    "CONFIRM_DELETE": "Delete this equipment permanently?"
+  },
   "FOOTER": {
     "RIGHTS": "© 2026 Lift Energy Group. All rights reserved."
   },

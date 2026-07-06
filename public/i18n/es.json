@@ -283,6 +283,98 @@
       }
     }
   },
+  "ADMIN": {
+    "HERO": {
+      "EYEBROW": "Administrador",
+      "TITLE": "Gestor de catálogo",
+      "DESCRIPTION": "Administra la información comercial que luego alimentará el catálogo público y la integración con backend."
+    },
+    "ACTIONS": {
+      "VIEW_CATALOG": "Ver catálogo",
+      "NEW_PRODUCT": "Nuevo producto",
+      "LOGOUT": "Cerrar sesión"
+    },
+    "SUMMARY": {
+      "PRODUCTS": "Productos",
+      "AVAILABLE": "En stock",
+      "LIMITED": "Stock limitado",
+      "VALUE": "Valor ref."
+    },
+    "FILTERS": {
+      "SEARCH_PLACEHOLDER": "Buscar producto, categoría, tag o especificación",
+      "ALL_CATEGORIES": "Todas las categorías",
+      "ALL_STOCK": "Todo stock",
+      "CLEAR": "Limpiar"
+    },
+    "SORT": {
+      "UPDATED": "Actualizados",
+      "PRICE_ASC": "Menor precio",
+      "PRICE_DESC": "Mayor precio",
+      "NAME": "Nombre A-Z"
+    },
+    "STOCK": {
+      "AVAILABLE": "En stock",
+      "LIMITED": "Stock limitado",
+      "DRAFT": "Borrador"
+    },
+    "TABLE": {
+      "TITLE": "Productos publicados",
+      "RESULT_SINGULAR": "resultado en vista",
+      "RESULT_PLURAL": "resultados en vista",
+      "DRAFT_SINGULAR": "borrador",
+      "DRAFT_PLURAL": "borradores",
+      "PRODUCT": "Producto",
+      "CATEGORY": "Categoría",
+      "STATUS": "Estado",
+      "TAGS": "Tags",
+      "PRICE": "Precio",
+      "ACTIONS": "Acciones",
+      "UPDATED_AT": "Actualizado",
+      "EDIT": "Editar",
+      "DELETE": "Borrar"
+    },
+    "EMPTY": {
+      "TITLE": "No hay productos con esos filtros",
+      "BUTTON": "Ver todos"
+    },
+    "MODAL": {
+      "EYEBROW": "Producto",
+      "NEW_TITLE": "Nuevo producto",
+      "EDIT_TITLE": "Editar producto",
+      "CANCEL": "Cancelar",
+      "SAVE": "Guardar cambios"
+    },
+    "FORM": {
+      "NAME_ES": "Nombre ES",
+      "NAME_EN": "Nombre EN",
+      "NAME_ES_PLACEHOLDER": "Nombre comercial en español",
+      "NAME_EN_PLACEHOLDER": "Commercial name in English",
+      "CATEGORY": "Categoría",
+      "CATEGORY_PLACEHOLDER": "Control y potencia",
+      "PRICE": "Precio ref.",
+      "PRICE_PLACEHOLDER": "0",
+      "STATUS": "Estado",
+      "IMAGE": "Imagen",
+      "UPLOAD_IMAGE": "Adjuntar imagen PNG/JPG",
+      "UPLOAD_HELP": "Se mostrará una vista previa para validar el producto.",
+      "IMAGE_PLACEHOLDER": "variador.png o URL de imagen",
+      "TAGS": "Tags",
+      "TAGS_PLACEHOLDER": "15HP, Trifásico, Modbus",
+      "SHORT_DESC_ES": "Descripción corta ES",
+      "SHORT_DESC_EN": "Descripción corta EN",
+      "SHORT_DESC_ES_PLACEHOLDER": "Resumen para la tarjeta del catálogo",
+      "SHORT_DESC_EN_PLACEHOLDER": "Summary for the catalog card",
+      "TECH_DESC_ES": "Descripción técnica ES",
+      "TECH_DESC_EN": "Descripción técnica EN",
+      "TECH_DESC_ES_PLACEHOLDER": "Detalle técnico para la ficha del producto",
+      "TECH_DESC_EN_PLACEHOLDER": "Technical detail for the product sheet",
+      "APPLICATIONS": "Aplicaciones",
+      "APPLICATIONS_PLACEHOLDER": "Bombeo industrial, Pozos petroleros",
+      "SPECS": "Especificaciones",
+      "SPECS_PLACEHOLDER": "Potencia: 15HP | Entrada: Trifásica"
+    },
+    "CONFIRM_DELETE": "¿Eliminar este equipo definitivamente?"
+  },
   "FOOTER": {
     "RIGHTS": "© 2026 Lift Energy Group. Todos los derechos reservados."
   },

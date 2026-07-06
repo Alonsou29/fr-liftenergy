@@ -2,10 +2,10 @@
   <div class="container mx-auto max-w-7xl px-5 sm:px-6">
     <section class="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
       <div>
-        <p class="mb-2 text-[11px] font-black uppercase tracking-[0.24em] text-lime-300">Administrador</p>
-        <h1 class="text-3xl font-black tracking-tight sm:text-5xl">Gestor de catálogo</h1>
+        <p class="mb-2 text-[11px] font-black uppercase tracking-[0.24em] text-lime-300">{{ 'ADMIN.HERO.EYEBROW' | translate }}</p>
+        <h1 class="text-3xl font-black tracking-tight sm:text-5xl">{{ 'ADMIN.HERO.TITLE' | translate }}</h1>
         <p class="mt-3 max-w-2xl text-sm leading-relaxed text-gray-400">
-          Administra la información comercial que luego alimentará el catálogo público y la integración con backend.
+          {{ 'ADMIN.HERO.DESCRIPTION' | translate }}
         </p>
       </div>
 
@@ -14,38 +14,38 @@
           routerLink="/productos"
           class="h-12 rounded-2xl border border-white/10 px-5 text-xs font-black uppercase tracking-wider text-white/70 transition hover:border-lime-300/40 hover:text-lime-200"
         >
-          Ver catálogo
+          {{ 'ADMIN.ACTIONS.VIEW_CATALOG' | translate }}
         </button>
         <button
           (click)="openAddModal()"
           class="h-12 rounded-2xl bg-lime-300 px-5 text-xs font-black uppercase tracking-wider text-[#111d14] shadow-xl shadow-lime-950/20 transition hover:bg-lime-200 active:scale-[0.98]"
         >
-          + Nuevo producto
+          + {{ 'ADMIN.ACTIONS.NEW_PRODUCT' | translate }}
         </button>
       </div>
     </section>
 
-    <section class="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-      <div class="rounded-3xl border border-white/10 bg-white/[0.06] p-5">
-        <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Productos</span>
-        <strong class="mt-2 block text-4xl font-black">{{ products.length }}</strong>
+    <section class="mb-4 grid grid-cols-2 gap-2 xl:grid-cols-4">
+      <div class="admin-summary-card rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5">
+        <span class="text-[9px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.SUMMARY.PRODUCTS' | translate }}</span>
+        <strong class="block text-xl font-black leading-none">{{ products.length }}</strong>
       </div>
-      <div class="rounded-3xl border border-lime-300/20 bg-lime-300/[0.08] p-5">
-        <span class="text-[10px] font-black uppercase tracking-widest text-lime-200">En stock</span>
-        <strong class="mt-2 block text-4xl font-black text-lime-200">{{ availableCount }}</strong>
+      <div class="admin-summary-card rounded-xl border border-lime-300/20 bg-lime-300/[0.075] px-3 py-2.5">
+        <span class="text-[9px] font-black uppercase tracking-widest text-lime-200">{{ 'ADMIN.SUMMARY.AVAILABLE' | translate }}</span>
+        <strong class="block text-xl font-black leading-none text-lime-200">{{ availableCount }}</strong>
       </div>
-      <div class="rounded-3xl border border-amber-300/20 bg-amber-300/[0.08] p-5">
-        <span class="text-[10px] font-black uppercase tracking-widest text-amber-200">Stock limitado</span>
-        <strong class="mt-2 block text-4xl font-black text-amber-200">{{ limitedCount }}</strong>
+      <div class="admin-summary-card rounded-xl border border-amber-300/20 bg-amber-300/[0.075] px-3 py-2.5">
+        <span class="text-[9px] font-black uppercase tracking-widest text-amber-200">{{ 'ADMIN.SUMMARY.LIMITED' | translate }}</span>
+        <strong class="block text-xl font-black leading-none text-amber-200">{{ limitedCount }}</strong>
       </div>
-      <div class="rounded-3xl border border-white/10 bg-white/[0.06] p-5">
-        <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Valor ref.</span>
-        <strong class="mt-2 block text-4xl font-black">${{ inventoryValue }}</strong>
+      <div class="admin-summary-card rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5">
+        <span class="text-[9px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.SUMMARY.VALUE' | translate }}</span>
+        <strong class="block text-xl font-black leading-none">${{ inventoryValue }}</strong>
       </div>
     </section>
 
-    <section class="mb-6 rounded-3xl border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-black/20 backdrop-blur">
-      <div class="grid gap-3 lg:grid-cols-[1.35fr_0.8fr_0.7fr_0.7fr_auto]">
+    <section class="mb-5 rounded-2xl border border-white/10 bg-white/[0.055] p-3 shadow-xl shadow-black/15 backdrop-blur">
+      <div class="grid gap-2 lg:grid-cols-[1.35fr_0.8fr_0.7fr_0.7fr_auto]">
         <label class="relative block">
           <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -53,16 +53,16 @@
           <input
             [(ngModel)]="searchTerm"
             type="search"
-            placeholder="Buscar producto, categoría, tag o especificación"
-            class="h-[52px] w-full rounded-2xl border border-white/10 bg-white pl-12 pr-4 text-sm font-semibold text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+            [placeholder]="'ADMIN.FILTERS.SEARCH_PLACEHOLDER' | translate"
+            class="h-11 w-full rounded-xl border border-white/10 bg-white pl-12 pr-4 text-sm font-semibold text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
           />
         </label>
 
         <select
           [(ngModel)]="selectedCategory"
-          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="h-11 rounded-xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
-          <option value="all">Todas las categorías</option>
+          <option value="all">{{ 'ADMIN.FILTERS.ALL_CATEGORIES' | translate }}</option>
           @for (category of categories; track category) {
             @if (category !== 'all') {
               <option [value]="category">{{ category }}</option>
@@ -72,101 +72,154 @@
 
         <select
           [(ngModel)]="selectedStock"
-          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="h-11 rounded-xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
-          <option value="all">Todo stock</option>
-          <option value="available">En stock</option>
-          <option value="limited">Stock limitado</option>
-          <option value="draft">Borrador</option>
+          <option value="all">{{ 'ADMIN.FILTERS.ALL_STOCK' | translate }}</option>
+          <option value="available">{{ 'ADMIN.STOCK.AVAILABLE' | translate }}</option>
+          <option value="limited">{{ 'ADMIN.STOCK.LIMITED' | translate }}</option>
+          <option value="draft">{{ 'ADMIN.STOCK.DRAFT' | translate }}</option>
         </select>
 
         <select
           [(ngModel)]="sortBy"
-          class="h-[52px] rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="h-11 rounded-xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
-          <option value="updated">Actualizados</option>
-          <option value="priceAsc">Menor precio</option>
-          <option value="priceDesc">Mayor precio</option>
-          <option value="name">Nombre A-Z</option>
+          <option value="updated">{{ 'ADMIN.SORT.UPDATED' | translate }}</option>
+          <option value="priceAsc">{{ 'ADMIN.SORT.PRICE_ASC' | translate }}</option>
+          <option value="priceDesc">{{ 'ADMIN.SORT.PRICE_DESC' | translate }}</option>
+          <option value="name">{{ 'ADMIN.SORT.NAME' | translate }}</option>
         </select>
 
         <button
           (click)="clearFilters()"
           [disabled]="activeFilterCount === 0"
-          class="h-[52px] rounded-2xl border border-white/15 px-5 text-xs font-black uppercase tracking-wider text-white transition hover:border-lime-300/60 hover:text-lime-200 disabled:cursor-not-allowed disabled:opacity-40"
+          class="h-11 rounded-xl border border-white/15 px-4 text-[11px] font-black uppercase tracking-wider text-white transition hover:border-lime-300/60 hover:text-lime-200 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Limpiar
+          {{ 'ADMIN.FILTERS.CLEAR' | translate }}
         </button>
       </div>
     </section>
 
-    <section class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-2xl shadow-black/20">
-      <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
+    <section class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-xl shadow-black/15">
+      <div class="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-5 sm:py-4">
         <div>
-          <h2 class="text-lg font-black">Productos publicados</h2>
-          <p class="text-xs text-gray-400">{{ filteredProducts.length }} resultado{{ filteredProducts.length === 1 ? '' : 's' }} en vista</p>
+          <h2 class="text-base font-black sm:text-lg">{{ 'ADMIN.TABLE.TITLE' | translate }}</h2>
+          <p class="text-xs text-gray-400">{{ filteredProducts.length }} {{ (filteredProducts.length === 1 ? 'ADMIN.TABLE.RESULT_SINGULAR' : 'ADMIN.TABLE.RESULT_PLURAL') | translate }}</p>
         </div>
         @if (draftCount > 0) {
           <span class="rounded-full border border-slate-300/20 bg-slate-300/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-slate-200">
-            {{ draftCount }} borrador{{ draftCount === 1 ? '' : 'es' }}
+            {{ draftCount }} {{ (draftCount === 1 ? 'ADMIN.TABLE.DRAFT_SINGULAR' : 'ADMIN.TABLE.DRAFT_PLURAL') | translate }}
           </span>
         }
       </div>
 
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[980px] text-left">
+      <div class="grid gap-3 p-3 lg:hidden">
+        @for (product of filteredProducts; track product.id) {
+          <article class="rounded-2xl border border-white/10 bg-white/[0.045] p-3">
+            <div class="flex gap-3">
+              <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white p-2">
+                <img [src]="getImageSrc(product)" [alt]="product.name" class="h-full w-full object-contain">
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <div class="min-w-0">
+                    <h3 class="truncate text-sm font-black text-white">{{ product.name }}</h3>
+                    <p class="mt-1 truncate text-xs text-gray-400">{{ product.category }}</p>
+                  </div>
+                  <strong class="text-sm font-black text-lime-200">${{ product.price }}</strong>
+                </div>
+                <p class="mt-2 line-clamp-2 text-xs leading-relaxed text-gray-400">{{ product.description }}</p>
+              </div>
+            </div>
+
+            <div class="mt-3 flex flex-wrap items-center gap-2">
+              <span class="inline-flex rounded-full border px-2.5 py-1 text-[9px] font-black uppercase tracking-widest" [ngClass]="getStockClass(product.stock)">
+                {{ getStockLabel(product.stock) }}
+              </span>
+              @for (tag of getTagList(product).slice(0, 2); track tag) {
+                <span class="rounded-full bg-white/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-gray-300">{{ tag }}</span>
+              }
+            </div>
+
+            <div class="mt-3 grid grid-cols-2 gap-2">
+              <button
+                (click)="editProduct(product)"
+                class="rounded-xl border border-white/10 px-3 py-2 text-[11px] font-black uppercase tracking-wider text-gray-300 transition hover:border-blue-300/40 hover:bg-blue-300/10 hover:text-blue-200"
+              >
+                {{ 'ADMIN.TABLE.EDIT' | translate }}
+              </button>
+              <button
+                (click)="deleteProduct(product.id)"
+                class="rounded-xl border border-white/10 px-3 py-2 text-[11px] font-black uppercase tracking-wider text-gray-300 transition hover:border-red-300/40 hover:bg-red-300/10 hover:text-red-200"
+              >
+                {{ 'ADMIN.TABLE.DELETE' | translate }}
+              </button>
+            </div>
+          </article>
+        } @empty {
+          <div class="px-4 py-10 text-center">
+            <p class="text-base font-black text-white">{{ 'ADMIN.EMPTY.TITLE' | translate }}</p>
+            <button (click)="clearFilters()" class="mt-4 rounded-xl bg-lime-300 px-4 py-2.5 text-xs font-black uppercase tracking-wider text-[#111d14]">
+              {{ 'ADMIN.EMPTY.BUTTON' | translate }}
+            </button>
+          </div>
+        }
+      </div>
+
+      <div class="hidden overflow-x-auto lg:block">
+        <table class="w-full min-w-[900px] text-left">
           <thead class="border-b border-white/10 text-[10px] uppercase tracking-widest text-gray-400">
             <tr>
-              <th class="px-5 py-4">Producto</th>
-              <th class="px-5 py-4">Categoría</th>
-              <th class="px-5 py-4">Estado</th>
-              <th class="px-5 py-4">Tags</th>
-              <th class="px-5 py-4 text-right">Precio</th>
-              <th class="px-5 py-4 text-right">Acciones</th>
+              <th class="px-4 py-3">{{ 'ADMIN.TABLE.PRODUCT' | translate }}</th>
+              <th class="px-4 py-3">{{ 'ADMIN.TABLE.CATEGORY' | translate }}</th>
+              <th class="px-4 py-3">{{ 'ADMIN.TABLE.STATUS' | translate }}</th>
+              <th class="px-4 py-3">{{ 'ADMIN.TABLE.TAGS' | translate }}</th>
+              <th class="px-4 py-3 text-right">{{ 'ADMIN.TABLE.PRICE' | translate }}</th>
+              <th class="px-4 py-3 text-right">{{ 'ADMIN.TABLE.ACTIONS' | translate }}</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-white/10">
             @for (product of filteredProducts; track product.id) {
               <tr class="transition hover:bg-white/[0.04]">
-                <td class="px-5 py-5">
-                  <div class="flex items-center gap-4">
-                    <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white p-2">
-                      <img [src]="'/img/' + product.image" [alt]="product.name" class="h-full w-full object-contain">
+                <td class="px-4 py-4">
+                  <div class="flex items-center gap-3">
+                    <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white p-2">
+                      <img [src]="getImageSrc(product)" [alt]="product.name" class="h-full w-full object-contain">
                     </div>
                     <div class="min-w-0">
                       <h3 class="truncate text-sm font-black text-white">{{ product.name }}</h3>
                       <p class="mt-1 max-w-sm truncate text-xs text-gray-400">{{ product.description }}</p>
-                      <span class="mt-2 block text-[10px] font-bold uppercase tracking-widest text-gray-500">Actualizado {{ product.updatedAt }}</span>
+                      <span class="mt-2 block text-[10px] font-bold uppercase tracking-widest text-gray-500">{{ 'ADMIN.TABLE.UPDATED_AT' | translate }} {{ product.updatedAt }}</span>
                     </div>
                   </div>
                 </td>
-                <td class="px-5 py-5 text-sm font-bold text-gray-200">{{ product.category }}</td>
-                <td class="px-5 py-5">
-                  <span class="inline-flex rounded-full border px-3 py-1 text-[10px] font-black uppercase tracking-widest" [ngClass]="getStockClass(product.stock)">
+                <td class="px-4 py-4 text-sm font-bold text-gray-200">{{ product.category }}</td>
+                <td class="px-4 py-4">
+                  <span class="inline-flex rounded-full border px-2.5 py-1 text-[9px] font-black uppercase tracking-widest" [ngClass]="getStockClass(product.stock)">
                     {{ getStockLabel(product.stock) }}
                   </span>
                 </td>
-                <td class="px-5 py-5">
-                  <div class="flex max-w-xs flex-wrap gap-2">
+                <td class="px-4 py-4">
+                  <div class="flex max-w-xs flex-wrap gap-1.5">
                     @for (tag of getTagList(product); track tag) {
-                      <span class="rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-300">{{ tag }}</span>
+                      <span class="rounded-full bg-white/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-gray-300">{{ tag }}</span>
                     }
                   </div>
                 </td>
-                <td class="px-5 py-5 text-right text-lg font-black text-lime-200">${{ product.price }}</td>
-                <td class="px-5 py-5">
+                <td class="px-4 py-4 text-right text-base font-black text-lime-200">${{ product.price }}</td>
+                <td class="px-4 py-4">
                   <div class="flex justify-end gap-2">
                     <button
                       (click)="editProduct(product)"
-                      class="rounded-xl border border-white/10 px-4 py-2 text-xs font-black uppercase tracking-wider text-gray-300 transition hover:border-blue-300/40 hover:bg-blue-300/10 hover:text-blue-200"
+                      class="rounded-xl border border-white/10 px-3 py-2 text-[11px] font-black uppercase tracking-wider text-gray-300 transition hover:border-blue-300/40 hover:bg-blue-300/10 hover:text-blue-200"
                     >
-                      Editar
+                      {{ 'ADMIN.TABLE.EDIT' | translate }}
                     </button>
                     <button
                       (click)="deleteProduct(product.id)"
-                      class="rounded-xl border border-white/10 px-4 py-2 text-xs font-black uppercase tracking-wider text-gray-300 transition hover:border-red-300/40 hover:bg-red-300/10 hover:text-red-200"
+                      class="rounded-xl border border-white/10 px-3 py-2 text-[11px] font-black uppercase tracking-wider text-gray-300 transition hover:border-red-300/40 hover:bg-red-300/10 hover:text-red-200"
                     >
-                      Borrar
+                      {{ 'ADMIN.TABLE.DELETE' | translate }}
                     </button>
                   </div>
                 </td>
@@ -174,9 +227,9 @@
             } @empty {
               <tr>
                 <td colspan="6" class="px-5 py-16 text-center">
-                  <p class="text-lg font-black text-white">No hay productos con esos filtros</p>
+                  <p class="text-lg font-black text-white">{{ 'ADMIN.EMPTY.TITLE' | translate }}</p>
                   <button (click)="clearFilters()" class="mt-4 rounded-2xl bg-lime-300 px-5 py-3 text-xs font-black uppercase tracking-wider text-[#111d14]">
-                    Ver todos
+                    {{ 'ADMIN.EMPTY.BUTTON' | translate }}
                   </button>
                 </td>
               </tr>
@@ -188,7 +241,7 @@
 
     <div class="mt-12 text-center">
       <button routerLink="/productos" class="text-[10px] font-bold uppercase tracking-widest text-white/30 transition hover:text-red-300">
-        Cerrar sesión
+        {{ 'ADMIN.ACTIONS.LOGOUT' | translate }}
       </button>
     </div>
   </div>
@@ -199,8 +252,8 @@
     <div class="max-h-[92vh] w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-[#152419] shadow-2xl">
       <div class="flex items-center justify-between border-b border-white/10 px-6 py-5">
         <div>
-          <p class="text-[10px] font-black uppercase tracking-[0.22em] text-lime-300">Producto</p>
-          <h2 class="text-2xl font-black">{{ isEditing ? 'Editar producto' : 'Nuevo producto' }}</h2>
+          <p class="text-[10px] font-black uppercase tracking-[0.22em] text-lime-300">{{ 'ADMIN.MODAL.EYEBROW' | translate }}</p>
+          <h2 class="text-2xl font-black">{{ (isEditing ? 'ADMIN.MODAL.EDIT_TITLE' : 'ADMIN.MODAL.NEW_TITLE') | translate }}</h2>
         </div>
         <button (click)="closeModal()" class="rounded-full bg-white/10 p-2 text-gray-300 transition hover:bg-white/15 hover:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -210,66 +263,93 @@
       <div class="max-h-[calc(92vh-90px)] overflow-y-auto p-6">
         <div class="grid gap-4 md:grid-cols-2">
           <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Nombre</span>
-            <input [(ngModel)]="currentProduct.name" class="admin-field" placeholder="Nombre comercial">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.NAME_ES' | translate }}</span>
+            <input [(ngModel)]="currentProduct.name" class="admin-field" [placeholder]="'ADMIN.FORM.NAME_ES_PLACEHOLDER' | translate">
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Categoría</span>
-            <input [(ngModel)]="currentProduct.category" class="admin-field" placeholder="Control y potencia">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.NAME_EN' | translate }}</span>
+            <input [(ngModel)]="currentProduct.nameEn" class="admin-field" [placeholder]="'ADMIN.FORM.NAME_EN_PLACEHOLDER' | translate">
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Precio ref.</span>
-            <input [(ngModel)]="currentProduct.price" type="number" class="admin-field" placeholder="0">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.CATEGORY' | translate }}</span>
+            <input [(ngModel)]="currentProduct.category" class="admin-field" [placeholder]="'ADMIN.FORM.CATEGORY_PLACEHOLDER' | translate">
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Estado</span>
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.PRICE' | translate }}</span>
+            <input [(ngModel)]="currentProduct.price" type="number" class="admin-field" [placeholder]="'ADMIN.FORM.PRICE_PLACEHOLDER' | translate">
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.STATUS' | translate }}</span>
             <select [(ngModel)]="currentProduct.stock" class="admin-field">
-              <option value="available">En stock</option>
-              <option value="limited">Stock limitado</option>
-              <option value="draft">Borrador</option>
+              <option value="available">{{ 'ADMIN.STOCK.AVAILABLE' | translate }}</option>
+              <option value="limited">{{ 'ADMIN.STOCK.LIMITED' | translate }}</option>
+              <option value="draft">{{ 'ADMIN.STOCK.DRAFT' | translate }}</option>
             </select>
           </label>
 
-          <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Imagen</span>
-            <input [(ngModel)]="currentProduct.image" class="admin-field" placeholder="variador.png">
-          </label>
-
-          <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Tags</span>
-            <input [(ngModel)]="currentProduct.tags" class="admin-field" placeholder="15HP, Trifasico, Modbus">
-          </label>
-
           <label class="block md:col-span-2">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Descripción corta</span>
-            <textarea [(ngModel)]="currentProduct.description" class="admin-field min-h-24 resize-y" placeholder="Resumen para la tarjeta del catálogo"></textarea>
-          </label>
-
-          <label class="block md:col-span-2">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Descripción técnica</span>
-            <textarea [(ngModel)]="currentProduct.longDescription" class="admin-field min-h-28 resize-y" placeholder="Detalle técnico para la ficha del producto"></textarea>
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.IMAGE' | translate }}</span>
+            <div class="grid gap-3 sm:grid-cols-[120px_1fr]">
+              <div class="flex h-28 items-center justify-center rounded-2xl border border-white/10 bg-white p-3">
+                <img [src]="getImageSrc(currentProduct)" [alt]="currentProduct.name || ('ADMIN.MODAL.EYEBROW' | translate)" class="h-full w-full object-contain">
+              </div>
+              <div class="grid gap-2">
+                <label class="admin-upload-field">
+                  <input type="file" accept="image/png,image/jpeg,image/webp" class="sr-only" (change)="onImageSelected($event)">
+                  <span class="text-sm font-black text-white">{{ 'ADMIN.FORM.UPLOAD_IMAGE' | translate }}</span>
+                  <span class="text-xs text-gray-400">{{ 'ADMIN.FORM.UPLOAD_HELP' | translate }}</span>
+                </label>
+                <input [(ngModel)]="currentProduct.image" class="admin-field" [placeholder]="'ADMIN.FORM.IMAGE_PLACEHOLDER' | translate">
+              </div>
+            </div>
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Aplicaciones</span>
-            <textarea [(ngModel)]="currentProduct.applications" class="admin-field min-h-24 resize-y" placeholder="Bombeo industrial, Pozos petroleros"></textarea>
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.TAGS' | translate }}</span>
+            <input [(ngModel)]="currentProduct.tags" class="admin-field" [placeholder]="'ADMIN.FORM.TAGS_PLACEHOLDER' | translate">
           </label>
 
           <label class="block">
-            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">Especificaciones</span>
-            <textarea [(ngModel)]="currentProduct.specs" class="admin-field min-h-24 resize-y" placeholder="Potencia: 15HP | Entrada: Trifasica"></textarea>
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.SHORT_DESC_ES' | translate }}</span>
+            <textarea [(ngModel)]="currentProduct.description" class="admin-field min-h-24 resize-y" [placeholder]="'ADMIN.FORM.SHORT_DESC_ES_PLACEHOLDER' | translate"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.SHORT_DESC_EN' | translate }}</span>
+            <textarea [(ngModel)]="currentProduct.descriptionEn" class="admin-field min-h-24 resize-y" [placeholder]="'ADMIN.FORM.SHORT_DESC_EN_PLACEHOLDER' | translate"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.TECH_DESC_ES' | translate }}</span>
+            <textarea [(ngModel)]="currentProduct.longDescription" class="admin-field min-h-28 resize-y" [placeholder]="'ADMIN.FORM.TECH_DESC_ES_PLACEHOLDER' | translate"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.TECH_DESC_EN' | translate }}</span>
+            <textarea [(ngModel)]="currentProduct.longDescriptionEn" class="admin-field min-h-28 resize-y" [placeholder]="'ADMIN.FORM.TECH_DESC_EN_PLACEHOLDER' | translate"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.APPLICATIONS' | translate }}</span>
+            <textarea [(ngModel)]="currentProduct.applications" class="admin-field min-h-24 resize-y" [placeholder]="'ADMIN.FORM.APPLICATIONS_PLACEHOLDER' | translate"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block text-[10px] font-black uppercase tracking-widest text-gray-400">{{ 'ADMIN.FORM.SPECS' | translate }}</span>
+            <textarea [(ngModel)]="currentProduct.specs" class="admin-field min-h-24 resize-y" [placeholder]="'ADMIN.FORM.SPECS_PLACEHOLDER' | translate"></textarea>
           </label>
         </div>
 
         <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
           <button (click)="closeModal()" class="rounded-2xl border border-white/10 px-6 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/10">
-            Cancelar
+            {{ 'ADMIN.MODAL.CANCEL' | translate }}
           </button>
           <button (click)="saveProduct()" class="rounded-2xl bg-lime-300 px-6 py-4 text-sm font-black uppercase tracking-wider text-[#111d14] transition hover:bg-lime-200">
-            Guardar cambios
+            {{ 'ADMIN.MODAL.SAVE' | translate }}
           </button>
         </div>
       </div>
