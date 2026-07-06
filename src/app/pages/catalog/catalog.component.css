@@ -2,6 +2,88 @@
   animation: fadeInUp 180ms ease-out both;
 }
 
+.catalog-fluid-title {
+  max-width: 15.5ch;
+  font-size: clamp(2.4rem, 5.2vw, 4.8rem);
+  line-height: 0.96;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+.catalog-stats-panel {
+  min-width: 0;
+  width: min(100%, 21rem);
+}
+
+.catalog-stat-card {
+  min-height: 4.25rem;
+  min-width: 0;
+}
+
+.catalog-stat-card span {
+  overflow-wrap: anywhere;
+}
+
+.catalog-select {
+  appearance: none;
+  border-radius: 1.125rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #263829 50%),
+    linear-gradient(135deg, #263829 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  padding-right: 2.75rem;
+}
+
+.catalog-select:hover {
+  border-color: rgba(190, 242, 100, 0.55);
+}
+
+.catalog-select:focus {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #65a30d 50%),
+    linear-gradient(135deg, #65a30d 50%, transparent 50%);
+}
+
+.catalog-select option {
+  background: #ffffff;
+  color: #1f2937;
+  font-weight: 600;
+  border-radius: 0.75rem;
+}
+
+@media (max-width: 420px) {
+  .catalog-fluid-title {
+    max-width: 12.5ch;
+    font-size: clamp(2.1rem, 12vw, 2.85rem);
+    line-height: 0.98;
+  }
+
+  .catalog-stats-panel {
+    width: 100%;
+  }
+
+  .catalog-stat-card {
+    min-height: 3.85rem;
+    padding-inline: 0.75rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .catalog-fluid-title {
+    max-width: 16ch;
+    font-size: clamp(3.35rem, 6.6vw, 4.5rem);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

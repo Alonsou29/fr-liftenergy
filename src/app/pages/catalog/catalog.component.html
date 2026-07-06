@@ -3,14 +3,14 @@
   <div class="ios-landscape-catalog-divider absolute inset-x-0 top-[420px] h-px bg-white/10"></div>
 
   <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-    <section class="ios-landscape-catalog-hero grid xl:grid-cols-[1.25fr_0.75fr] gap-6 sm:gap-8 items-start pb-8 sm:pb-10">
-      <div>
+    <section class="ios-landscape-catalog-hero grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)] lg:items-center pb-8 sm:pb-10">
+      <div class="max-w-4xl">
         <div class="inline-flex max-w-full items-center gap-2 rounded-full border border-lime-300/30 bg-white/5 px-3 sm:px-4 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.22em] text-lime-200 mb-5">
           <span class="h-2 w-2 rounded-full bg-lime-300 shadow-[0_0_16px_rgba(190,242,100,0.9)]"></span>
           {{ 'CATALOG.HERO.BADGE' | translate }}
         </div>
 
-        <h1 class="ios-landscape-catalog-title text-3xl min-[390px]:text-4xl sm:text-5xl xl:text-6xl font-black text-white tracking-tight uppercase leading-[1] sm:leading-[0.96] mb-5">
+        <h1 class="ios-landscape-catalog-title catalog-fluid-title font-black text-white tracking-tight uppercase mb-5">
           {{ 'CATALOG.HERO.TITLE' | translate }} <span class="text-lime-300">{{ 'CATALOG.HERO.TITLE_HIGHLIGHT' | translate }}</span>
         </h1>
 
@@ -19,21 +19,21 @@
         </p>
       </div>
 
-      <div class="ios-landscape-catalog-stats grid max-w-2xl grid-cols-3 gap-2 sm:gap-3 xl:max-w-none xl:self-end xl:justify-self-end">
-        <div class="rounded-2xl border border-white/10 bg-white/[0.08] p-3 sm:p-4 backdrop-blur">
-          <span class="block text-2xl sm:text-3xl font-black text-white">{{ products.length }}</span>
-          <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-widest text-gray-400">{{ 'CATALOG.STATS.PRODUCTS' | translate }}</span>
+      <div class="ios-landscape-catalog-stats catalog-stats-panel grid grid-cols-3 gap-2 sm:gap-3 lg:justify-self-end">
+        <div class="catalog-stat-card rounded-xl border border-white/10 bg-white/[0.07] px-3 py-2.5 sm:px-4 sm:py-3 backdrop-blur">
+          <span class="block text-xl sm:text-2xl font-black leading-none text-white">{{ products.length }}</span>
+          <span class="mt-1.5 block text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.1em] text-gray-400">{{ 'CATALOG.STATS.PRODUCTS' | translate }}</span>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/[0.08] p-3 sm:p-4 backdrop-blur">
-          <span class="block text-2xl sm:text-3xl font-black text-lime-300">{{ categoryCount }}</span>
-          <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] sm:tracking-widest text-gray-400">{{ 'CATALOG.STATS.CATEGORIES' | translate }}</span>
+        <div class="catalog-stat-card rounded-xl border border-white/10 bg-white/[0.07] px-3 py-2.5 sm:px-4 sm:py-3 backdrop-blur">
+          <span class="block text-xl sm:text-2xl font-black leading-none text-lime-300">{{ categoryCount }}</span>
+          <span class="mt-1.5 block text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.1em] text-gray-400">{{ 'CATALOG.STATS.CATEGORIES' | translate }}</span>
         </div>
         <button
           (click)="toggleCart()"
-          class="rounded-2xl border border-lime-300/30 bg-lime-300 p-3 sm:p-4 text-left text-[#142116] shadow-xl shadow-lime-950/20 transition-transform active:scale-95"
+          class="catalog-stat-card rounded-xl bg-lime-300 px-3 py-2.5 sm:px-4 sm:py-3 text-left text-[#142116] shadow-lg shadow-lime-950/15 transition-colors hover:bg-lime-200 active:bg-lime-400"
         >
-          <span class="block text-2xl sm:text-3xl font-black">{{ cartCount }}</span>
-          <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.12em] sm:tracking-widest">{{ 'CATALOG.STATS.IN_ORDER' | translate }}</span>
+          <span class="block text-xl sm:text-2xl font-black leading-none">{{ cartCount }}</span>
+          <span class="mt-1.5 block text-[8px] sm:text-[9px] font-black uppercase tracking-[0.1em]">{{ 'CATALOG.STATS.IN_ORDER' | translate }}</span>
         </button>
       </div>
     </section>
@@ -54,7 +54,7 @@
 
         <select
           [(ngModel)]="selectedCategory"
-          class="h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="catalog-select h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
           @for (category of categories; track category) {
             <option [value]="category">{{ category === 'all' ? ('CATALOG.FILTERS.ALL_CATEGORIES' | translate) : (category | translate) }}</option>
@@ -63,7 +63,7 @@
 
         <select
           [(ngModel)]="selectedStock"
-          class="h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="catalog-select h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
           <option value="all">{{ 'CATALOG.FILTERS.ALL_STOCK' | translate }}</option>
           <option value="available">{{ 'CATALOG.STOCK.AVAILABLE' | translate }}</option>
@@ -72,7 +72,7 @@
 
         <select
           [(ngModel)]="sortBy"
-          class="h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
+          class="catalog-select h-[52px] w-full rounded-2xl border border-white/10 bg-white px-4 text-sm font-bold text-gray-800 outline-none transition focus:border-lime-300 focus:ring-4 focus:ring-lime-300/20"
         >
           <option value="featured">{{ 'CATALOG.SORT.FEATURED' | translate }}</option>
           <option value="priceAsc">{{ 'CATALOG.SORT.PRICE_ASC' | translate }}</option>
