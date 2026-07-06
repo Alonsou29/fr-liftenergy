@@ -71,6 +71,12 @@ select.admin-field:focus {
 }
 
 @media (max-width: 420px) {
+  :host {
+    display: block;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .admin-summary-card {
     min-height: 3rem;
   }
