@@ -35,6 +35,8 @@ interface CartItem extends Product {
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent {
+  private readonly whatsappPhoneNumber = '17867251404';
+
   constructor(private translate: TranslateService) {}
 
   products: Product[] = [
@@ -212,7 +214,7 @@ export class CatalogComponent {
 
     message += `\n*${this.t('CATALOG.WHATSAPP.TOTAL_LABEL')}:* $${this.cartTotal}`;
 
-    const whatsappUrl = `https://w.app/liftenergygroup?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${this.whatsappPhoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   }
 

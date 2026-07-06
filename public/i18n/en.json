@@ -227,7 +227,7 @@
       "OPEN_ORDER": "Open order"
     },
     "WHATSAPP": {
-      "GREETING": "Hello! I came from the website and would like to create a purchase order for these items:",
+      "GREETING": "Hello Lift, I would like to place an order with these items:",
       "TOTAL_LABEL": "Estimated total"
     },
     "CATEGORIES": {
