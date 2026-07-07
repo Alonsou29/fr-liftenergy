@@ -168,7 +168,11 @@
       "BADGE": "Industrial catalog",
       "TITLE": "Equipment for demanding",
       "TITLE_HIGHLIGHT": "operations",
-      "DESCRIPTION": "Find tools and components for your operations."
+      "DESCRIPTION": "Explore RTU solutions, industrial accessories, and variable frequency drives with detailed technical information for field engineering and evaluation.",
+      "FEATURED_TITLE": "Featured technical line",
+      "RTU_MODELS": "RTU models",
+      "PLATFORM": "Platform",
+      "ASK": "Ask"
     },
     "STATS": {
       "PRODUCTS": "Products",
@@ -179,6 +183,7 @@
     "FILTERS": {
       "ALL_CATEGORIES": "All categories",
       "ALL_STOCK": "All stock",
+      "SEARCH": "Search",
       "CLEAR": "Clear"
     },
     "STOCK": {
@@ -194,7 +199,8 @@
     "RESULTS": {
       "SINGULAR": "result",
       "PLURAL": "results",
-      "PRICE_NOTE": "Reference prices subject to commercial validation.",
+      "PRICE_NOTE": "Technical information subject to validation according to project scope.",
+      "SEARCHING": "Searching",
       "ACTIVE_FILTER_SINGULAR": "active filter",
       "ACTIVE_FILTER_PLURAL": "active filters"
     },
@@ -205,13 +211,18 @@
     },
     "PRODUCT_CARD": {
       "PRICE_REF": "Ref. price",
-      "DETAILS": "Details",
-      "ADD_TO_ORDER": "Add to order"
+      "DETAILS": "Datasheet",
+      "ADD_TO_ORDER": "Add to order",
+      "REQUEST_INFO": "Request info"
     },
     "MODAL": {
       "SKU": "SKU",
       "TECH_DESCRIPTION": "Technical description",
-      "APPLICATIONS": "Applications"
+      "APPLICATIONS": "Applications",
+      "KEY_FEATURES": "Key features",
+      "SPECS": "Technical specifications",
+      "RELATED": "Related components",
+      "CLOSE": "Close datasheet"
     },
     "CART": {
       "TITLE": "Reference order",
@@ -227,12 +238,23 @@
       "OPEN_ORDER": "Open order"
     },
     "WHATSAPP": {
-      "GREETING": "Hello Lift, I would like to place an order with these items:",
+      "GREETING": "Hello Lift Energy Group, I would like to receive technical information about this equipment:",
+      "SUBJECT": "Equipment of interest",
+      "NOTE": "I am available to review scope, availability, and technical recommendations.",
+      "GENERIC_SUBJECT": "Industrial catalog",
       "TOTAL_LABEL": "Estimated total"
     },
     "CATEGORIES": {
       "CONTROL_POWER": "Control and power",
-      "INDUSTRIAL_CABLING": "Industrial cabling"
+      "INDUSTRIAL_CABLING": "Industrial cabling",
+      "RTU": "Industrial RTU",
+      "RTU_DESC": "Telemetry, remote control, Edge Computing, and IIoT.",
+      "ACCESSORIES": "Industrial accessories",
+      "ACCESSORIES_DESC": "Modules, gateways, power supply, and panel components.",
+      "DRIVES": "Variable frequency drives",
+      "DRIVES_DESC": "Motor control, pumping, and energy efficiency.",
+      "ALL": "All",
+      "ALL_DESC": "View every technical line in the catalog."
     },
     "PRODUCTS": {
       "VARIADOR": {

@@ -168,7 +168,11 @@
       "BADGE": "Catálogo industrial",
       "TITLE": "Equipos para operaciones",
       "TITLE_HIGHLIGHT": "exigentes",
-      "DESCRIPTION": "Encuentra herramientas y componentes para tus operaciones."
+      "DESCRIPTION": "Explora soluciones RTU, accesorios industriales y variadores con información técnica detallada para evaluación e ingeniería de campo.",
+      "FEATURED_TITLE": "Línea técnica destacada",
+      "RTU_MODELS": "Modelos RTU",
+      "PLATFORM": "Plataforma",
+      "ASK": "Consultar"
     },
     "STATS": {
       "PRODUCTS": "Productos",
@@ -179,6 +183,7 @@
     "FILTERS": {
       "ALL_CATEGORIES": "Todas las categorías",
       "ALL_STOCK": "Todo stock",
+      "SEARCH": "Buscar",
       "CLEAR": "Limpiar"
     },
     "STOCK": {
@@ -194,7 +199,8 @@
     "RESULTS": {
       "SINGULAR": "resultado",
       "PLURAL": "resultados",
-      "PRICE_NOTE": "Precios referenciales sujetos a validación comercial.",
+      "PRICE_NOTE": "Información técnica sujeta a validación según alcance del proyecto.",
+      "SEARCHING": "Buscando",
       "ACTIVE_FILTER_SINGULAR": "filtro activo",
       "ACTIVE_FILTER_PLURAL": "filtros activos"
     },
@@ -205,13 +211,18 @@
     },
     "PRODUCT_CARD": {
       "PRICE_REF": "Precio ref.",
-      "DETAILS": "Detalles",
-      "ADD_TO_ORDER": "Agregar a orden"
+      "DETAILS": "Ver ficha técnica",
+      "ADD_TO_ORDER": "Agregar a orden",
+      "REQUEST_INFO": "Solicitar información"
     },
     "MODAL": {
       "SKU": "SKU",
       "TECH_DESCRIPTION": "Descripción técnica",
-      "APPLICATIONS": "Aplicaciones"
+      "APPLICATIONS": "Aplicaciones",
+      "KEY_FEATURES": "Características clave",
+      "SPECS": "Especificaciones técnicas",
+      "RELATED": "Componentes relacionados",
+      "CLOSE": "Cerrar ficha técnica"
     },
     "CART": {
       "TITLE": "Orden referencial",
@@ -227,12 +238,23 @@
       "OPEN_ORDER": "Abrir orden"
     },
     "WHATSAPP": {
-      "GREETING": "Hola Lift, me gustaría concretar un pedido con estos equipos:",
+      "GREETING": "Hola Lift Energy Group, me gustaría recibir información técnica sobre este equipo:",
+      "SUBJECT": "Equipo de interés",
+      "NOTE": "Quedo atento para revisar alcance, disponibilidad y recomendación técnica.",
+      "GENERIC_SUBJECT": "Catálogo industrial",
       "TOTAL_LABEL": "Total estimado"
     },
     "CATEGORIES": {
       "CONTROL_POWER": "Control y potencia",
-      "INDUSTRIAL_CABLING": "Cableado industrial"
+      "INDUSTRIAL_CABLING": "Cableado industrial",
+      "RTU": "RTU Industrial",
+      "RTU_DESC": "Telemetría, control remoto, Edge Computing e IIoT.",
+      "ACCESSORIES": "Accesorios industriales",
+      "ACCESSORIES_DESC": "Módulos, gateways, alimentación y componentes de tablero.",
+      "DRIVES": "Variadores",
+      "DRIVES_DESC": "Control de motores, bombeo y eficiencia energética.",
+      "ALL": "Todo",
+      "ALL_DESC": "Ver todas las líneas técnicas del catálogo."
     },
     "PRODUCTS": {
       "VARIADOR": {
