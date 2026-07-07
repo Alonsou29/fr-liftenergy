@@ -28,6 +28,14 @@
   filter: drop-shadow(0 18px 28px rgba(20, 33, 22, 0.12));
 }
 
+.catalog-modal-panel {
+  scrollbar-width: none;
+}
+
+.catalog-modal-panel::-webkit-scrollbar {
+  display: none;
+}
+
 @media (max-width: 420px) {
   .catalog-fluid-title {
     max-width: 12.5ch;

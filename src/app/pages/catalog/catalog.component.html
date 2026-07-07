@@ -1,5 +1,5 @@
-<div class="catalog-page min-h-screen bg-[#f4f8f1] pt-24 sm:pt-28 pb-20 sm:pb-24 text-[#17251a]">
-  <div class="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top_left,rgba(190,242,100,0.22),transparent_34%),linear-gradient(135deg,#17281b_0%,#102016_55%,#1d2d20_100%)]"></div>
+<div class="catalog-page min-h-screen bg-[#102016] pt-24 sm:pt-28 pb-20 sm:pb-24 text-[#17251a]">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(190,242,100,0.2),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(132,204,22,0.12),transparent_28%),linear-gradient(135deg,#17281b_0%,#102016_48%,#1d2d20_100%)]"></div>
 
   <div class="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
     <section class="pb-12 sm:pb-14">
@@ -66,8 +66,8 @@
 
     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <p class="text-xs font-black uppercase tracking-[0.18em] text-[#2E7D32]">{{ activeCategoryLabel }}</p>
-        <p class="mt-1 text-sm font-semibold text-slate-500">
+        <p class="text-xs font-black uppercase tracking-[0.18em] text-lime-200">{{ activeCategoryLabel }}</p>
+        <p class="mt-1 text-sm font-semibold text-lime-50/70">
           {{ filteredProducts.length }} {{ (filteredProducts.length === 1 ? 'CATALOG.RESULTS.SINGULAR' : 'CATALOG.RESULTS.PLURAL') | translate }}
         </p>
       </div>
@@ -143,9 +143,9 @@
     }
 
     @if (selectedProduct) {
-      <div class="fixed inset-0 z-[120] flex items-center justify-center bg-[#07110a]/70 p-3 backdrop-blur-sm sm:p-6" (click)="closeDetails()">
+      <div class="fixed inset-0 z-[120] flex items-start justify-center overflow-y-auto bg-[radial-gradient(circle_at_top_left,rgba(190,242,100,0.18),transparent_32%),linear-gradient(135deg,rgba(20,33,22,0.88),rgba(46,76,50,0.82)_45%,rgba(13,25,16,0.9))] p-3 pt-24 backdrop-blur-sm sm:p-6 sm:pt-28" (click)="closeDetails()">
         <section
-          class="relative max-h-[92dvh] w-full max-w-6xl overflow-y-auto rounded-[1.25rem] border border-[#2E7D32]/10 bg-white shadow-2xl shadow-black/30"
+          class="catalog-modal-panel relative max-h-[calc(100dvh-7.5rem)] w-full max-w-5xl overflow-y-auto rounded-[1.25rem] border border-[#2E7D32]/10 bg-white shadow-2xl shadow-black/30"
           (click)="$event.stopPropagation()"
         >
           <button
@@ -157,12 +157,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
 
-          <div class="-mt-14 grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-            <div class="relative flex min-h-[300px] items-center justify-center bg-gradient-to-br from-[#f8fbf5] to-[#e5f0df] p-6 sm:p-8">
-              <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.name" class="max-h-[430px] w-full object-contain">
+          <div class="-mt-14 grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
+            <div class="relative flex min-h-[250px] items-center justify-center bg-gradient-to-br from-[#f8fbf5] to-[#e5f0df] p-5 sm:p-6">
+              <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.name" class="max-h-[340px] w-full object-contain">
             </div>
 
-            <div class="p-5 sm:p-8">
+            <div class="p-5 sm:p-6">
             <div class="mb-4 flex flex-wrap items-center gap-2">
               <span class="rounded-full bg-[#142116] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-lime-200">{{ selectedProduct.code }}</span>
               <span class="rounded-full bg-[#edf6e7] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-[#2E7D32]">
@@ -170,15 +170,15 @@
               </span>
             </div>
 
-            <h2 class="mb-2 text-3xl font-black leading-tight text-[#142116] sm:text-4xl">{{ selectedProduct.name }}</h2>
-            <p class="mb-6 text-base font-bold text-slate-500">{{ selectedProduct.subtitle }}</p>
+            <h2 class="mb-2 text-3xl font-black leading-tight text-[#142116]">{{ selectedProduct.name }}</h2>
+            <p class="mb-5 text-sm font-bold text-slate-500 sm:text-base">{{ selectedProduct.subtitle }}</p>
 
-            <div class="mb-7 rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5">
+            <div class="mb-6 rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5">
               <h3 class="mb-3 text-xs font-black uppercase tracking-[0.18em] text-[#2E7D32]">{{ 'CATALOG.MODAL.TECH_DESCRIPTION' | translate }}</h3>
               <p class="text-sm leading-relaxed text-slate-600">{{ selectedProduct.description }}</p>
             </div>
 
-            <div class="mb-7">
+            <div class="mb-6">
               <h3 class="mb-3 text-xs font-black uppercase tracking-[0.18em] text-[#2E7D32]">{{ 'CATALOG.MODAL.KEY_FEATURES' | translate }}</h3>
               <div class="grid gap-2 sm:grid-cols-2">
                 @for (highlight of selectedProduct.highlights; track highlight) {
@@ -189,7 +189,7 @@
           </div>
           </div>
 
-          <div class="grid gap-6 border-t border-slate-100 p-5 sm:p-8 xl:grid-cols-[1.2fr_0.8fr]">
+          <div class="grid gap-6 border-t border-slate-100 p-5 sm:p-6 xl:grid-cols-[1.2fr_0.8fr]">
           <div>
             <h3 class="mb-4 text-xs font-black uppercase tracking-[0.18em] text-[#2E7D32]">{{ 'CATALOG.MODAL.SPECS' | translate }}</h3>
             <div class="overflow-hidden rounded-[1.25rem] border border-slate-200">
