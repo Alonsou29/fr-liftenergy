@@ -213,7 +213,8 @@
       "PRICE_REF": "Precio ref.",
       "DETAILS": "Ver ficha técnica",
       "ADD_TO_ORDER": "Agregar a orden",
-      "REQUEST_INFO": "Solicitar información"
+      "REQUEST_INFO": "Solicitar información",
+      "DOWNLOAD_DATASHEET": "Descargar ficha técnica"
     },
     "MODAL": {
       "SKU": "SKU",

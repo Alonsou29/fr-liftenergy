@@ -213,7 +213,8 @@
       "PRICE_REF": "Ref. price",
       "DETAILS": "Datasheet",
       "ADD_TO_ORDER": "Add to order",
-      "REQUEST_INFO": "Request info"
+      "REQUEST_INFO": "Request info",
+      "DOWNLOAD_DATASHEET": "Download datasheet"
     },
     "MODAL": {
       "SKU": "SKU",

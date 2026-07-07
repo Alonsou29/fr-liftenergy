@@ -22,6 +22,7 @@ interface CatalogProduct {
   specs: CatalogSpec[];
   applications: string[];
   related?: string[];
+  datasheetUrl?: string;
 }
 
 @Component({
@@ -92,7 +93,8 @@ export class CatalogComponent {
         'Gestión de aguas: estaciones de bombeo pequeñas, pozos profundos y niveles en tanques remotos.',
         'Facilities management: monitoreo ambiental HVAC y consumo en tableros secundarios.'
       ],
-      related: ['RevPi Core S', 'RevPi AIO', 'RevPi DIO', 'Fuente 24 VDC', 'Interruptor inteligente']
+      related: ['RevPi Core S', 'RevPi AIO', 'RevPi DIO', 'Fuente 24 VDC', 'Interruptor inteligente'],
+      datasheetUrl: '/docs/catalog/rtu/RTU-01.pdf'
     },
     {
       id: 'rtu-e200',
@@ -119,7 +121,8 @@ export class CatalogComponent {
         'Manufactura discreta: telemetría OEE en máquinas CNC y celdas de ensamblaje.',
         'Logística y cadena de frío: monitoreo continuo en cavas industriales y centros refrigerados.'
       ],
-      related: ['RevPi Connect 5', 'RevPi AIO', 'Fuente 24 VDC', 'Interruptor inteligente']
+      related: ['RevPi Connect 5', 'RevPi AIO', 'Fuente 24 VDC', 'Interruptor inteligente'],
+      datasheetUrl: '/docs/catalog/rtu/RTU-02.pdf'
     },
     {
       id: 'rtu-e300',
@@ -144,7 +147,8 @@ export class CatalogComponent {
         'Minería y maquinaria pesada: mantenimiento predictivo por vibraciones en motores, compresores o bombas.',
         'Petróleo y gas midstream: control avanzado en estaciones de válvulas o compresión.'
       ],
-      related: ['RevPi Connect 5 8GB', 'RevPi DIO', 'RevPi AIO', 'Caja de control IP65']
+      related: ['RevPi Connect 5 8GB', 'RevPi DIO', 'RevPi AIO', 'Caja de control IP65'],
+      datasheetUrl: '/docs/catalog/rtu/RTU-03.pdf'
     },
     {
       id: 'rtu-w400',
@@ -167,7 +171,8 @@ export class CatalogComponent {
         'Smart cities: gateway central para alumbrado público, medidores residenciales o gestión de tráfico.',
         'Agricultura de precisión: concentración de cientos de nodos LoRaWAN en plantaciones extensivas.'
       ],
-      related: ['Gateway WirelessHART', 'Gateway Dragino MS48-LR', 'Milesight UG56', 'LT-22222-L LoRa I/O Controller']
+      related: ['Gateway WirelessHART', 'Gateway Dragino MS48-LR', 'Milesight UG56', 'LT-22222-L LoRa I/O Controller'],
+      datasheetUrl: '/docs/catalog/rtu/RTU-04.pdf'
     },
     {
       id: 'rtu-cx',
@@ -190,7 +195,8 @@ export class CatalogComponent {
         'Proyectos con restricciones físicas, energéticas, ambientales o de comunicación.',
         'Migraciones, modernizaciones o pilotos donde se requiere arquitectura flexible.'
       ],
-      related: ['RevPi Core S', 'RevPi Connect 5', 'Módulos I/O', 'Gateways industriales', 'Caja de control IP65']
+      related: ['RevPi Core S', 'RevPi Connect 5', 'Módulos I/O', 'Gateways industriales', 'Caja de control IP65'],
+      datasheetUrl: '/docs/catalog/rtu/RTU-05.pdf'
     },
     {
       id: 'acc-revpi-core',
