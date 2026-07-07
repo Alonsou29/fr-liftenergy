@@ -38,7 +38,6 @@ export class CatalogComponent {
   constructor(private translate: TranslateService) {}
 
   searchTerm = '';
-  appliedSearch = '';
   selectedCategory: CatalogCategory | 'all' = 'rtu';
   selectedProduct: CatalogProduct | null = null;
 
@@ -315,11 +314,11 @@ export class CatalogComponent {
   ];
 
   get filteredProducts() {
-    const search = this.appliedSearch.trim().toLowerCase();
+    const search = this.normalizeSearch(this.searchTerm);
 
     return this.products.filter(product => {
       const matchesCategory = this.selectedCategory === 'all' || product.category === this.selectedCategory;
-      const matchesSearch = !search || this.getSearchText(product).includes(search);
+      const matchesSearch = !search || this.productMatchesSearch(product, search);
       return matchesCategory && matchesSearch;
     });
   }
@@ -335,13 +334,11 @@ export class CatalogComponent {
   }
 
   applySearch() {
-    this.appliedSearch = this.searchTerm;
     this.selectedProduct = null;
   }
 
   clearFilters() {
     this.searchTerm = '';
-    this.appliedSearch = '';
     this.selectedCategory = 'rtu';
     this.selectedProduct = null;
   }
@@ -368,17 +365,47 @@ export class CatalogComponent {
     window.open(whatsappUrl, '_blank');
   }
 
-  private getSearchText(product: CatalogProduct) {
-    return [
+  private productMatchesSearch(product: CatalogProduct, search: string) {
+    const primaryTokens = this.getSearchTokens([
       product.code,
       product.name,
       product.subtitle,
       product.description,
-      ...product.highlights,
+      this.t(`CATALOG.CATEGORIES.${product.category === 'rtu' ? 'RTU' : product.category === 'accessories' ? 'ACCESSORIES' : 'DRIVES'}`),
+      ...product.highlights
+    ]);
+
+    if (primaryTokens.some(token => token.startsWith(search))) {
+      return true;
+    }
+
+    if (search.length < 3) {
+      return false;
+    }
+
+    const secondaryTokens = this.getSearchTokens([
       ...product.applications,
       ...(product.related ?? []),
       ...product.specs.flatMap(spec => [spec.label, spec.value])
-    ].join(' ').toLowerCase();
+    ]);
+
+    return secondaryTokens.some(token => token.startsWith(search));
+  }
+
+  private getSearchTokens(values: string[]) {
+    return values
+      .join(' ')
+      .split(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+/)
+      .map(value => this.normalizeSearch(value))
+      .filter(Boolean);
+  }
+
+  private normalizeSearch(value: string) {
+    return value
+      .trim()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
   }
 
   private t(key: string) {
