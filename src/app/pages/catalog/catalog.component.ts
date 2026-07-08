@@ -1,7 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, NgZone, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import type * as ThreeNamespace from 'three';
+import type { OrbitControls as OrbitControlsType } from 'three/examples/jsm/controls/OrbitControls.js';
 
 type CatalogCategory = 'rtu' | 'accessories' | 'drives';
 
@@ -32,14 +34,38 @@ interface CatalogProduct {
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css']
 })
-export class CatalogComponent {
+export class CatalogComponent implements AfterViewInit, OnDestroy {
   private readonly whatsappPhoneNumber = '17867251404';
+  private readonly pumpjackModelUrl = '/models/pumpjack.glb';
 
-  constructor(private translate: TranslateService) {}
+  @ViewChild('pumpjackCanvas') private pumpjackCanvas?: ElementRef<HTMLCanvasElement>;
+
+  private three?: typeof ThreeNamespace;
+  private pumpjackScene?: ThreeNamespace.Scene;
+  private pumpjackCamera?: ThreeNamespace.PerspectiveCamera;
+  private pumpjackRenderer?: ThreeNamespace.WebGLRenderer;
+  private pumpjackControls?: OrbitControlsType;
+  private pumpjackResizeObserver?: ResizeObserver;
+  private pumpjackAnimationFrame = 0;
+
+  constructor(
+    private translate: TranslateService,
+    private ngZone: NgZone
+  ) {}
 
   searchTerm = '';
   selectedCategory: CatalogCategory | 'all' = 'rtu';
   selectedProduct: CatalogProduct | null = null;
+
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      queueMicrotask(() => this.initPumpjackScene());
+    });
+  }
+
+  ngOnDestroy() {
+    this.destroyPumpjackScene();
+  }
 
   readonly categories: { id: CatalogCategory | 'all'; labelKey: string; descriptionKey: string }[] = [
     {
@@ -411,5 +437,190 @@ export class CatalogComponent {
   private t(key: string) {
     const value = this.translate.instant(key);
     return typeof value === 'string' ? value : key;
+  }
+
+  private async initPumpjackScene() {
+    const canvas = this.pumpjackCanvas?.nativeElement;
+    const container = canvas?.parentElement;
+
+    if (!canvas || !container) {
+      return;
+    }
+
+    const [THREE, { GLTFLoader }, { OrbitControls }] = await Promise.all([
+      import('three'),
+      import('three/examples/jsm/loaders/GLTFLoader.js'),
+      import('three/examples/jsm/controls/OrbitControls.js')
+    ]);
+
+    this.three = THREE;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+    camera.position.set(4.4, 2.1, 5.2);
+
+    let renderer: ThreeNamespace.WebGLRenderer;
+
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        preserveDrawingBuffer: true,
+        powerPreference: 'high-performance'
+      });
+    } catch (error) {
+      container.classList.add('catalog-hero-model--webgl-unavailable');
+      console.warn('No se pudo iniciar WebGL para el modelo pumpjack.glb', error);
+      return;
+    }
+    renderer.setClearColor(0x000000, 0);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.65;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.enablePan = false;
+    controls.minDistance = 2.8;
+    controls.maxDistance = 8.5;
+    controls.minPolarAngle = Math.PI * 0.22;
+    controls.maxPolarAngle = Math.PI * 0.78;
+
+    scene.add(new THREE.HemisphereLight(0xf4ffe0, 0x122014, 2.1));
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+    keyLight.position.set(5, 5, 6);
+    scene.add(keyLight);
+
+    const rimLight = new THREE.DirectionalLight(0xbef264, 2.4);
+    rimLight.position.set(-4, 2.5, -3);
+    scene.add(rimLight);
+
+    const fillLight = new THREE.PointLight(0x86efac, 18, 8);
+    fillLight.position.set(0, 1.6, 3.5);
+    scene.add(fillLight);
+
+    const loader = new GLTFLoader();
+    loader.load(
+      this.pumpjackModelUrl,
+      gltf => {
+        const model = gltf.scene;
+        model.traverse(child => {
+          if (child instanceof THREE.Mesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+            child.material = new THREE.MeshStandardMaterial({
+              color: 0xdfe8d7,
+              metalness: 0.34,
+              roughness: 0.42,
+              side: THREE.DoubleSide
+            });
+          }
+        });
+
+        scene.add(model);
+        this.framePumpjackModel(model, camera, controls);
+      },
+      undefined,
+      error => {
+        console.warn('No se pudo cargar el modelo pumpjack.glb', error);
+      }
+    );
+
+    const resize = () => {
+      const width = Math.max(container.clientWidth, 1);
+      const height = Math.max(container.clientHeight, 1);
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    };
+
+    resize();
+    this.pumpjackResizeObserver = new ResizeObserver(resize);
+    this.pumpjackResizeObserver.observe(container);
+
+    const animate = () => {
+      this.pumpjackAnimationFrame = window.requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    this.pumpjackScene = scene;
+    this.pumpjackCamera = camera;
+    this.pumpjackRenderer = renderer;
+    this.pumpjackControls = controls;
+  }
+
+  private framePumpjackModel(
+    model: ThreeNamespace.Object3D,
+    camera: ThreeNamespace.PerspectiveCamera,
+    controls: OrbitControlsType
+  ) {
+    const THREE = this.three;
+
+    if (!THREE) {
+      return;
+    }
+
+    const initialBox = new THREE.Box3().setFromObject(model);
+    const initialSize = initialBox.getSize(new THREE.Vector3());
+    const maxInitialDimension = Math.max(initialSize.x, initialSize.y, initialSize.z);
+
+    if (maxInitialDimension > 0) {
+      model.scale.setScalar(3.6 / maxInitialDimension);
+    }
+
+    const fittedBox = new THREE.Box3().setFromObject(model);
+    const center = fittedBox.getCenter(new THREE.Vector3());
+    model.position.sub(center);
+
+    const groundedBox = new THREE.Box3().setFromObject(model);
+    model.position.y -= groundedBox.min.y;
+    model.rotation.y = -Math.PI * 0.18;
+
+    const finalBox = new THREE.Box3().setFromObject(model);
+    const finalCenter = finalBox.getCenter(new THREE.Vector3());
+    const finalSize = finalBox.getSize(new THREE.Vector3());
+    const radius = Math.max(finalSize.x, finalSize.y, finalSize.z) * 0.58;
+
+    controls.target.copy(finalCenter);
+    controls.target.y += finalSize.y * 0.12;
+    controls.minDistance = Math.max(radius * 1.2, 2.6);
+    controls.maxDistance = Math.max(radius * 2.9, 6.5);
+    camera.position.set(
+      finalCenter.x + radius * 1.35,
+      finalCenter.y + radius * 0.72,
+      finalCenter.z + radius * 1.55
+    );
+    camera.lookAt(controls.target);
+    camera.updateProjectionMatrix();
+    controls.update();
+  }
+
+  private destroyPumpjackScene() {
+    const THREE = this.three;
+
+    if (this.pumpjackAnimationFrame) {
+      window.cancelAnimationFrame(this.pumpjackAnimationFrame);
+    }
+
+    this.pumpjackResizeObserver?.disconnect();
+    this.pumpjackControls?.dispose();
+    this.pumpjackRenderer?.dispose();
+
+    this.pumpjackScene?.traverse(object => {
+      if (THREE && object instanceof THREE.Mesh) {
+        object.geometry?.dispose();
+
+        const materials = Array.isArray(object.material) ? object.material : [object.material];
+        materials.forEach(material => material.dispose());
+      }
+    });
   }
 }
