@@ -514,11 +514,16 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
           if (child instanceof THREE.Mesh) {
             child.castShadow = true;
             child.receiveShadow = true;
-            child.material = new THREE.MeshStandardMaterial({
-              color: 0xdfe8d7,
-              metalness: 0.34,
-              roughness: 0.42,
-              side: THREE.DoubleSide
+
+            const materials = Array.isArray(child.material) ? child.material : [child.material];
+            materials.forEach(material => {
+              material.side = THREE.DoubleSide;
+              material.needsUpdate = true;
+
+              if (material instanceof THREE.MeshStandardMaterial || material instanceof THREE.MeshPhysicalMaterial) {
+                material.metalness = Math.min(material.metalness, 0.45);
+                material.roughness = Math.max(material.roughness, 0.38);
+              }
             });
           }
         });
