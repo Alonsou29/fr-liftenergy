@@ -82,6 +82,27 @@
   min-width: 0;
 }
 
+.category-tab {
+  position: relative;
+}
+
+.category-tab__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.52);
+  box-shadow: 0 0 0 0 rgba(190, 242, 100, 0);
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.category-tab:hover .category-tab__dot,
+.category-tab--active .category-tab__dot {
+  background: #65a30d;
+  box-shadow: 0 0 0 4px rgba(190, 242, 100, 0.22);
+  transform: scale(1.08);
+}
+
 .catalog-page button:not(:disabled),
 .catalog-page a[href] {
   cursor: pointer;
@@ -113,11 +134,43 @@
   box-shadow: 0 0 0 6px rgba(190, 242, 100, 0.18);
 }
 
+.catalog-search-field__icon {
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.catalog-search-field:focus-within .catalog-search-field__icon {
+  color: #2E7D32;
+  transform: translateY(-50%) scale(1.08);
+}
+
 .category-tab span,
 .product-card p,
 .product-card span,
 .product-card h3 {
   overflow-wrap: anywhere;
+}
+
+.catalog-soft-chip,
+.catalog-soft-tile,
+.catalog-spec-row {
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.catalog-soft-chip:hover,
+.catalog-soft-tile:hover,
+.catalog-spec-row:hover {
+  border-color: rgba(46, 125, 50, 0.24);
+  box-shadow: 0 10px 24px rgba(20, 33, 22, 0.08);
+  transform: translateY(-1px);
+}
+
+.catalog-soft-chip:hover {
+  background: #f1f8ec;
+}
+
+.catalog-soft-tile:hover,
+.catalog-spec-row:hover {
+  background: #fbfdf8;
 }
 
 .product-card img {
@@ -133,8 +186,32 @@
 }
 
 .catalog-modal-panel {
+  position: relative;
   animation: catalog-modal-enter 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
   scrollbar-width: none;
+}
+
+.catalog-modal-panel::before,
+.catalog-modal-panel::after {
+  content: "";
+  position: sticky;
+  left: 0;
+  z-index: 25;
+  display: block;
+  height: 1.75rem;
+  pointer-events: none;
+}
+
+.catalog-modal-panel::before {
+  top: 0;
+  margin-bottom: -1.75rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
+}
+
+.catalog-modal-panel::after {
+  bottom: 0;
+  margin-top: -1.75rem;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0));
 }
 
 .catalog-modal-panel::-webkit-scrollbar {
