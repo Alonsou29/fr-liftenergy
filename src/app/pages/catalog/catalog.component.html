@@ -24,27 +24,27 @@
       </div>
     </section>
 
-    <section class="mb-8 rounded-[1.5rem] border border-[#2E7D32]/10 bg-white/95 p-4 shadow-xl shadow-green-950/10 backdrop-blur sm:p-5">
-      <div class="grid gap-4 xl:grid-cols-[1fr_auto] xl:items-center">
-        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          @for (category of categories; track category.id) {
-            <button
-              type="button"
-              (click)="selectCategory(category.id)"
-              class="category-tab rounded-2xl border p-4 text-left transition"
-              [class.category-tab--active]="selectedCategory === category.id"
-              [ngClass]="selectedCategory === category.id ? 'border-[#2E7D32] bg-[#edf6e7] shadow-sm' : 'border-slate-200 bg-white hover:border-[#2E7D32]/40 hover:bg-[#f7fbf4]'"
-            >
-              <span class="flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#142116]">
+    <section class="catalog-filter-bar mb-8 rounded-[1.25rem] border border-[#2E7D32]/10 bg-white/95 p-3 shadow-xl shadow-green-950/10 backdrop-blur">
+      <div class="grid gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(24rem,0.7fr)] xl:items-center">
+        <div class="min-w-0">
+          <div class="catalog-category-strip grid grid-cols-5 gap-2">
+            @for (category of categories; track category.id) {
+              <button
+                type="button"
+                (click)="selectCategory(category.id)"
+                class="category-tab inline-flex min-h-9 min-w-0 items-center justify-center gap-1.5 rounded-full border px-2 py-1.5 text-center text-[9px] font-black uppercase tracking-normal transition sm:text-[10px] lg:text-[11px]"
+                [class.category-tab--active]="selectedCategory === category.id"
+                [ngClass]="selectedCategory === category.id ? 'border-[#2E7D32] bg-[#edf6e7] text-[#142116] shadow-sm' : 'border-slate-200 bg-white text-slate-600 hover:border-[#2E7D32]/40 hover:bg-[#f7fbf4] hover:text-[#142116]'"
+              >
                 <span class="category-tab__dot" aria-hidden="true"></span>
-                {{ category.labelKey | translate }}
-              </span>
-              <span class="mt-1 block text-xs leading-relaxed text-slate-500">{{ category.descriptionKey | translate }}</span>
-            </button>
-          }
+                <span class="category-tab__label">{{ category.filterLabelKey | translate }}</span>
+              </button>
+            }
+          </div>
+
         </div>
 
-        <form (ngSubmit)="applySearch()" class="grid gap-3 sm:grid-cols-[1fr_auto_auto] xl:min-w-[520px]">
+        <form (ngSubmit)="applySearch()" class="grid gap-2 sm:grid-cols-[1fr_auto_auto]">
           <label class="catalog-search-field relative block">
             <span class="catalog-search-field__icon absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -53,12 +53,13 @@
               [(ngModel)]="searchTerm"
               name="catalogSearch"
               type="search"
+              autocomplete="off"
               [placeholder]="'CATALOG.SEARCH_PLACEHOLDER' | translate"
-              class="h-[52px] w-full rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-semibold text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#2E7D32] focus:ring-4 focus:ring-lime-300/20"
+              class="catalog-search-input h-11 w-full rounded-2xl border border-slate-200 bg-white pl-11 pr-4 text-sm font-semibold text-slate-900 outline-none transition placeholder:text-slate-400"
             />
           </label>
 
-          <button type="submit" class="flex h-[52px] items-center justify-center gap-2 rounded-2xl bg-[#142116] px-5 text-sm font-black uppercase tracking-wider text-white transition hover:bg-[#2E7D32]">
+          <button type="submit" class="flex h-11 items-center justify-center gap-2 rounded-2xl bg-[#142116] px-5 text-sm font-black uppercase tracking-wider text-white transition hover:bg-[#2E7D32] sm:w-32">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             {{ 'CATALOG.FILTERS.SEARCH' | translate }}
           </button>
@@ -66,7 +67,7 @@
           <button
             type="button"
             (click)="clearFilters()"
-            class="flex h-[52px] items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 text-sm font-black uppercase tracking-wider text-slate-600 transition hover:border-[#2E7D32]/40 hover:text-[#2E7D32]"
+            class="flex h-11 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 text-sm font-black uppercase tracking-wider text-slate-600 transition hover:border-[#2E7D32]/40 hover:text-[#2E7D32] sm:w-32"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/></svg>
             {{ 'CATALOG.FILTERS.CLEAR' | translate }}
@@ -107,7 +108,7 @@
                 {{ product.code }}
               </div>
               <div class="absolute right-5 top-5 max-w-[52%] rounded-full border border-[#2E7D32]/15 bg-white/85 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-[#2E7D32]">
-                {{ product.category === 'rtu' ? ('CATALOG.CATEGORIES.RTU' | translate) : product.category === 'accessories' ? ('CATALOG.CATEGORIES.ACCESSORIES' | translate) : ('CATALOG.CATEGORIES.DRIVES' | translate) }}
+                {{ getCategoryLabelKey(product.category) | translate }}
               </div>
               <img [src]="'/img/' + product.image" [alt]="product.name" class="h-full w-full object-contain pt-8 transition duration-500 group-hover:scale-105">
             </div>
@@ -179,7 +180,7 @@
             <div class="mb-4 flex flex-wrap items-center gap-2">
               <span class="rounded-full bg-[#142116] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-lime-200">{{ selectedProduct.code }}</span>
               <span class="rounded-full bg-[#edf6e7] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-[#2E7D32]">
-                {{ selectedProduct.category === 'rtu' ? ('CATALOG.CATEGORIES.RTU' | translate) : selectedProduct.category === 'accessories' ? ('CATALOG.CATEGORIES.ACCESSORIES' | translate) : ('CATALOG.CATEGORIES.DRIVES' | translate) }}
+                {{ getCategoryLabelKey(selectedProduct.category) | translate }}
               </span>
             </div>
 
