@@ -82,6 +82,15 @@
   min-width: 0;
 }
 
+.catalog-page button:not(:disabled),
+.catalog-page a[href] {
+  cursor: pointer;
+}
+
+.catalog-page button:disabled {
+  cursor: not-allowed;
+}
+
 .category-tab span,
 .product-card p,
 .product-card span,
