@@ -37,6 +37,17 @@ interface CatalogProduct {
 export class CatalogComponent implements AfterViewInit, OnDestroy {
   private readonly whatsappPhoneNumber = '17867251404';
   private readonly pumpjackModelUrl = '/models/pumpjack.glb';
+  private previousBodyStyles = {
+    overflow: '',
+    position: '',
+    top: '',
+    left: '',
+    right: '',
+    width: ''
+  };
+  private previousDocumentOverflow = '';
+  private lockedScrollY = 0;
+  private isBodyScrollLocked = false;
 
   @ViewChild('pumpjackCanvas') private pumpjackCanvas?: ElementRef<HTMLCanvasElement>;
 
@@ -64,6 +75,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.unlockBodyScroll();
     this.destroyPumpjackScene();
   }
 
@@ -356,25 +368,27 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
 
   selectCategory(category: CatalogCategory | 'all') {
     this.selectedCategory = category;
-    this.selectedProduct = null;
+    this.closeDetails();
   }
 
   applySearch() {
-    this.selectedProduct = null;
+    this.closeDetails();
   }
 
   clearFilters() {
     this.searchTerm = '';
     this.selectedCategory = 'rtu';
-    this.selectedProduct = null;
+    this.closeDetails();
   }
 
   openDetails(product: CatalogProduct) {
     this.selectedProduct = product;
+    this.lockBodyScroll();
   }
 
   closeDetails() {
     this.selectedProduct = null;
+    this.unlockBodyScroll();
   }
 
   @HostListener('document:keydown.escape')
@@ -416,6 +430,51 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
     ]);
 
     return secondaryTokens.some(token => token.startsWith(search));
+  }
+
+  private lockBodyScroll() {
+    if (this.isBodyScrollLocked || typeof document === 'undefined' || typeof window === 'undefined') {
+      return;
+    }
+
+    this.lockedScrollY = window.scrollY;
+    this.previousDocumentOverflow = document.documentElement.style.overflow;
+    this.previousBodyStyles = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      left: document.body.style.left,
+      right: document.body.style.right,
+      width: document.body.style.width
+    };
+
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${this.lockedScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    this.isBodyScrollLocked = true;
+  }
+
+  private unlockBodyScroll() {
+    if (!this.isBodyScrollLocked || typeof document === 'undefined' || typeof window === 'undefined') {
+      return;
+    }
+
+    document.documentElement.style.overflow = this.previousDocumentOverflow;
+    document.body.style.overflow = this.previousBodyStyles.overflow;
+    document.body.style.position = this.previousBodyStyles.position;
+    document.body.style.top = this.previousBodyStyles.top;
+    document.body.style.left = this.previousBodyStyles.left;
+    document.body.style.right = this.previousBodyStyles.right;
+    document.body.style.width = this.previousBodyStyles.width;
+    window.scrollTo(0, this.lockedScrollY);
+
+    this.previousDocumentOverflow = '';
+    this.lockedScrollY = 0;
+    this.isBodyScrollLocked = false;
   }
 
   private getSearchTokens(values: string[]) {
