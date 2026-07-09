@@ -148,7 +148,7 @@
     }
 
     @if (selectedProduct) {
-      <div class="fixed inset-0 z-[120] flex items-start justify-center overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(190,242,100,0.18),transparent_32%),linear-gradient(135deg,rgba(20,33,22,0.88),rgba(46,76,50,0.82)_45%,rgba(13,25,16,0.9))] p-3 pt-24 backdrop-blur-sm sm:p-6 sm:pt-28" (click)="closeDetails()">
+      <div class="catalog-modal-backdrop fixed inset-0 z-[120] flex items-start justify-center overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(190,242,100,0.18),transparent_32%),linear-gradient(135deg,rgba(20,33,22,0.88),rgba(46,76,50,0.82)_45%,rgba(13,25,16,0.9))] p-3 pt-24 backdrop-blur-sm sm:p-6 sm:pt-28" (click)="closeDetails()">
         <section
           class="catalog-modal-panel relative h-full max-h-[calc(100dvh-7.5rem)] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-[1.25rem] border border-[#2E7D32]/10 bg-white shadow-2xl shadow-black/30"
           (click)="$event.stopPropagation()"
@@ -156,14 +156,14 @@
           <button
             type="button"
             (click)="closeDetails()"
-            class="sticky left-full top-4 z-30 mr-4 mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-lg shadow-black/10 transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
+            class="catalog-modal-close sticky left-full top-4 z-30 mr-4 mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-lg shadow-black/10 transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
             [title]="'CATALOG.MODAL.CLOSE' | translate"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
 
           <div class="-mt-14 grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
-            <div class="relative flex min-h-[250px] items-center justify-center bg-gradient-to-br from-[#f8fbf5] to-[#e5f0df] p-5 sm:p-6">
+            <div class="catalog-modal-visual relative flex min-h-[250px] items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8fbf5] to-[#e5f0df] p-5 sm:p-6">
               <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.name" class="max-h-[340px] w-full object-contain">
             </div>
 

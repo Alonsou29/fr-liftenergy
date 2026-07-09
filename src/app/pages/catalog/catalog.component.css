@@ -85,10 +85,32 @@
 .catalog-page button:not(:disabled),
 .catalog-page a[href] {
   cursor: pointer;
+  transition-duration: 180ms;
+  transition-property: background-color, border-color, box-shadow, color, opacity, transform;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .catalog-page button:disabled {
   cursor: not-allowed;
+}
+
+.catalog-page button:not(:disabled):hover,
+.catalog-page a[href]:hover {
+  box-shadow: 0 12px 26px rgba(20, 33, 22, 0.13);
+  transform: translateY(-1px);
+}
+
+.catalog-page button:not(:disabled):active,
+.catalog-page a[href]:active {
+  transform: translateY(0);
+}
+
+.catalog-page button:focus-visible,
+.catalog-page a[href]:focus-visible,
+.catalog-page input:focus-visible {
+  outline: 2px solid rgba(190, 242, 100, 0.9);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(190, 242, 100, 0.18);
 }
 
 .category-tab span,
@@ -102,12 +124,61 @@
   filter: drop-shadow(0 18px 28px rgba(20, 33, 22, 0.12));
 }
 
+.product-card:hover img {
+  filter: drop-shadow(0 22px 32px rgba(20, 33, 22, 0.18));
+}
+
+.catalog-modal-backdrop {
+  animation: catalog-modal-fade 180ms ease-out;
+}
+
 .catalog-modal-panel {
+  animation: catalog-modal-enter 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
   scrollbar-width: none;
 }
 
 .catalog-modal-panel::-webkit-scrollbar {
   display: none;
+}
+
+.catalog-modal-close svg {
+  transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.catalog-modal-close:hover svg {
+  transform: rotate(90deg) scale(1.04);
+}
+
+.catalog-modal-visual img {
+  transition: filter 260ms ease, transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.catalog-modal-visual:hover img {
+  filter: drop-shadow(0 22px 36px rgba(20, 33, 22, 0.16));
+  transform: scale(1.025);
+}
+
+@keyframes catalog-modal-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes catalog-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-page *,
+  .catalog-page *::before,
+  .catalog-page *::after {
+    animation-duration: 1ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
 }
 
 @media (max-width: 420px) {
