@@ -5,7 +5,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import type * as ThreeNamespace from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three/examples/jsm/controls/OrbitControls.js';
 
-type CatalogCategory = 'rtu' | 'accessories' | 'drives' | 'cameras' | 'flow' | 'temperature';
+type CatalogCategory = 'rtu' | 'accessories' | 'drives' | 'cameras' | 'flow' | 'temperature' | 'pressure';
 
 interface CatalogSpec {
   label: string;
@@ -119,6 +119,11 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       id: 'temperature',
       labelKey: 'CATALOG.CATEGORIES.TEMPERATURE',
       filterLabelKey: 'CATALOG.CATEGORIES.FILTER_TEMPERATURE'
+    },
+    {
+      id: 'pressure',
+      labelKey: 'CATALOG.CATEGORIES.PRESSURE',
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_PRESSURE'
     },
     {
       id: 'all',
@@ -551,6 +556,81 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       ],
       applications: ['Petróleo y gas.', 'Áreas industriales clasificadas.', 'Procesos críticos con riesgo de atmósferas explosivas.'],
       datasheetUrl: '/docs/catalog/temperature/catalogo-sensores-temperatura.pdf'
+    },
+    {
+      id: 'pressure-smp858-nsf',
+      category: 'pressure',
+      code: 'SMP858-NSF',
+      name: 'Transmisor de presión diferencial SMP858-NSF',
+      subtitle: 'Medición higiénica diferencial con máxima resistencia a sobrecargas',
+      image: 'catalog/pressure/smp858-nsf.png',
+      description: 'Transmisor de presión diferencial de monosilicio diseñado para procesos higiénicos. Su estructura de aislamiento totalmente sellada reduce los efectos de la humedad, mientras la protección de doble diafragma permite operar en aplicaciones sanitarias con limpieza húmeda intensa y sobrecargas severas.',
+      highlights: ['4 kPa a 1 MPa', 'Sobrecarga hasta 24 MPa', '4-20 mA + HART', 'FDA / GMP'],
+      specs: [
+        { label: 'Tipo de presión', value: 'Presión diferencial' },
+        { label: 'Rango de medición', value: '4 kPa a 1 MPa' },
+        { label: 'Señal de salida', value: '4-20 mA o 4-20 mA + HART' },
+        { label: 'Precisión de referencia', value: '±0.1% URL, ±0.2% URL o ±0.5% URL' },
+        { label: 'Sobrecarga máxima', value: 'Hasta 24 MPa' },
+        { label: 'Construcción', value: 'Estructura totalmente soldada y aislamiento completo contra humedad' },
+        { label: 'Cumplimiento', value: 'FDA, GMP y estándares de higiene' }
+      ],
+      applications: [
+        'Medición diferencial en procesos alimentarios y farmacéuticos.',
+        'Instalaciones con limpieza húmeda intensa y requisitos sanitarios.',
+        'Procesos expuestos a picos y sobrecargas elevadas de presión.'
+      ],
+      datasheetUrl: '/docs/catalog/pressure/catalogo-sensores-presion.pdf'
+    },
+    {
+      id: 'pressure-smp858-tlf',
+      category: 'pressure',
+      code: 'SMP858-TLF',
+      name: 'Transmisor de presión manométrica SMP858-TLF',
+      subtitle: 'Diseño sanitario compacto para limpieza y esterilización CIP/SIP',
+      image: 'catalog/pressure/smp858-tlf.png',
+      description: 'Transmisor de presión manométrica higiénico para las industrias alimentaria y farmacéutica. Integra piezas húmedas de acero inoxidable 316L con soldadura integral, acabado sanitario, protección de doble diafragma y fluido de llenado certificado por la FDA.',
+      highlights: ['10 kPa a 2 MPa', 'Acero 316L', 'Ra ≤ 0.4 μm', 'CIP / SIP'],
+      specs: [
+        { label: 'Tipo de presión', value: 'Presión manométrica' },
+        { label: 'Rango de medición', value: '10 kPa a 2 MPa' },
+        { label: 'Señal de salida', value: '4-20 mA o 4-20 mA + HART' },
+        { label: 'Precisión de referencia', value: '±0.2% URL o ±0.5% URL' },
+        { label: 'Material y rugosidad', value: 'Acero inoxidable 316L, Ra ≤ 0.4 μm' },
+        { label: 'Conexiones de proceso', value: 'Tri-Clamp 1-1/2, Tri-Clamp 2, DIN32676 DN32, ISO2852 y DRD' },
+        { label: 'Certificaciones', value: '3-A, EHEDG, CE, RoHS y certificado a prueba de explosiones' }
+      ],
+      applications: [
+        'Procesamiento de alimentos y bebidas con limpieza CIP/SIP.',
+        'Producción farmacéutica y procesos estériles.',
+        'Medición sanitaria en tanques y líneas de proceso.'
+      ],
+      datasheetUrl: '/docs/catalog/pressure/catalogo-sensores-presion.pdf'
+    },
+    {
+      id: 'pressure-smp858-tsf-s',
+      category: 'pressure',
+      code: 'SMP858-TSF-S',
+      name: 'Transmisor de presión manométrica SMP858-TSF-S',
+      subtitle: 'Medición sanitaria de rango ampliado para procesos exigentes',
+      image: 'catalog/pressure/smp858-tsf-s.png',
+      description: 'Transmisor manométrico higiénico con construcción compacta, piezas húmedas de acero inoxidable 316L, soldadura integral y acabado de alta calidad. Está preparado para limpieza CIP/SIP, evita la condensación interna y ofrece configuración local mediante electrónica ASIC/SMT.',
+      highlights: ['10 kPa a 3 MPa', '4-20 mA + HART', 'Ra ≤ 0.4 μm', '3-A / EHEDG'],
+      specs: [
+        { label: 'Tipo de presión', value: 'Presión manométrica' },
+        { label: 'Rango de medición', value: '10 kPa a 3 MPa' },
+        { label: 'Señal de salida', value: '4-20 mA o 4-20 mA + HART' },
+        { label: 'Precisión de referencia', value: '±0.2% URL o ±0.5% URL' },
+        { label: 'Material y rugosidad', value: 'Acero inoxidable 316L, Ra ≤ 0.4 μm' },
+        { label: 'Conexiones de proceso', value: 'Tri-Clamp 1-1/2, Tri-Clamp 2, DIN32676 DN32, ISO2852 y DRD' },
+        { label: 'Certificaciones', value: '3-A, EHEDG, CE, RoHS y certificado a prueba de explosiones' }
+      ],
+      applications: [
+        'Procesos sanitarios con presiones de hasta 3 MPa.',
+        'Industria alimentaria y farmacéutica.',
+        'Líneas sometidas a limpieza y esterilización CIP/SIP.'
+      ],
+      datasheetUrl: '/docs/catalog/pressure/catalogo-sensores-presion.pdf'
     }
   ];
 
@@ -576,7 +656,8 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       drives: 'CATALOG.CATEGORIES.DRIVES',
       cameras: 'CATALOG.CATEGORIES.CAMERAS',
       flow: 'CATALOG.CATEGORIES.FLOW',
-      temperature: 'CATALOG.CATEGORIES.TEMPERATURE'
+      temperature: 'CATALOG.CATEGORIES.TEMPERATURE',
+      pressure: 'CATALOG.CATEGORIES.PRESSURE'
     };
 
     return labels[category];

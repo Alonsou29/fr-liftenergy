@@ -265,6 +265,8 @@
       "FILTER_FLOW": "Flow",
       "TEMPERATURE": "Temperature sensors",
       "FILTER_TEMPERATURE": "Temperature",
+      "PRESSURE": "Pressure sensors",
+      "FILTER_PRESSURE": "Pressure",
       "ALL": "All",
       "FILTER_ALL": "All",
       "ALL_DESC": "View every technical line in the catalog."
