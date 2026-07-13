@@ -168,7 +168,7 @@
       "BADGE": "Industrial catalog",
       "TITLE": "Equipment for demanding",
       "TITLE_HIGHLIGHT": "operations",
-      "DESCRIPTION": "Explore RTU solutions, industrial accessories, and variable frequency drives with detailed technical information for field engineering and evaluation.",
+      "DESCRIPTION": "Explore RTU solutions, accessories, drives, and industrial instrumentation with detailed technical information for field engineering and evaluation.",
       "FEATURED_TITLE": "Featured technical line",
       "RTU_MODELS": "RTU models",
       "PLATFORM": "Platform",
@@ -214,7 +214,8 @@
       "DETAILS": "Datasheet",
       "ADD_TO_ORDER": "Add to order",
       "REQUEST_INFO": "Request info",
-      "DOWNLOAD_DATASHEET": "Download datasheet"
+      "DOWNLOAD_DATASHEET": "Download datasheet",
+      "DATASHEET_PENDING": "Datasheet coming soon"
     },
     "MODAL": {
       "SKU": "SKU",
@@ -249,12 +250,22 @@
       "CONTROL_POWER": "Control and power",
       "INDUSTRIAL_CABLING": "Industrial cabling",
       "RTU": "Industrial RTU",
+      "FILTER_RTU": "RTU",
       "RTU_DESC": "Telemetry, remote control, Edge Computing, and IIoT.",
       "ACCESSORIES": "Industrial accessories",
+      "FILTER_ACCESSORIES": "Accessories",
       "ACCESSORIES_DESC": "Modules, gateways, power supply, and panel components.",
-      "DRIVES": "Variable frequency drives",
+      "DRIVES": "Drives",
+      "FILTER_DRIVES": "Drives",
       "DRIVES_DESC": "Motor control, pumping, and energy efficiency.",
+      "CAMERAS": "Industrial cameras",
+      "FILTER_CAMERAS": "Cameras",
+      "FLOW": "Flow sensors",
+      "FILTER_FLOW": "Flow",
+      "TEMPERATURE": "Temperature sensors",
+      "FILTER_TEMPERATURE": "Temperature",
       "ALL": "All",
+      "FILTER_ALL": "All",
       "ALL_DESC": "View every technical line in the catalog."
     },
     "PRODUCTS": {

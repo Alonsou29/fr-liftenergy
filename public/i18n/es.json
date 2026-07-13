@@ -168,7 +168,7 @@
       "BADGE": "Catálogo industrial",
       "TITLE": "Equipos para operaciones",
       "TITLE_HIGHLIGHT": "exigentes",
-      "DESCRIPTION": "Explora soluciones RTU, accesorios industriales y variadores con información técnica detallada para evaluación e ingeniería de campo.",
+      "DESCRIPTION": "Explora soluciones RTU, accesorios, variadores e instrumentación industrial con información técnica detallada para evaluación e ingeniería de campo.",
       "FEATURED_TITLE": "Línea técnica destacada",
       "RTU_MODELS": "Modelos RTU",
       "PLATFORM": "Plataforma",
@@ -214,7 +214,8 @@
       "DETAILS": "Ver ficha técnica",
       "ADD_TO_ORDER": "Agregar a orden",
       "REQUEST_INFO": "Solicitar información",
-      "DOWNLOAD_DATASHEET": "Descargar ficha técnica"
+      "DOWNLOAD_DATASHEET": "Descargar ficha técnica",
+      "DATASHEET_PENDING": "Ficha técnica próximamente"
     },
     "MODAL": {
       "SKU": "SKU",
@@ -249,12 +250,22 @@
       "CONTROL_POWER": "Control y potencia",
       "INDUSTRIAL_CABLING": "Cableado industrial",
       "RTU": "RTU Industrial",
+      "FILTER_RTU": "RTU",
       "RTU_DESC": "Telemetría, control remoto, Edge Computing e IIoT.",
       "ACCESSORIES": "Accesorios industriales",
+      "FILTER_ACCESSORIES": "Accesorios",
       "ACCESSORIES_DESC": "Módulos, gateways, alimentación y componentes de tablero.",
       "DRIVES": "Variadores",
+      "FILTER_DRIVES": "Variadores",
       "DRIVES_DESC": "Control de motores, bombeo y eficiencia energética.",
+      "CAMERAS": "Cámaras industriales",
+      "FILTER_CAMERAS": "Cámaras",
+      "FLOW": "Sensores de flujo",
+      "FILTER_FLOW": "Flujo",
+      "TEMPERATURE": "Sensores de temperatura",
+      "FILTER_TEMPERATURE": "Temperatura",
       "ALL": "Todo",
+      "FILTER_ALL": "Todo",
       "ALL_DESC": "Ver todas las líneas técnicas del catálogo."
     },
     "PRODUCTS": {

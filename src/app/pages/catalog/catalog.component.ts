@@ -5,7 +5,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import type * as ThreeNamespace from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three/examples/jsm/controls/OrbitControls.js';
 
-type CatalogCategory = 'rtu' | 'accessories' | 'drives';
+type CatalogCategory = 'rtu' | 'accessories' | 'drives' | 'cameras' | 'flow' | 'temperature';
 
 interface CatalogSpec {
   label: string;
@@ -79,26 +79,42 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
     this.destroyPumpjackScene();
   }
 
-  readonly categories: { id: CatalogCategory | 'all'; labelKey: string; descriptionKey: string }[] = [
+  readonly categories: { id: CatalogCategory | 'all'; labelKey: string; filterLabelKey: string }[] = [
     {
       id: 'rtu',
       labelKey: 'CATALOG.CATEGORIES.RTU',
-      descriptionKey: 'CATALOG.CATEGORIES.RTU_DESC'
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_RTU'
     },
     {
       id: 'accessories',
       labelKey: 'CATALOG.CATEGORIES.ACCESSORIES',
-      descriptionKey: 'CATALOG.CATEGORIES.ACCESSORIES_DESC'
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_ACCESSORIES'
     },
+    /* Variadores ocultos temporalmente hasta contar con información técnica real.
     {
       id: 'drives',
       labelKey: 'CATALOG.CATEGORIES.DRIVES',
-      descriptionKey: 'CATALOG.CATEGORIES.DRIVES_DESC'
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_DRIVES'
+    }, */
+    {
+      id: 'cameras',
+      labelKey: 'CATALOG.CATEGORIES.CAMERAS',
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_CAMERAS'
+    },
+    {
+      id: 'flow',
+      labelKey: 'CATALOG.CATEGORIES.FLOW',
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_FLOW'
+    },
+    {
+      id: 'temperature',
+      labelKey: 'CATALOG.CATEGORIES.TEMPERATURE',
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_TEMPERATURE'
     },
     {
       id: 'all',
       labelKey: 'CATALOG.CATEGORIES.ALL',
-      descriptionKey: 'CATALOG.CATEGORIES.ALL_DESC'
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_ALL'
     }
   ];
 
@@ -331,6 +347,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       ],
       applications: ['Tableros RTU', 'Control auxiliar', 'Supervisión energética']
     },
+    /* Producto de variadores pendiente de información técnica real.
     {
       id: 'drive-vfd-15hp',
       category: 'drives',
@@ -348,6 +365,183 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
         { label: 'Comunicación', value: 'Integración con protocolos industriales como Modbus' }
       ],
       applications: ['Bombeo industrial', 'Control de motores', 'Pozos y facilidades', 'Ahorro energético']
+    }, */
+    {
+      id: 'camera-dahua-dh-sd3d216nb-gny',
+      category: 'cameras',
+      code: 'DH-SD3D216NB-GNY',
+      name: 'Cámara PTZ Dahua',
+      subtitle: 'Sensor visual inteligente para SCADA y supervisión remota',
+      image: 'catalog/cameras/dahua-dh-sd3d216nb-gny.svg',
+      description: 'Cámara PTZ robusta para despliegues SCADA industriales y entornos remotos. Combina cobertura motorizada, inteligencia de borde, automatización por presets y trazabilidad centralizada, aportando contexto visual a los procesos sin exigir una infraestructura de red compleja.',
+      highlights: ['Zoom óptico 16x', 'Hasta 300 presets', 'Starlight', 'IP66'],
+      specs: [
+        { label: 'Óptica y movimiento', value: 'PTZ, zoom óptico 16x y hasta 300 posiciones predefinidas' },
+        { label: 'Video y red', value: 'Smart H.265+, RTSP y substream optimizado para enlaces satelitales' },
+        { label: 'Inteligencia', value: 'Analítica WizSense integrada y automatización local basada en eventos' },
+        { label: 'Integración', value: 'Dahua CGI sobre HTTP con autenticación Digest' },
+        { label: 'Almacenamiento', value: 'Grabación local mediante tarjeta MicroSD' },
+        { label: 'Protección ambiental', value: 'IP66 y amplio rango térmico para instalaciones exteriores' },
+        { label: 'Protección eléctrica', value: 'TVS 6000 V contra sobretensiones y perturbaciones eléctricas' },
+        { label: 'Alimentación', value: 'PoE industrial: energía y datos mediante el mismo cable' }
+      ],
+      applications: [
+        'Automatización de alarmas con captura inmediata de evidencia visual.',
+        'Supervisión de instalaciones y activos críticos en sitios remotos.',
+        'Auditoría y trazabilidad visual integrada con controladores Edge y SCADA.'
+      ],
+      related: ['RevPi Connect 5', 'Starlink', 'SCADA', 'MicroSD'],
+      datasheetUrl: '/docs/catalog/cameras/dahua-dh-sd3d216nb-gny.pdf'
+    },
+    {
+      id: 'flow-mfe600-e',
+      category: 'flow',
+      code: 'MFE600-E',
+      name: 'Caudalímetro electromagnético MFE600-E',
+      subtitle: 'Medición de alta precisión para fluidos conductivos',
+      image: 'catalog/flow/mfe600-e.jpg',
+      description: 'Instrumento para cuantificar el flujo volumétrico de fluidos conductivos en tuberías cerradas. Su medición es independiente de la densidad, viscosidad, temperatura o presión del líquido y el tubo carece de piezas móviles, evitando obstrucciones y pérdida de carga.',
+      highlights: ['DN10 a DN3000', 'Precisión hasta ±0.2%', 'HART / Modbus RTU', 'IP65 / IP68'],
+      specs: [
+        { label: 'Diámetro nominal', value: 'DN10 a DN3000' },
+        { label: 'Precisión', value: '±0.5% del valor medido; ±0.2% opcional' },
+        { label: 'Señales y protocolos', value: '4-20 mA, pulsos/frecuencia, RS485 Modbus RTU y HART' },
+        { label: 'Revestimiento', value: 'PTFE, caucho de cloropreno, PFA, FEP o poliuretano' },
+        { label: 'Electrodos', value: 'Acero inoxidable 316L, Hastelloy C/B, titanio, tántalo o platino' },
+        { label: 'Protección', value: 'IP65 en versión compacta e IP68 con sensor remoto' },
+        { label: 'Alimentación', value: '85-250 VAC o 20-36 VDC' }
+      ],
+      applications: ['Tratamiento y distribución de agua.', 'Industria química y alimentaria.', 'Procesos papeleros y metalúrgicos.'],
+      datasheetUrl: '/docs/catalog/flow/catalogo-sensores-flujo.pdf'
+    },
+    {
+      id: 'flow-mfe600z',
+      category: 'flow',
+      code: 'MFE600Z',
+      name: 'Caudalímetro electromagnético MFE600Z',
+      subtitle: 'Telemetría autónoma para redes de agua y sitios remotos',
+      image: 'catalog/flow/mfe600z.jpg',
+      description: 'Caudalímetro inteligente de ultra bajo consumo para redes de distribución de agua y localizaciones sin acceso a la red eléctrica. Integra alimentación por batería, autodiagnóstico y opciones de transmisión inalámbrica para sistemas de telemetría y SCADA.',
+      highlights: ['Batería de 3 a 5 años', 'GPRS / NB-IoT / LoRa', 'IP68', 'Autodiagnóstico'],
+      specs: [
+        { label: 'Diámetro nominal', value: 'DN10 a DN800; ampliable a DN3000 bajo pedido' },
+        { label: 'Precisión', value: '±0.5% del valor medido' },
+        { label: 'Comunicación', value: 'Pulsos, RS485 y transmisión inalámbrica celular/IoT integrada' },
+        { label: 'Alimentación', value: 'Baterías internas de litio de 3.6 V o fuente externa de 12-24 VDC' },
+        { label: 'Cuerpo y bridas', value: 'Acero al carbono con epoxi o acero inoxidable' },
+        { label: 'Presión máxima', value: '0.6 MPa a 4.0 MPa según diámetro nominal' },
+        { label: 'Protección', value: 'IP68, totalmente sumergible' }
+      ],
+      applications: ['Redes de distribución de agua.', 'Estaciones de bombeo aisladas.', 'Pozos de registro y arquetas inundables.'],
+      datasheetUrl: '/docs/catalog/flow/catalogo-sensores-flujo.pdf'
+    },
+    {
+      id: 'flow-mfe600h',
+      category: 'flow',
+      code: 'MFE600H',
+      name: 'Caudalímetro de calor MFE600H',
+      subtitle: 'Medición simultánea de caudal y energía térmica',
+      image: 'catalog/flow/mfe600h.jpg',
+      description: 'Medidor electromagnético especializado para cuantificar el caudal y el consumo de calor o frío en circuitos cerrados de agua. Combina la medición de flujo con dos sensores de temperatura calibrados para calcular en tiempo real la energía térmica transferida.',
+      highlights: ['DN15 a DN1200', 'PT1000 pareadas', 'M-Bus / Modbus RTU', '2 °C a 150 °C'],
+      specs: [
+        { label: 'Diámetro nominal', value: 'DN15 a DN1200' },
+        { label: 'Sensores de temperatura', value: 'Par de termorresistencias PT1000 emparejadas de alta precisión' },
+        { label: 'Precisión de caudal', value: '±0.5%' },
+        { label: 'Unidades de energía', value: 'GJ, kWh, MWh o kcal seleccionables' },
+        { label: 'Señales y protocolos', value: '4-20 mA, RS485 Modbus RTU y M-Bus' },
+        { label: 'Temperatura del fluido', value: '2 °C a 150 °C' },
+        { label: 'Protección y alimentación', value: 'IP65; alimentación dual 220 VAC / 24 VDC' }
+      ],
+      applications: ['Sistemas HVAC y gestión técnica de edificios.', 'Redes de calefacción urbana.', 'Circuitos de refrigeración industrial.'],
+      datasheetUrl: '/docs/catalog/flow/catalogo-sensores-flujo.pdf'
+    },
+    {
+      id: 'flow-mfe600c',
+      category: 'flow',
+      code: 'MFE600C',
+      name: 'Caudalímetro de inserción MFE600C',
+      subtitle: 'Medición económica para tuberías de gran diámetro',
+      image: 'catalog/flow/mfe600c.jpg',
+      description: 'Caudalímetro electromagnético de inserción para medir grandes conducciones sin instalar un equipo en línea completo. Su sistema hot-tap permite instalarlo, mantenerlo y retirarlo bajo presión mediante una válvula esférica, sin detener el proceso.',
+      highlights: ['DN100 a DN3000', 'Instalación hot-tap', 'Cero paradas', 'Modbus RS485'],
+      specs: [
+        { label: 'Diámetro aplicable', value: 'DN100 a DN3000' },
+        { label: 'Precisión', value: '±1.5% a ±2.5% de la escala completa' },
+        { label: 'Velocidad de flujo', value: '0.5 m/s a 10 m/s' },
+        { label: 'Señales', value: '4-20 mA, frecuencia/pulsos y RS485 Modbus' },
+        { label: 'Sonda', value: 'Acero inoxidable 304 o 316L' },
+        { label: 'Presión máxima', value: '1.6 MPa estándar' },
+        { label: 'Protección y alimentación', value: 'Cabezal IP65, sensor IP68; 85-250 VAC o 24 VDC' }
+      ],
+      applications: ['Auditorías temporales y detección de fugas.', 'Redes de agua de gran diámetro.', 'Sistemas de irrigación a gran escala.'],
+      datasheetUrl: '/docs/catalog/flow/catalogo-sensores-flujo.pdf'
+    },
+    {
+      id: 'temperature-lg200-frf',
+      category: 'temperature',
+      code: 'LG200-FRF',
+      name: 'Transmisor de temperatura LG200-FRF',
+      subtitle: 'Diseño higiénico para procesos sanitarios CIP/SIP',
+      image: 'catalog/temperature/lg200-frf.jpg',
+      description: 'Transmisor integrado de diseño higiénico con electrónica ASIC/SMT y construcción en acero inoxidable. Está orientado a mediciones precisas en industrias alimentarias y farmacéuticas, soportando procesos de limpieza y esterilización in situ.',
+      highlights: ['-50 a 400 °C', '4-20 mA', 'Acero 316L', 'Certificación 3-A'],
+      specs: [
+        { label: 'Rango', value: '-50 a 400 °C' },
+        { label: 'Salida', value: '4-20 mA' },
+        { label: 'Precisión', value: '±0.5% URL' },
+        { label: 'Estabilidad', value: 'Superior a ±0.05% URL o 0.1 °C/año' },
+        { label: 'Conexión eléctrica', value: 'Terminal inoxidable o conector M12×1 de 4 pines, IP67' },
+        { label: 'Sonda', value: 'Diámetros de 6 a 14 mm y longitudes de 50 a 3000 mm' },
+        { label: 'Conexión de proceso', value: 'M20×1.5, G1/2, 1/2-14NPT, Tri-Clamp 1-1/2 o 2 pulgadas y brida' },
+        { label: 'Certificaciones', value: '3-A y CE' }
+      ],
+      applications: ['Procesamiento de alimentos y bebidas.', 'Industria farmacéutica.', 'Procesos sanitarios con limpieza CIP/SIP.'],
+      datasheetUrl: '/docs/catalog/temperature/catalogo-sensores-temperatura.pdf'
+    },
+    {
+      id: 'temperature-lg200-drdh',
+      category: 'temperature',
+      code: 'LG200-DRD(H)',
+      name: 'Transmisor de temperatura LG200-DRD(H)',
+      subtitle: 'Respuesta rápida y configuración flexible para la industria',
+      image: 'catalog/temperature/lg200-drdh.jpg',
+      description: 'Transmisor integrado flexible y confiable para medición térmica industrial. Incorpora electrónica ASIC/SMT, respuesta rápida y protección de grado 4 frente a sobretensiones transitorias severas.',
+      highlights: ['≤ 200 ms', '-50 a 400 °C', '4-20 mA / 1-5 VDC', 'Protección grado 4'],
+      specs: [
+        { label: 'Rango', value: '-50 a 400 °C' },
+        { label: 'Salida', value: '4-20 mA, 1-5 VDC o señal directa del sensor' },
+        { label: 'Precisión', value: '±0.5% URL' },
+        { label: 'Tiempo de respuesta', value: '≤ 200 ms' },
+        { label: 'Estabilidad', value: 'Superior a ±0.05% URL o 0.1 °C/año' },
+        { label: 'Conexión eléctrica', value: 'DIN43650 IP65 o M12×1 de 4 pines IP67' },
+        { label: 'Sonda', value: 'Diámetros de 6 a 14 mm y longitudes de 50 a 3000 mm' },
+        { label: 'Certificación', value: 'CE' }
+      ],
+      applications: ['Medición térmica industrial general.', 'Procesos con cambios rápidos de temperatura.', 'Instalaciones expuestas a variaciones severas de tensión.'],
+      datasheetUrl: '/docs/catalog/temperature/catalogo-sensores-temperatura.pdf'
+    },
+    {
+      id: 'temperature-lg200-wrt',
+      category: 'temperature',
+      code: 'LG200-WRT',
+      name: 'Transmisor de temperatura LG200-WRT',
+      subtitle: 'Medición robusta para atmósferas explosivas',
+      image: 'catalog/temperature/lg200-wrt.jpg',
+      description: 'Transmisor industrial para mediciones térmicas en condiciones críticas. Su carcasa de aleación de aluminio, electrónica ASIC/SMT y certificación a prueba de explosiones lo hacen apto para entornos exigentes y áreas clasificadas.',
+      highlights: ['Ex-proof', 'HART', '≤ 200 ms', '-50 a 400 °C'],
+      specs: [
+        { label: 'Rango', value: '-50 a 400 °C' },
+        { label: 'Salida', value: '4-20 mA o 4-20 mA con protocolo HART' },
+        { label: 'Precisión', value: '±0.5% URL' },
+        { label: 'Tiempo de respuesta', value: '≤ 200 ms' },
+        { label: 'Estabilidad', value: 'Superior a ±0.05% URL o 0.1 °C/año' },
+        { label: 'Conexión eléctrica', value: 'Terminal de aluminio con dos entradas M20×1.5' },
+        { label: 'Sonda', value: 'Diámetros de 6 a 14 mm y longitudes de 50 a 3000 mm' },
+        { label: 'Certificaciones', value: 'CE y Ex-proof' }
+      ],
+      applications: ['Petróleo y gas.', 'Áreas industriales clasificadas.', 'Procesos críticos con riesgo de atmósferas explosivas.'],
+      datasheetUrl: '/docs/catalog/temperature/catalogo-sensores-temperatura.pdf'
     }
   ];
 
@@ -364,6 +558,19 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
   get activeCategoryLabel() {
     const category = this.categories.find(item => item.id === this.selectedCategory);
     return category ? this.t(category.labelKey) : '';
+  }
+
+  getCategoryLabelKey(category: CatalogCategory) {
+    const labels: Record<CatalogCategory, string> = {
+      rtu: 'CATALOG.CATEGORIES.RTU',
+      accessories: 'CATALOG.CATEGORIES.ACCESSORIES',
+      drives: 'CATALOG.CATEGORIES.DRIVES',
+      cameras: 'CATALOG.CATEGORIES.CAMERAS',
+      flow: 'CATALOG.CATEGORIES.FLOW',
+      temperature: 'CATALOG.CATEGORIES.TEMPERATURE'
+    };
+
+    return labels[category];
   }
 
   selectCategory(category: CatalogCategory | 'all') {
@@ -411,7 +618,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       product.name,
       product.subtitle,
       product.description,
-      this.t(`CATALOG.CATEGORIES.${product.category === 'rtu' ? 'RTU' : product.category === 'accessories' ? 'ACCESSORIES' : 'DRIVES'}`),
+      this.t(this.getCategoryLabelKey(product.category)),
       ...product.highlights
     ]);
 
