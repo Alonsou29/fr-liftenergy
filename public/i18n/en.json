@@ -243,7 +243,8 @@
       "SUBJECT": "Equipment of interest",
       "NOTE": "I am available to review scope, availability, and technical recommendations.",
       "GENERIC_SUBJECT": "Industrial catalog",
-      "TOTAL_LABEL": "Estimated total"
+      "TOTAL_LABEL": "Estimated total",
+      "QUOTE_LABEL": "Quote"
     },
     "CATEGORIES": {
       "CONTROL_POWER": "Control and power",
@@ -457,5 +458,18 @@
     "ESTIMATED_TOTAL": "Estimated Total",
     "CHECKOUT": "Complete Order",
     "CHECKOUT_NOTE": "By continuing, WhatsApp will open with our advisor."
+  },
+  "CONTACT_MODAL": {
+    "TITLE": "Request information",
+    "DESCRIPTION": "Leave us your details and an advisor will contact you via WhatsApp to check availability and technical details.",
+    "NAME": "Name",
+    "NAME_PLACEHOLDER": "Your full name",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "example@email.com",
+    "PHONE": "Phone",
+    "PHONE_PLACEHOLDER": "+1 555 0000000",
+    "CANCEL": "Cancel",
+    "SUBMIT": "Send request",
+    "SUBMITTING": "Sending..."
   }
 }

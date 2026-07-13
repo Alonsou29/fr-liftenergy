@@ -1,0 +1,64 @@
+<div
+  class="fixed inset-0 z-[130] flex items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(190,242,100,0.18),transparent_32%),linear-gradient(135deg,rgba(20,33,22,0.88),rgba(46,76,50,0.82)_45%,rgba(13,25,16,0.9))] p-4 backdrop-blur-sm"
+  (click)="cancel()"
+>
+  <div
+    class="w-full max-w-md rounded-[1.5rem] bg-white p-6 shadow-2xl sm:p-8"
+    (click)="$event.stopPropagation()"
+  >
+    <h2 class="mb-1 text-2xl font-black text-[#142116]">{{ 'CONTACT_MODAL.TITLE' | translate }}</h2>
+    @if (productName) {
+      <p class="mb-1 text-sm font-bold text-[#2E7D32]">{{ productName }}</p>
+    }
+    <p class="mb-6 text-sm text-slate-500">{{ 'CONTACT_MODAL.DESCRIPTION' | translate }}</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+      <label class="block">
+        <span class="mb-1 block text-xs font-bold uppercase tracking-wider text-slate-500">{{ 'CONTACT_MODAL.NAME' | translate }}</span>
+        <input
+          formControlName="name"
+          type="text"
+          [placeholder]="'CONTACT_MODAL.NAME_PLACEHOLDER' | translate"
+          class="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-900 outline-none focus:border-[#2E7D32] focus:ring-4 focus:ring-[#2E7D32]/10"
+        >
+      </label>
+
+      <label class="block">
+        <span class="mb-1 block text-xs font-bold uppercase tracking-wider text-slate-500">{{ 'CONTACT_MODAL.EMAIL' | translate }}</span>
+        <input
+          formControlName="email"
+          type="email"
+          [placeholder]="'CONTACT_MODAL.EMAIL_PLACEHOLDER' | translate"
+          class="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-900 outline-none focus:border-[#2E7D32] focus:ring-4 focus:ring-[#2E7D32]/10"
+        >
+      </label>
+
+      <label class="block">
+        <span class="mb-1 block text-xs font-bold uppercase tracking-wider text-slate-500">{{ 'CONTACT_MODAL.PHONE' | translate }}</span>
+        <input
+          formControlName="phone"
+          type="tel"
+          [placeholder]="'CONTACT_MODAL.PHONE_PLACEHOLDER' | translate"
+          class="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-900 outline-none focus:border-[#2E7D32] focus:ring-4 focus:ring-[#2E7D32]/10"
+        >
+      </label>
+
+      <div class="flex gap-3 pt-2">
+        <button
+          type="button"
+          (click)="cancel()"
+          class="flex-1 rounded-2xl border border-slate-200 px-5 py-3 text-sm font-black uppercase tracking-wider text-slate-600 transition hover:border-slate-300"
+        >
+          {{ 'CONTACT_MODAL.CANCEL' | translate }}
+        </button>
+        <button
+          type="submit"
+          [disabled]="isSubmitting"
+          class="flex-1 rounded-2xl bg-[#2E7D32] px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-lg shadow-green-900/20 transition hover:bg-[#1B5E20] disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {{ (isSubmitting ? 'CONTACT_MODAL.SUBMITTING' : 'CONTACT_MODAL.SUBMIT') | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

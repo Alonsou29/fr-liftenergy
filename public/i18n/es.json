@@ -243,7 +243,8 @@
       "SUBJECT": "Equipo de interés",
       "NOTE": "Quedo atento para revisar alcance, disponibilidad y recomendación técnica.",
       "GENERIC_SUBJECT": "Catálogo industrial",
-      "TOTAL_LABEL": "Total estimado"
+      "TOTAL_LABEL": "Total estimado",
+      "QUOTE_LABEL": "Cotización"
     },
     "CATEGORIES": {
       "CONTROL_POWER": "Control y potencia",
@@ -457,5 +458,18 @@
     "ESTIMATED_TOTAL": "Total Estimado",
     "CHECKOUT": "Completar Pedido",
     "CHECKOUT_NOTE": "Al continuar, se abrirá WhatsApp con nuestro asesor."
+  },
+  "CONTACT_MODAL": {
+    "TITLE": "Solicitar información",
+    "DESCRIPTION": "Déjanos tus datos y un asesor te contactará por WhatsApp para revisar disponibilidad y detalles técnicos.",
+    "NAME": "Nombre",
+    "NAME_PLACEHOLDER": "Tu nombre completo",
+    "EMAIL": "Correo electrónico",
+    "EMAIL_PLACEHOLDER": "ejemplo@correo.com",
+    "PHONE": "Teléfono",
+    "PHONE_PLACEHOLDER": "+58 412 0000000",
+    "CANCEL": "Cancelar",
+    "SUBMIT": "Enviar solicitud",
+    "SUBMITTING": "Enviando..."
   }
 }

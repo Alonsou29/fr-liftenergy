@@ -37,7 +37,7 @@
                 [ngClass]="selectedCategory === category.id ? 'border-[#2E7D32] bg-[#edf6e7] text-[#142116] shadow-sm' : 'border-slate-200 bg-white text-slate-600 hover:border-[#2E7D32]/40 hover:bg-[#f7fbf4] hover:text-[#142116]'"
               >
                 <span class="category-tab__dot" aria-hidden="true"></span>
-                <span class="category-tab__label">{{ category.filterLabelKey | translate }}</span>
+                <span class="category-tab__label">{{ category.labelKey | translate }}</span>
               </button>
             }
           </div>
@@ -91,7 +91,22 @@
       }
     </div>
 
-    @if (filteredProducts.length === 0) {
+    @if (isLoadingProducts) {
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        @for (placeholder of skeletonPlaceholders; track placeholder) {
+          <div class="product-card-skeleton flex min-h-[560px] flex-col overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
+            <div class="h-64 animate-pulse bg-slate-200"></div>
+            <div class="flex flex-1 flex-col gap-3 p-6">
+              <div class="h-3 w-1/3 animate-pulse rounded bg-slate-200"></div>
+              <div class="h-5 w-2/3 animate-pulse rounded bg-slate-200"></div>
+              <div class="h-4 w-full animate-pulse rounded bg-slate-100"></div>
+              <div class="h-4 w-5/6 animate-pulse rounded bg-slate-100"></div>
+              <div class="mt-auto h-11 w-full animate-pulse rounded-2xl bg-slate-200"></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else if (filteredProducts.length === 0) {
       <div class="rounded-[1.5rem] border border-[#2E7D32]/10 bg-white px-6 py-16 text-center shadow-sm">
         <h2 class="mb-2 text-2xl font-black text-[#142116]">{{ 'CATALOG.EMPTY.TITLE' | translate }}</h2>
         <p class="mb-6 text-slate-500">{{ 'CATALOG.EMPTY.DESCRIPTION' | translate }}</p>
@@ -110,7 +125,7 @@
               <div class="absolute right-5 top-5 max-w-[52%] rounded-full border border-[#2E7D32]/15 bg-white/85 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-[#2E7D32]">
                 {{ getCategoryLabelKey(product.category) | translate }}
               </div>
-              <img [src]="'/img/' + product.image" [alt]="product.name" class="h-full w-full object-contain pt-8 transition duration-500 group-hover:scale-105">
+              <img [src]="product.image" [alt]="product.name" class="h-full w-full object-contain pt-8 transition duration-500 group-hover:scale-105">
             </div>
 
             <div class="flex flex-1 flex-col p-5">
@@ -173,7 +188,7 @@
 
           <div class="-mt-14 grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
             <div class="catalog-modal-visual relative flex min-h-[250px] items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8fbf5] to-[#e5f0df] p-5 sm:p-6">
-              <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.name" class="max-h-[340px] w-full object-contain">
+              <img [src]="selectedProduct.image" [alt]="selectedProduct.name" class="max-h-[340px] w-full object-contain">
             </div>
 
             <div class="p-5 sm:p-6">
@@ -263,4 +278,13 @@
       </div>
     }
   </div>
+
+  @if (pendingContactProduct) {
+    <app-contact-request-modal
+      [productName]="pendingContactProduct.code + ' - ' + pendingContactProduct.name"
+      [isSubmitting]="isSubmittingContact"
+      (confirmed)="onContactConfirmed($event)"
+      (cancelled)="onContactCancelled()"
+    ></app-contact-request-modal>
+  }
 </div>
