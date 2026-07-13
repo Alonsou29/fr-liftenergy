@@ -67,6 +67,15 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
   searchTerm = '';
   selectedCategory: CatalogCategory | 'all' = 'rtu';
   selectedProduct: CatalogProduct | null = null;
+  isProductImageZoomed = false;
+  productImageLensLeft = 0;
+  productImageLensTop = 0;
+  productImageLensImageWidth = 0;
+  productImageLensImageHeight = 0;
+  productImageLensImageLeft = 0;
+  productImageLensImageTop = 0;
+  private readonly productImageLensRadius = 72;
+  private readonly productImageLensZoom = 2.8;
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -233,7 +242,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'CUSTOM',
       name: 'Serie CX',
       subtitle: 'RTU personalizada armable según requerimiento',
-      image: 'catalog/rtu/control-box.png',
+      image: 'catalog/rtu/rtu-cx-custom.png',
       description: 'Modelo elástico y escalable, pensado como un lienzo de hardware y software. Evita sobredimensionar o subdimensionar la solución: el cliente obtiene exactamente la potencia, comunicaciones, puertos y arquitectura física que requiere su proceso.',
       highlights: ['Ingeniería a la medida', 'Arquitectura escalable', 'Optimización de presupuesto', 'Hardware agnóstico'],
       specs: [
@@ -399,7 +408,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600-E',
       name: 'Caudalímetro electromagnético MFE600-E',
       subtitle: 'Medición de alta precisión para fluidos conductivos',
-      image: 'catalog/flow/mfe600-e.jpg',
+      image: 'catalog/flow/mfe600-e.png',
       description: 'Instrumento para cuantificar el flujo volumétrico de fluidos conductivos en tuberías cerradas. Su medición es independiente de la densidad, viscosidad, temperatura o presión del líquido y el tubo carece de piezas móviles, evitando obstrucciones y pérdida de carga.',
       highlights: ['DN10 a DN3000', 'Precisión hasta ±0.2%', 'HART / Modbus RTU', 'IP65 / IP68'],
       specs: [
@@ -420,7 +429,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600Z',
       name: 'Caudalímetro electromagnético MFE600Z',
       subtitle: 'Telemetría autónoma para redes de agua y sitios remotos',
-      image: 'catalog/flow/mfe600z.jpg',
+      image: 'catalog/flow/mfe600z.png',
       description: 'Caudalímetro inteligente de ultra bajo consumo para redes de distribución de agua y localizaciones sin acceso a la red eléctrica. Integra alimentación por batería, autodiagnóstico y opciones de transmisión inalámbrica para sistemas de telemetría y SCADA.',
       highlights: ['Batería de 3 a 5 años', 'GPRS / NB-IoT / LoRa', 'IP68', 'Autodiagnóstico'],
       specs: [
@@ -441,7 +450,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600H',
       name: 'Caudalímetro de calor MFE600H',
       subtitle: 'Medición simultánea de caudal y energía térmica',
-      image: 'catalog/flow/mfe600h.jpg',
+      image: 'catalog/flow/mfe600h.png',
       description: 'Medidor electromagnético especializado para cuantificar el caudal y el consumo de calor o frío en circuitos cerrados de agua. Combina la medición de flujo con dos sensores de temperatura calibrados para calcular en tiempo real la energía térmica transferida.',
       highlights: ['DN15 a DN1200', 'PT1000 pareadas', 'M-Bus / Modbus RTU', '2 °C a 150 °C'],
       specs: [
@@ -462,7 +471,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600C',
       name: 'Caudalímetro de inserción MFE600C',
       subtitle: 'Medición económica para tuberías de gran diámetro',
-      image: 'catalog/flow/mfe600c.jpg',
+      image: 'catalog/flow/mfe600c.png',
       description: 'Caudalímetro electromagnético de inserción para medir grandes conducciones sin instalar un equipo en línea completo. Su sistema hot-tap permite instalarlo, mantenerlo y retirarlo bajo presión mediante una válvula esférica, sin detener el proceso.',
       highlights: ['DN100 a DN3000', 'Instalación hot-tap', 'Cero paradas', 'Modbus RS485'],
       specs: [
@@ -483,7 +492,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'LG200-FRF',
       name: 'Transmisor de temperatura LG200-FRF',
       subtitle: 'Diseño higiénico para procesos sanitarios CIP/SIP',
-      image: 'catalog/temperature/lg200-frf.jpg',
+      image: 'catalog/temperature/lg200-frf.png',
       description: 'Transmisor integrado de diseño higiénico con electrónica ASIC/SMT y construcción en acero inoxidable. Está orientado a mediciones precisas en industrias alimentarias y farmacéuticas, soportando procesos de limpieza y esterilización in situ.',
       highlights: ['-50 a 400 °C', '4-20 mA', 'Acero 316L', 'Certificación 3-A'],
       specs: [
@@ -505,7 +514,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'LG200-DRD(H)',
       name: 'Transmisor de temperatura LG200-DRD(H)',
       subtitle: 'Respuesta rápida y configuración flexible para la industria',
-      image: 'catalog/temperature/lg200-drdh.jpg',
+      image: 'catalog/temperature/lg200-drdh.png',
       description: 'Transmisor integrado flexible y confiable para medición térmica industrial. Incorpora electrónica ASIC/SMT, respuesta rápida y protección de grado 4 frente a sobretensiones transitorias severas.',
       highlights: ['≤ 200 ms', '-50 a 400 °C', '4-20 mA / 1-5 VDC', 'Protección grado 4'],
       specs: [
@@ -527,7 +536,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'LG200-WRT',
       name: 'Transmisor de temperatura LG200-WRT',
       subtitle: 'Medición robusta para atmósferas explosivas',
-      image: 'catalog/temperature/lg200-wrt.jpg',
+      image: 'catalog/temperature/lg200-wrt.png',
       description: 'Transmisor industrial para mediciones térmicas en condiciones críticas. Su carcasa de aleación de aluminio, electrónica ASIC/SMT y certificación a prueba de explosiones lo hacen apto para entornos exigentes y áreas clasificadas.',
       highlights: ['Ex-proof', 'HART', '≤ 200 ms', '-50 a 400 °C'],
       specs: [
@@ -589,13 +598,63 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
   }
 
   openDetails(product: CatalogProduct) {
+    this.resetProductImageZoom();
     this.selectedProduct = product;
     this.lockBodyScroll();
   }
 
   closeDetails() {
+    this.resetProductImageZoom();
     this.selectedProduct = null;
     this.unlockBodyScroll();
+  }
+
+  onProductImagePointerMove(event: PointerEvent) {
+    if (event.pointerType === 'touch' && !this.isProductImageZoomed) {
+      return;
+    }
+
+    if (event.pointerType === 'touch') {
+      event.preventDefault();
+    }
+
+    this.updateProductImageLens(event.currentTarget as HTMLElement, event.clientX, event.clientY);
+    this.isProductImageZoomed = true;
+  }
+
+  onProductImagePointerLeave(event: PointerEvent) {
+    if (event.pointerType !== 'touch') {
+      this.resetProductImageZoom();
+    }
+  }
+
+  onProductImagePointerDown(event: PointerEvent) {
+    if (event.pointerType !== 'touch') {
+      return;
+    }
+
+    event.preventDefault();
+    (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+    this.updateProductImageLens(event.currentTarget as HTMLElement, event.clientX, event.clientY);
+    this.isProductImageZoomed = true;
+  }
+
+  onProductImagePointerUp(event: PointerEvent) {
+    if (event.pointerType === 'touch') {
+      this.resetProductImageZoom();
+    }
+  }
+
+  toggleProductImageZoom(event: Event) {
+    if (this.isProductImageZoomed) {
+      this.resetProductImageZoom();
+      return;
+    }
+
+    const container = event.currentTarget as HTMLElement;
+    const bounds = container.getBoundingClientRect();
+    this.updateProductImageLens(container, bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+    this.isProductImageZoomed = true;
   }
 
   @HostListener('document:keydown.escape')
@@ -610,6 +669,48 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
     const message = `${this.t('CATALOG.WHATSAPP.GREETING')}\n\n${this.t('CATALOG.WHATSAPP.SUBJECT')}: ${subject}\n${this.t('CATALOG.WHATSAPP.NOTE')}`;
     const whatsappUrl = `https://wa.me/${this.whatsappPhoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  }
+
+  private updateProductImageLens(container: HTMLElement, clientX: number, clientY: number) {
+    const containerBounds = container.getBoundingClientRect();
+    const image = container.querySelector<HTMLImageElement>('.catalog-modal-visual__image');
+
+    if (!image?.naturalWidth || !image.naturalHeight) {
+      return;
+    }
+
+    const radius = Math.min(this.productImageLensRadius, containerBounds.width / 2, containerBounds.height / 2);
+    const localX = clientX - containerBounds.left;
+    const localY = clientY - containerBounds.top;
+    this.productImageLensLeft = Math.min(containerBounds.width - radius, Math.max(radius, localX));
+    this.productImageLensTop = Math.min(containerBounds.height - radius, Math.max(radius, localY));
+
+    const imageBounds = image.getBoundingClientRect();
+    const naturalRatio = image.naturalWidth / image.naturalHeight;
+    const boxRatio = imageBounds.width / imageBounds.height;
+    let renderedWidth = imageBounds.width;
+    let renderedHeight = imageBounds.height;
+    let renderedLeft = imageBounds.left;
+    let renderedTop = imageBounds.top;
+
+    if (boxRatio > naturalRatio) {
+      renderedWidth = renderedHeight * naturalRatio;
+      renderedLeft += (imageBounds.width - renderedWidth) / 2;
+    } else {
+      renderedHeight = renderedWidth / naturalRatio;
+      renderedTop += (imageBounds.height - renderedHeight) / 2;
+    }
+
+    const focusX = Math.min(renderedWidth, Math.max(0, clientX - renderedLeft));
+    const focusY = Math.min(renderedHeight, Math.max(0, clientY - renderedTop));
+    this.productImageLensImageWidth = renderedWidth * this.productImageLensZoom;
+    this.productImageLensImageHeight = renderedHeight * this.productImageLensZoom;
+    this.productImageLensImageLeft = radius - focusX * this.productImageLensZoom;
+    this.productImageLensImageTop = radius - focusY * this.productImageLensZoom;
+  }
+
+  private resetProductImageZoom() {
+    this.isProductImageZoomed = false;
   }
 
   private productMatchesSearch(product: CatalogProduct, search: string) {

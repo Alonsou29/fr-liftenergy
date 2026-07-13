@@ -110,7 +110,11 @@
               <div class="absolute right-5 top-5 max-w-[52%] rounded-full border border-[#2E7D32]/15 bg-white/85 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-[#2E7D32]">
                 {{ getCategoryLabelKey(product.category) | translate }}
               </div>
-              <img [src]="'/img/' + product.image" [alt]="product.name" class="h-full w-full object-contain pt-8 transition duration-500 group-hover:scale-105">
+              <img
+                [src]="'/img/' + product.image"
+                [alt]="product.name"
+                class="h-full w-full object-contain pt-8 transition duration-500 group-hover:scale-105"
+              >
             </div>
 
             <div class="flex flex-1 flex-col p-5">
@@ -172,8 +176,49 @@
           </button>
 
           <div class="-mt-14 grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
-            <div class="catalog-modal-visual relative flex min-h-[250px] items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8fbf5] to-[#e5f0df] p-5 sm:p-6">
-              <img [src]="'/img/' + selectedProduct.image" [alt]="selectedProduct.name" class="max-h-[340px] w-full object-contain">
+            <div
+              #productZoomVisual
+              class="catalog-modal-visual relative flex min-h-[250px] items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8fbf5] to-[#e5f0df] p-5 sm:p-6"
+              role="button"
+              tabindex="0"
+              [attr.aria-label]="'CATALOG.MODAL.IMAGE_ZOOM_HINT' | translate"
+              [attr.aria-pressed]="isProductImageZoomed"
+              [class.catalog-modal-visual--zoomed]="isProductImageZoomed"
+              (pointermove)="onProductImagePointerMove($event)"
+              (pointerleave)="onProductImagePointerLeave($event)"
+              (pointerdown)="onProductImagePointerDown($event)"
+              (pointerup)="onProductImagePointerUp($event)"
+              (pointercancel)="onProductImagePointerUp($event)"
+              (keydown.enter)="toggleProductImageZoom($event)"
+              (keydown.space)="toggleProductImageZoom($event); $event.preventDefault()"
+            >
+              <img
+                #productZoomImage
+                [src]="'/img/' + selectedProduct.image"
+                [alt]="selectedProduct.name"
+                class="catalog-modal-visual__image max-h-[340px] w-full object-contain"
+              >
+              @if (isProductImageZoomed) {
+                <span
+                  class="catalog-image-lens"
+                  aria-hidden="true"
+                  [style.left.px]="productImageLensLeft"
+                  [style.top.px]="productImageLensTop"
+                >
+                  <img
+                    [src]="'/img/' + selectedProduct.image"
+                    alt=""
+                    [style.width.px]="productImageLensImageWidth"
+                    [style.height.px]="productImageLensImageHeight"
+                    [style.left.px]="productImageLensImageLeft"
+                    [style.top.px]="productImageLensImageTop"
+                  >
+                </span>
+              }
+              <span class="catalog-modal-visual__hint absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-white/70 bg-[#142116]/85 px-3 py-2 text-[10px] font-black uppercase tracking-wider text-white shadow-lg backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                {{ 'CATALOG.MODAL.IMAGE_ZOOM_HINT' | translate }}
+              </span>
             </div>
 
             <div class="p-5 sm:p-6">
