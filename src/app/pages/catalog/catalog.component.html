@@ -113,6 +113,8 @@
               <img
                 [src]="'/img/' + product.image"
                 [alt]="product.name"
+                loading="lazy"
+                decoding="async"
                 class="h-full w-full object-contain pt-8 transition duration-500 group-hover:scale-105"
               >
             </div>
@@ -196,6 +198,7 @@
                 #productZoomImage
                 [src]="'/img/' + selectedProduct.image"
                 [alt]="selectedProduct.name"
+                decoding="async"
                 class="catalog-modal-visual__image max-h-[340px] w-full object-contain"
               >
               @if (isProductImageZoomed) {
@@ -208,6 +211,7 @@
                   <img
                     [src]="'/img/' + selectedProduct.image"
                     alt=""
+                    decoding="async"
                     [style.width.px]="productImageLensImageWidth"
                     [style.height.px]="productImageLensImageHeight"
                     [style.left.px]="productImageLensImageLeft"

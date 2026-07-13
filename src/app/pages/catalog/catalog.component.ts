@@ -139,7 +139,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-01',
       name: 'Serie T-100',
       subtitle: 'Modelo esencial para monitoreo masivo y telemetría básica',
-      image: 'catalog/rtu/rtu-t100-cabinet.png',
+      image: 'catalog/rtu/rtu-t100-cabinet.webp',
       description: 'Solución de adquisición de datos de gran densidad, costo-eficiente y optimizada para operar como nodo recolector ultraeficiente. Transmite información hacia brokers MQTT o plataformas en la nube y permite monitorear múltiples sensores analógicos de forma simultánea en un diseño compacto de bajo consumo.',
       highlights: ['34 canales I/O', 'Diseño compacto', 'Bajo consumo', 'Telemetría básica de alta densidad'],
       specs: [
@@ -169,7 +169,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-02',
       name: 'Serie E-200',
       subtitle: 'Automatización y Edge Computing estándar',
-      image: 'catalog/rtu/rtu-e200-cabinet.png',
+      image: 'catalog/rtu/rtu-e200-cabinet.webp',
       description: 'RTU industrial equilibrada para procesamiento local, control analógico preciso y separación de redes IT/OT. Ejecuta contenedores Docker, Node-RED y bases de datos ligeras, reduciendo latencia y costos de ancho de banda antes de enviar datos a la nube.',
       highlights: ['Control analógico preciso', 'Hardware avanzado', 'Procesamiento local', 'Separación IT/OT'],
       specs: [
@@ -197,7 +197,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-03',
       name: 'Serie E-300',
       subtitle: 'Control avanzado e IA local',
-      image: 'catalog/rtu/rtu-e300-cabinet.png',
+      image: 'catalog/rtu/rtu-e300-cabinet.webp',
       description: 'Servidor de borde industrial con I/O duro y memoria ampliada para desplegar modelos de Machine Learning y Deep Learning directamente en campo. Diseñado para tomar decisiones autónomas en microsegundos sin depender de la nube.',
       highlights: ['Base de datos local', 'Procesamiento robusto', 'Modelos de IA', 'Control en tiempo real'],
       specs: [
@@ -223,7 +223,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-04',
       name: 'Serie W-400',
       subtitle: 'Concentrador IIoT inalámbrico y redes de área amplia',
-      image: 'catalog/rtu/rtu-w400-cabinet.png',
+      image: 'catalog/rtu/rtu-w400-cabinet.webp',
       description: 'Cerebro central para redes de sensores distribuidos en grandes extensiones. Captura datos de cientos de nodos inalámbricos, los unifica, los enriquece con contexto de borde y los transmite de forma segura.',
       highlights: ['Largo alcance', 'Telemetría inalámbrica', 'Menor costo de instalación', 'Gateway IIoT seguro'],
       specs: [
@@ -247,7 +247,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'CUSTOM',
       name: 'Serie CX',
       subtitle: 'RTU personalizada armable según requerimiento',
-      image: 'catalog/rtu/rtu-cx-custom.png',
+      image: 'catalog/rtu/rtu-cx-custom.webp',
       description: 'Modelo elástico y escalable, pensado como un lienzo de hardware y software. Evita sobredimensionar o subdimensionar la solución: el cliente obtiene exactamente la potencia, comunicaciones, puertos y arquitectura física que requiere su proceso.',
       highlights: ['Ingeniería a la medida', 'Arquitectura escalable', 'Optimización de presupuesto', 'Hardware agnóstico'],
       specs: [
@@ -271,7 +271,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'ACC-01',
       name: 'RevPi Core S',
       subtitle: 'Controlador industrial compacto para nodos de telemetría',
-      image: 'catalog/rtu/revpi-core-s.png',
+      image: 'catalog/rtu/revpi-core-s.webp',
       description: 'Unidad base compacta para adquisición y transmisión de datos en arquitecturas RTU de bajo consumo, con memoria eMMC industrial y compatibilidad con módulos de expansión Revolution Pi.',
       highlights: ['1GB RAM', '32GB eMMC', 'IP20', 'Base para RTU T-100'],
       specs: [
@@ -287,7 +287,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'ACC-02',
       name: 'RevPi Connect 5',
       subtitle: 'Controlador Edge para automatización industrial',
-      image: 'catalog/rtu/revpi-connect.png',
+      image: 'catalog/rtu/revpi-connect.webp',
       description: 'Controlador industrial de mayor capacidad para Edge Computing, separación de redes IT/OT e integración con protocolos industriales y plataformas IoT.',
       highlights: ['4GB u 8GB RAM', 'Docker / Node-RED', 'Doble Ethernet', 'TPM 2.0'],
       specs: [
@@ -303,7 +303,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'ACC-03',
       name: 'RevPi AIO',
       subtitle: 'Módulo analógico 4AIN, 2RTD y 4AOUT',
-      image: 'catalog/rtu/aio.png',
+      image: 'catalog/rtu/aio.webp',
       description: 'Módulo de señales analógicas para instrumentación de campo, medición de variables de proceso y control de lazos en tableros industriales.',
       highlights: ['4 entradas analógicas', '2 entradas RTD', '4 salidas analógicas', 'Control de lazos'],
       specs: [
@@ -319,7 +319,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'ACC-04',
       name: 'RevPi DIO',
       subtitle: 'Módulo digital 14IN / 14OUT',
-      image: 'catalog/rtu/dio.png',
+      image: 'catalog/rtu/dio.webp',
       description: 'Módulo para señales digitales de campo, estados operativos, alarmas, enclavamientos y control discreto dentro de arquitecturas RTU.',
       highlights: ['14 entradas digitales', '14 salidas digitales', 'PWM / contadores', 'PiBridge'],
       specs: [
@@ -335,7 +335,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'ACC-05',
       name: 'Gateways industriales',
       subtitle: 'WirelessHART, LoRaWAN y pasarelas IIoT',
-      image: 'catalog/rtu/gateway-wirelesshart.png',
+      image: 'catalog/rtu/gateway-wirelesshart.webp',
       description: 'Conjunto de gateways para redes inalámbricas industriales y despliegues de sensores distribuidos. Incluye opciones WirelessHART, Dragino MS48-LR y Milesight UG56 para concentrar datos y llevarlos a plataformas IIoT.',
       highlights: ['WirelessHART', 'LoRaWAN', 'Modbus a MQTT/OPC UA', 'Cifrado TLS/SSL'],
       specs: [
@@ -351,7 +351,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'ACC-06',
       name: 'Alimentación y protección',
       subtitle: 'Fuente 24 VDC e interruptor inteligente',
-      image: 'catalog/rtu/power-supply.png',
+      image: 'catalog/rtu/power-supply.webp',
       description: 'Componentes de soporte para tableros de control: fuente de alimentación 24 VDC e interruptor WiFi inteligente 1P+N AC90-240V 1-50A para funciones auxiliares y supervisión.',
       highlights: ['24 VDC', 'AC90-240V', 'Smart Life / Tuya', 'Tablero de control'],
       specs: [
@@ -413,7 +413,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600-E',
       name: 'Caudalímetro electromagnético MFE600-E',
       subtitle: 'Medición de alta precisión para fluidos conductivos',
-      image: 'catalog/flow/mfe600-e.png',
+      image: 'catalog/flow/mfe600-e.webp',
       description: 'Instrumento para cuantificar el flujo volumétrico de fluidos conductivos en tuberías cerradas. Su medición es independiente de la densidad, viscosidad, temperatura o presión del líquido y el tubo carece de piezas móviles, evitando obstrucciones y pérdida de carga.',
       highlights: ['DN10 a DN3000', 'Precisión hasta ±0.2%', 'HART / Modbus RTU', 'IP65 / IP68'],
       specs: [
@@ -434,7 +434,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600Z',
       name: 'Caudalímetro electromagnético MFE600Z',
       subtitle: 'Telemetría autónoma para redes de agua y sitios remotos',
-      image: 'catalog/flow/mfe600z.png',
+      image: 'catalog/flow/mfe600z.webp',
       description: 'Caudalímetro inteligente de ultra bajo consumo para redes de distribución de agua y localizaciones sin acceso a la red eléctrica. Integra alimentación por batería, autodiagnóstico y opciones de transmisión inalámbrica para sistemas de telemetría y SCADA.',
       highlights: ['Batería de 3 a 5 años', 'GPRS / NB-IoT / LoRa', 'IP68', 'Autodiagnóstico'],
       specs: [
@@ -455,7 +455,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600H',
       name: 'Caudalímetro de calor MFE600H',
       subtitle: 'Medición simultánea de caudal y energía térmica',
-      image: 'catalog/flow/mfe600h.png',
+      image: 'catalog/flow/mfe600h.webp',
       description: 'Medidor electromagnético especializado para cuantificar el caudal y el consumo de calor o frío en circuitos cerrados de agua. Combina la medición de flujo con dos sensores de temperatura calibrados para calcular en tiempo real la energía térmica transferida.',
       highlights: ['DN15 a DN1200', 'PT1000 pareadas', 'M-Bus / Modbus RTU', '2 °C a 150 °C'],
       specs: [
@@ -476,7 +476,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'MFE600C',
       name: 'Caudalímetro de inserción MFE600C',
       subtitle: 'Medición económica para tuberías de gran diámetro',
-      image: 'catalog/flow/mfe600c.png',
+      image: 'catalog/flow/mfe600c.webp',
       description: 'Caudalímetro electromagnético de inserción para medir grandes conducciones sin instalar un equipo en línea completo. Su sistema hot-tap permite instalarlo, mantenerlo y retirarlo bajo presión mediante una válvula esférica, sin detener el proceso.',
       highlights: ['DN100 a DN3000', 'Instalación hot-tap', 'Cero paradas', 'Modbus RS485'],
       specs: [
@@ -497,7 +497,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'LG200-FRF',
       name: 'Transmisor de temperatura LG200-FRF',
       subtitle: 'Diseño higiénico para procesos sanitarios CIP/SIP',
-      image: 'catalog/temperature/lg200-frf.png',
+      image: 'catalog/temperature/lg200-frf.webp',
       description: 'Transmisor integrado de diseño higiénico con electrónica ASIC/SMT y construcción en acero inoxidable. Está orientado a mediciones precisas en industrias alimentarias y farmacéuticas, soportando procesos de limpieza y esterilización in situ.',
       highlights: ['-50 a 400 °C', '4-20 mA', 'Acero 316L', 'Certificación 3-A'],
       specs: [
@@ -519,7 +519,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'LG200-DRD(H)',
       name: 'Transmisor de temperatura LG200-DRD(H)',
       subtitle: 'Respuesta rápida y configuración flexible para la industria',
-      image: 'catalog/temperature/lg200-drdh.png',
+      image: 'catalog/temperature/lg200-drdh.webp',
       description: 'Transmisor integrado flexible y confiable para medición térmica industrial. Incorpora electrónica ASIC/SMT, respuesta rápida y protección de grado 4 frente a sobretensiones transitorias severas.',
       highlights: ['≤ 200 ms', '-50 a 400 °C', '4-20 mA / 1-5 VDC', 'Protección grado 4'],
       specs: [
@@ -541,7 +541,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'LG200-WRT',
       name: 'Transmisor de temperatura LG200-WRT',
       subtitle: 'Medición robusta para atmósferas explosivas',
-      image: 'catalog/temperature/lg200-wrt.png',
+      image: 'catalog/temperature/lg200-wrt.webp',
       description: 'Transmisor industrial para mediciones térmicas en condiciones críticas. Su carcasa de aleación de aluminio, electrónica ASIC/SMT y certificación a prueba de explosiones lo hacen apto para entornos exigentes y áreas clasificadas.',
       highlights: ['Ex-proof', 'HART', '≤ 200 ms', '-50 a 400 °C'],
       specs: [
@@ -563,7 +563,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'SMP858-NSF',
       name: 'Transmisor de presión diferencial SMP858-NSF',
       subtitle: 'Medición higiénica diferencial con máxima resistencia a sobrecargas',
-      image: 'catalog/pressure/smp858-nsf.png',
+      image: 'catalog/pressure/smp858-nsf.webp',
       description: 'Transmisor de presión diferencial de monosilicio diseñado para procesos higiénicos. Su estructura de aislamiento totalmente sellada reduce los efectos de la humedad, mientras la protección de doble diafragma permite operar en aplicaciones sanitarias con limpieza húmeda intensa y sobrecargas severas.',
       highlights: ['4 kPa a 1 MPa', 'Sobrecarga hasta 24 MPa', '4-20 mA + HART', 'FDA / GMP'],
       specs: [
@@ -588,7 +588,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'SMP858-TLF',
       name: 'Transmisor de presión manométrica SMP858-TLF',
       subtitle: 'Diseño sanitario compacto para limpieza y esterilización CIP/SIP',
-      image: 'catalog/pressure/smp858-tlf.png',
+      image: 'catalog/pressure/smp858-tlf.webp',
       description: 'Transmisor de presión manométrica higiénico para las industrias alimentaria y farmacéutica. Integra piezas húmedas de acero inoxidable 316L con soldadura integral, acabado sanitario, protección de doble diafragma y fluido de llenado certificado por la FDA.',
       highlights: ['10 kPa a 2 MPa', 'Acero 316L', 'Ra ≤ 0.4 μm', 'CIP / SIP'],
       specs: [
@@ -613,7 +613,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'SMP858-TSF-S',
       name: 'Transmisor de presión manométrica SMP858-TSF-S',
       subtitle: 'Medición sanitaria de rango ampliado para procesos exigentes',
-      image: 'catalog/pressure/smp858-tsf-s.png',
+      image: 'catalog/pressure/smp858-tsf-s.webp',
       description: 'Transmisor manométrico higiénico con construcción compacta, piezas húmedas de acero inoxidable 316L, soldadura integral y acabado de alta calidad. Está preparado para limpieza CIP/SIP, evita la condensación interna y ofrece configuración local mediante electrónica ASIC/SMT.',
       highlights: ['10 kPa a 3 MPa', '4-20 mA + HART', 'Ra ≤ 0.4 μm', '3-A / EHEDG'],
       specs: [
