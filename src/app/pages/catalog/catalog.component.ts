@@ -139,7 +139,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-01',
       name: 'Serie T-100',
       subtitle: 'Modelo esencial para monitoreo masivo y telemetría básica',
-      image: 'catalog/rtu/rtu-t100-cabinet.jpg',
+      image: 'catalog/rtu/rtu-t100-cabinet.png',
       description: 'Solución de adquisición de datos de gran densidad, costo-eficiente y optimizada para operar como nodo recolector ultraeficiente. Transmite información hacia brokers MQTT o plataformas en la nube y permite monitorear múltiples sensores analógicos de forma simultánea en un diseño compacto de bajo consumo.',
       highlights: ['34 canales I/O', 'Diseño compacto', 'Bajo consumo', 'Telemetría básica de alta densidad'],
       specs: [
@@ -169,7 +169,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-02',
       name: 'Serie E-200',
       subtitle: 'Automatización y Edge Computing estándar',
-      image: 'catalog/rtu/rtu-e200-cabinet.jpg',
+      image: 'catalog/rtu/rtu-e200-cabinet.png',
       description: 'RTU industrial equilibrada para procesamiento local, control analógico preciso y separación de redes IT/OT. Ejecuta contenedores Docker, Node-RED y bases de datos ligeras, reduciendo latencia y costos de ancho de banda antes de enviar datos a la nube.',
       highlights: ['Control analógico preciso', 'Hardware avanzado', 'Procesamiento local', 'Separación IT/OT'],
       specs: [
@@ -197,7 +197,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-03',
       name: 'Serie E-300',
       subtitle: 'Control avanzado e IA local',
-      image: 'catalog/rtu/rtu-e300-cabinet.jpg',
+      image: 'catalog/rtu/rtu-e300-cabinet.png',
       description: 'Servidor de borde industrial con I/O duro y memoria ampliada para desplegar modelos de Machine Learning y Deep Learning directamente en campo. Diseñado para tomar decisiones autónomas en microsegundos sin depender de la nube.',
       highlights: ['Base de datos local', 'Procesamiento robusto', 'Modelos de IA', 'Control en tiempo real'],
       specs: [
@@ -223,7 +223,7 @@ export class CatalogComponent implements AfterViewInit, OnDestroy {
       code: 'RTU-04',
       name: 'Serie W-400',
       subtitle: 'Concentrador IIoT inalámbrico y redes de área amplia',
-      image: 'catalog/rtu/rtu-w400-cabinet.jpg',
+      image: 'catalog/rtu/rtu-w400-cabinet.png',
       description: 'Cerebro central para redes de sensores distribuidos en grandes extensiones. Captura datos de cientos de nodos inalámbricos, los unifica, los enriquece con contexto de borde y los transmite de forma segura.',
       highlights: ['Largo alcance', 'Telemetría inalámbrica', 'Menor costo de instalación', 'Gateway IIoT seguro'],
       specs: [
