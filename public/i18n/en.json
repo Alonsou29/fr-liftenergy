@@ -207,7 +207,9 @@
     "EMPTY": {
       "TITLE": "No products found",
       "DESCRIPTION": "Try clearing filters or using a broader search.",
-      "BUTTON": "View full catalog"
+      "BUTTON": "View full catalog",
+      "ERROR_TITLE": "We couldn't load the catalog",
+      "ERROR_DESCRIPTION": "Try reloading the page in a few minutes."
     },
     "PRODUCT_CARD": {
       "PRICE_REF": "Ref. price",

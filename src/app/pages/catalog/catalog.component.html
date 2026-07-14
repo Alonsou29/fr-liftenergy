@@ -76,6 +76,26 @@
       </div>
     </section>
 
+    @if (isLoadingProducts) {
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3" aria-hidden="true">
+        @for (placeholder of [1, 2, 3, 4, 5, 6]; track placeholder) {
+          <div class="flex min-h-[560px] animate-pulse flex-col overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-xl shadow-green-950/8">
+            <div class="h-64 bg-slate-100"></div>
+            <div class="flex flex-1 flex-col gap-3 p-5">
+              <div class="h-6 w-3/4 rounded-full bg-slate-100"></div>
+              <div class="h-4 w-1/2 rounded-full bg-slate-100"></div>
+              <div class="h-20 rounded-2xl bg-slate-100"></div>
+              <div class="mt-auto h-12 rounded-2xl bg-slate-100"></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else if (catalogLoadError) {
+      <div class="rounded-[1.5rem] border border-[#2E7D32]/10 bg-white px-6 py-16 text-center shadow-sm">
+        <h2 class="mb-2 text-2xl font-black text-[#142116]">{{ 'CATALOG.EMPTY.ERROR_TITLE' | translate }}</h2>
+        <p class="mb-6 text-slate-500">{{ 'CATALOG.EMPTY.ERROR_DESCRIPTION' | translate }}</p>
+      </div>
+    } @else {
     <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
       <div>
         <p class="text-xs font-black uppercase tracking-[0.18em] text-lime-200">{{ activeCategoryLabel }}</p>
@@ -111,7 +131,7 @@
                 {{ getCategoryLabelKey(product.category) | translate }}
               </div>
               <img
-                [src]="'/img/' + product.image"
+                [src]="product.image"
                 [alt]="product.name"
                 class="h-full w-full object-contain pt-8 transition duration-500 group-hover:scale-105"
               >
@@ -159,6 +179,7 @@
         }
       </div>
     }
+    }
 
     @if (selectedProduct) {
       <div class="catalog-modal-backdrop fixed inset-0 z-[120] flex items-start justify-center overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(190,242,100,0.18),transparent_32%),linear-gradient(135deg,rgba(20,33,22,0.88),rgba(46,76,50,0.82)_45%,rgba(13,25,16,0.9))] p-3 pt-24 backdrop-blur-sm sm:p-6 sm:pt-28" (click)="closeDetails()">
@@ -194,7 +215,7 @@
             >
               <img
                 #productZoomImage
-                [src]="'/img/' + selectedProduct.image"
+                [src]="selectedProduct.image"
                 [alt]="selectedProduct.name"
                 class="catalog-modal-visual__image max-h-[340px] w-full object-contain"
               >
@@ -206,7 +227,7 @@
                   [style.top.px]="productImageLensTop"
                 >
                   <img
-                    [src]="'/img/' + selectedProduct.image"
+                    [src]="selectedProduct.image"
                     alt=""
                     [style.width.px]="productImageLensImageWidth"
                     [style.height.px]="productImageLensImageHeight"
