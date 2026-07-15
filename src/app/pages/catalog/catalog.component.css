@@ -77,42 +77,60 @@
   cursor: grabbing;
 }
 
-.category-tab,
 .product-card {
   min-width: 0;
 }
 
-.catalog-category-strip {
-  margin: -0.15rem;
-  padding: 0.15rem;
+.catalog-controls {
+  display: grid;
+  gap: 0.625rem;
 }
 
-.category-tab {
-  position: relative;
-  white-space: nowrap;
+.catalog-category-select {
+  appearance: none;
+  cursor: pointer;
 }
 
-.category-tab__label {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.catalog-select-field__icon,
+.catalog-select-field__chevron {
+  pointer-events: none;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
-.category-tab__dot {
-  width: 0.42rem;
-  height: 0.42rem;
-  flex: 0 0 auto;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.52);
-  box-shadow: 0 0 0 0 rgba(190, 242, 100, 0);
-  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+.catalog-select-field:hover .catalog-category-select {
+  border-color: rgba(46, 125, 50, 0.38);
+  background: #f7fbf4;
 }
 
-.category-tab:hover .category-tab__dot,
-.category-tab--active .category-tab__dot {
-  background: #65a30d;
-  box-shadow: 0 0 0 4px rgba(190, 242, 100, 0.22);
-  transform: scale(1.08);
+.catalog-select-field:focus-within .catalog-select-field__chevron {
+  color: #2E7D32;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.catalog-page .catalog-category-select:focus,
+.catalog-page .catalog-category-select:focus-visible {
+  border-color: rgba(46, 125, 50, 0.62);
+  outline: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(46, 125, 50, 0.18),
+    0 0 0 3px rgba(190, 242, 100, 0.22);
+}
+
+@media (min-width: 640px) {
+  .catalog-controls {
+    grid-template-columns: minmax(11rem, 0.42fr) minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalog-controls {
+    grid-template-columns: minmax(12.5rem, 0.34fr) minmax(18rem, 1fr) auto auto;
+    align-items: center;
+  }
+
+  .catalog-control-button {
+    width: 8rem;
+  }
 }
 
 .catalog-page button:not(:disabled),
@@ -140,7 +158,8 @@
 
 .catalog-page button:focus-visible,
 .catalog-page a[href]:focus-visible,
-.catalog-page input:focus-visible {
+.catalog-page input:focus-visible,
+.catalog-page select:focus-visible {
   outline: 2px solid rgba(190, 242, 100, 0.9);
   outline-offset: 3px;
   box-shadow: 0 0 0 6px rgba(190, 242, 100, 0.18);
@@ -165,7 +184,6 @@
     0 0 0 3px rgba(190, 242, 100, 0.22);
 }
 
-.category-tab span,
 .product-card p,
 .product-card span,
 .product-card h3 {

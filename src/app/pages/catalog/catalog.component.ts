@@ -45,7 +45,7 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   searchTerm = '';
-  selectedCategory: CatalogCategory | 'all' = 'rtu';
+  selectedCategory: CatalogCategory | 'all' = 'all';
   selectedProduct: CatalogProduct | null = null;
   isProductImageZoomed = false;
   productImageLensLeft = 0;
@@ -87,6 +87,11 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   readonly categories: { id: CatalogCategory | 'all'; labelKey: string; filterLabelKey: string }[] = [
     {
+      id: 'all',
+      labelKey: 'CATALOG.CATEGORIES.ALL',
+      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_ALL'
+    },
+    {
       id: 'rtu',
       labelKey: 'CATALOG.CATEGORIES.RTU',
       filterLabelKey: 'CATALOG.CATEGORIES.FILTER_RTU'
@@ -121,11 +126,6 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'pressure',
       labelKey: 'CATALOG.CATEGORIES.PRESSURE',
       filterLabelKey: 'CATALOG.CATEGORIES.FILTER_PRESSURE'
-    },
-    {
-      id: 'all',
-      labelKey: 'CATALOG.CATEGORIES.ALL',
-      filterLabelKey: 'CATALOG.CATEGORIES.FILTER_ALL'
     }
   ];
 
@@ -171,7 +171,7 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   clearFilters() {
     this.searchTerm = '';
-    this.selectedCategory = 'rtu';
+    this.selectedCategory = 'all';
     this.closeDetails();
   }
 
