@@ -180,6 +180,7 @@
       "IN_ORDER": "En orden"
     },
     "SEARCH_PLACEHOLDER": "Buscar por equipo, aplicación o especificación",
+    "SCROLL_TO_TOP": "Volver arriba",
     "FILTERS": {
       "ALL_CATEGORIES": "Todas las categorías",
       "ALL_STOCK": "Todo stock",
@@ -216,7 +217,7 @@
       "DETAILS": "Ver ficha técnica",
       "ADD_TO_ORDER": "Agregar a orden",
       "REQUEST_INFO": "Solicitar información",
-      "DOWNLOAD_DATASHEET": "Descargar ficha técnica",
+      "DOWNLOAD_DATASHEET": "Visualizar ficha técnica",
       "DATASHEET_PENDING": "Ficha técnica próximamente"
     },
     "MODAL": {

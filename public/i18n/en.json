@@ -180,6 +180,7 @@
       "IN_ORDER": "In order"
     },
     "SEARCH_PLACEHOLDER": "Search by equipment, application, or specification",
+    "SCROLL_TO_TOP": "Back to top",
     "FILTERS": {
       "ALL_CATEGORIES": "All categories",
       "ALL_STOCK": "All stock",
@@ -216,7 +217,7 @@
       "DETAILS": "Datasheet",
       "ADD_TO_ORDER": "Add to order",
       "REQUEST_INFO": "Request info",
-      "DOWNLOAD_DATASHEET": "Download datasheet",
+      "DOWNLOAD_DATASHEET": "View datasheet",
       "DATASHEET_PENDING": "Datasheet coming soon"
     },
     "MODAL": {

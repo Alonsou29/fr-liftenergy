@@ -24,27 +24,60 @@
       </div>
     </section>
 
-    <section class="catalog-filter-bar mb-8 rounded-[1.25rem] border border-[#2E7D32]/10 bg-white/95 p-3 shadow-xl shadow-green-950/10 backdrop-blur">
+    <section class="catalog-filter-bar relative z-50 mb-8 overflow-visible rounded-[1.25rem] border border-[#2E7D32]/10 bg-white/95 p-3 shadow-xl shadow-green-950/10 backdrop-blur">
       <form (ngSubmit)="applySearch()" class="catalog-controls">
-          <label class="catalog-select-field relative block">
-            <span class="sr-only">{{ 'CATALOG.STATS.CATEGORIES' | translate }}</span>
-            <span class="catalog-select-field__icon absolute left-4 top-1/2 -translate-y-1/2 text-[#2E7D32]" aria-hidden="true">
+          <div class="catalog-select-field relative" (click)="$event.stopPropagation()">
+            <button
+              type="button"
+              class="catalog-category-trigger flex h-11 w-full items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 text-left text-sm font-black uppercase tracking-wide text-[#142116] outline-none transition"
+              aria-haspopup="listbox"
+              aria-controls="catalog-category-options"
+              [attr.aria-expanded]="isCategoryMenuOpen"
+              (click)="toggleCategoryMenu()"
+              (keydown.arrowdown)="isCategoryMenuOpen = true; $event.preventDefault()"
+            >
+            <span class="catalog-select-field__icon shrink-0 text-[#2E7D32]" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M7 12h10"/><path d="M10 18h4"/></svg>
             </span>
-            <select
-              [ngModel]="selectedCategory"
-              (ngModelChange)="selectCategory($event)"
-              name="catalogCategory"
-              class="catalog-category-select h-11 w-full rounded-2xl border border-slate-200 bg-slate-50 pl-11 pr-11 text-sm font-black uppercase tracking-wide text-[#142116] outline-none transition"
-            >
+              <span class="min-w-0 flex-1 truncate">{{ activeCategoryFilterLabel }}</span>
+              <span
+                class="catalog-select-field__chevron shrink-0 text-slate-400 transition-transform"
+                [class.rotate-180]="isCategoryMenuOpen"
+                aria-hidden="true"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </button>
+
+            @if (isCategoryMenuOpen) {
+              <div
+                id="catalog-category-options"
+                role="listbox"
+                [attr.aria-label]="'CATALOG.STATS.CATEGORIES' | translate"
+                class="absolute left-0 top-[calc(100%+0.5rem)] z-[70] w-full min-w-[13rem] overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-2xl shadow-green-950/20"
+              >
               @for (category of categories; track category.id) {
-                <option [ngValue]="category.id">{{ category.filterLabelKey | translate }}</option>
+                  <button
+                    type="button"
+                    role="option"
+                    [attr.aria-selected]="selectedCategory === category.id"
+                    (click)="selectCategory(category.id)"
+                    class="catalog-category-option flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-xs font-bold uppercase tracking-wide transition"
+                    [ngClass]="selectedCategory === category.id ? 'bg-[#edf6e7] text-[#1B5E20]' : 'text-slate-600 hover:bg-slate-50 hover:text-[#142116]'"
+                  >
+                    <span
+                      class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                      [ngClass]="selectedCategory === category.id ? 'bg-[#2E7D32] text-white' : 'bg-slate-100 text-transparent'"
+                      aria-hidden="true"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>
+                    </span>
+                    <span class="truncate">{{ category.filterLabelKey | translate }}</span>
+                  </button>
               }
-            </select>
-            <span class="catalog-select-field__chevron absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </span>
-          </label>
+              </div>
+            }
+          </div>
 
           <label class="catalog-search-field relative block">
             <span class="catalog-search-field__icon absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
@@ -311,10 +344,11 @@
               @if (selectedProduct.datasheetUrl) {
                 <a
                   [href]="selectedProduct.datasheetUrl"
-                  [download]="selectedProduct.code + '-ficha-tecnica.pdf'"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#ea580c] px-6 py-4 text-sm font-black uppercase tracking-wider text-white shadow-lg shadow-orange-900/20 transition hover:bg-[#c2410c]"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="m10 14 11-11"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                   {{ 'CATALOG.PRODUCT_CARD.DOWNLOAD_DATASHEET' | translate }}
                 </a>
               } @else {
@@ -342,4 +376,16 @@
       </div>
     }
   </div>
+
+  @if (showScrollToTop) {
+    <button
+      type="button"
+      (click)="scrollToTop()"
+      class="fixed bottom-5 right-5 z-[80] flex h-11 w-11 items-center justify-center rounded-full border border-lime-300/30 bg-[#2E7D32] text-white shadow-xl shadow-green-950/30 transition hover:-translate-y-1 hover:bg-[#1B5E20] focus-visible:outline-none sm:bottom-7 sm:right-7 sm:h-12 sm:w-12"
+      [attr.aria-label]="'CATALOG.SCROLL_TO_TOP' | translate"
+      [title]="'CATALOG.SCROLL_TO_TOP' | translate"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+  }
 </div>

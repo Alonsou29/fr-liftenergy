@@ -59,6 +59,8 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   isLoadingProducts = true;
   catalogLoadError = false;
+  showScrollToTop = false;
+  isCategoryMenuOpen = false;
 
   ngOnInit() {
     this.catalogService.getProducts().subscribe({
@@ -146,6 +148,11 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
     return category ? this.t(category.labelKey) : '';
   }
 
+  get activeCategoryFilterLabel() {
+    const category = this.categories.find(item => item.id === this.selectedCategory);
+    return category ? this.t(category.filterLabelKey) : '';
+  }
+
   getCategoryLabelKey(category: CatalogCategory) {
     const labels: Record<CatalogCategory, string> = {
       rtu: 'CATALOG.CATEGORIES.RTU',
@@ -162,7 +169,12 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   selectCategory(category: CatalogCategory | 'all') {
     this.selectedCategory = category;
+    this.isCategoryMenuOpen = false;
     this.closeDetails();
+  }
+
+  toggleCategoryMenu() {
+    this.isCategoryMenuOpen = !this.isCategoryMenuOpen;
   }
 
   applySearch() {
@@ -237,7 +249,30 @@ export class CatalogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @HostListener('document:keydown.escape')
   closeDetailsWithEscape() {
+    if (this.isCategoryMenuOpen) {
+      this.isCategoryMenuOpen = false;
+      return;
+    }
+
     this.closeDetails();
+  }
+
+  @HostListener('document:click')
+  closeCategoryMenu() {
+    this.isCategoryMenuOpen = false;
+  }
+
+  @HostListener('window:scroll')
+  updateScrollToTopVisibility() {
+    this.showScrollToTop = window.scrollY > 600;
+  }
+
+  scrollToTop() {
+    const behavior: ScrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'auto'
+      : 'smooth';
+
+    window.scrollTo({ top: 0, behavior });
   }
 
   requestInfo(product?: CatalogProduct) {
