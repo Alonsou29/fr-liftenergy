@@ -207,7 +207,9 @@
     "EMPTY": {
       "TITLE": "No encontramos productos",
       "DESCRIPTION": "Prueba limpiando filtros o usando una búsqueda más amplia.",
-      "BUTTON": "Ver todo el catálogo"
+      "BUTTON": "Ver todo el catálogo",
+      "ERROR_TITLE": "No pudimos cargar el catálogo",
+      "ERROR_DESCRIPTION": "Intenta recargar la página en unos minutos."
     },
     "PRODUCT_CARD": {
       "PRICE_REF": "Precio ref.",
